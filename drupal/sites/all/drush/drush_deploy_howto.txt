@@ -1,0 +1,34 @@
+// INITIALISATION
+
+- Create drush aliases
+
+- Enable drush_deploy (find a way...)
+- create deploy.drushrc.php file following README.md
+- add this line: $options['deploy-to']
+
+- drush deploy-setup @dev
+- drush deploy @dev
+
+// LINKING AND BUILDING
+
+- create default folder in shared, give it to www-data
+- copy settings.php and files folder in it
+- define tasks. See deploy.drushrc.php
+
+
+// DOCUMENTATION
+For available commands, check Deploy.php file.
+
+- deploy
+    Updates your remote cache.
+    Initializes and updates git submodules.
+    Creates a new release directory.
+    Copies your current codebase to the release directory.
+    Links the ‚current‘ directory with your new deployed code.
+    Executes your tasks.
+
+- deploy-rollback
+    Relinks the current directory with the last release.
+    Removes the faulty release.
+
+- deploy-setup
