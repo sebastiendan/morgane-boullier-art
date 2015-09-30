@@ -1,61 +1,14 @@
 <?php
-/**
- * @file
- * Code for the Celia Commerce feature.
- */
-
-include_once 'celia_commerce.features.inc';
-
-/**
- * Implements hook_commerce_order_state_info().
- */
-function celia_commerce_commerce_order_state_info() {
-  $order_states = array();
-
-  $order_states['shipping'] = array(
-    'name' => 'shipping',
-    'title' => t('Shipping'),
-    'description' => t('Orders in this state are in the shipping phase.'),
-    'weight' => 9,
-    'default_status' => 'shipping_preparation',
-  );
-
-  return $order_states;
-}
-
-/**
- * Implements hook_commerce_order_status_info().
- */
-function celia_commerce_commerce_order_status_info() {
-  $order_statuses = array();
-
-  $order_statuses['shipping_preparation'] = array(
-    'name' => 'shipping_preparation',
-    'title' => t('Shipping : Preparation'),
-    'state' => 'shipping',
-    'cart' => FALSE,
-  );
-  $order_statuses['shipping_sent'] = array(
-    'name' => 'shipping_sent',
-    'title' => t('Shipping : Sent'),
-    'state' => 'shipping',
-    'cart' => FALSE,
-  );
-
-  return $order_statuses;
-}
 
 /**
  * Implements hook_block_info().
  */
-function celia_commerce_block_info() {
+function main_block_info() {
   $blocks = array();
 
-  $blocks['cart_items'] = array(
-    'info' => t('Shopping cart items'),
-    'cache' => DRUPAL_NO_CACHE,
-    'visibility' => 0,
-    'pages' => 'checkout*',
+  $blocks['home_push'] = array(
+    'info' => t('Home push'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
   );
 
   return $blocks;
@@ -64,207 +17,25 @@ function celia_commerce_block_info() {
 /**
  * Implements hook_block_view().
  */
-function celia_commerce_block_view($delta) {
-  global $user;
+function main_block_view($delta) {
+  $block = array();
+  switch ($delta) {
+    case 'home_push':
 
-  // Prepare the display of the default Shopping Cart block.
-  if ($delta == 'cart_items') {
-    $quantity = 0;
-
-    // First check to ensure there are products in the shopping cart.
-    if ($order = commerce_cart_order_load($user->uid)) {
-      $wrapper = entity_metadata_wrapper('commerce_order', $order);
-      $quantity = commerce_line_items_quantity($wrapper->commerce_line_items, commerce_product_line_item_types());
-    }
-    $content = l(t('Cart') . ' (' . $quantity . ')', 'cart');
-
-    return array('subject' => t('Shopping cart'), 'content' => $content);
+      $block['content'] = theme('social_share');
+      break;
   }
+  return $block;
 }
 
 /**
- * Implements hook_form_FORM_ID_alter().
+ *  Implements hook_theme().
  */
-function celia_commerce_form_commerce_cart_add_to_cart_form_alter(&$form, &$form_state) {
-  $form['submit']['#value'] = t('Buy');
-  // We shouldn't have to do that, but for some reasons the modification of
-  // #value alone doesn't work.
-  $form['submit']['#attributes']['value'] = t('Buy');
-}
-
-/**
- * Implements hook_form_FORM_ID_alter().
- *
- * Turn the quantity textfields into a select list.
- */
-function celia_commerce_form_views_form_commerce_cart_form_default_alter(&$form, &$form_state) {
-  if (isset($form['edit_quantity'])) {
-    $form['#attached']['js'][] = drupal_get_path('module', 'celia_commerce') . '/js/celia_commerce.js';
-    foreach (element_children($form['edit_quantity']) as $key) {
-      $form['edit_quantity'][$key]['#type'] = 'select';
-      $form['edit_quantity'][$key]['#options'] = drupal_map_assoc(range(1, 5));
-      $form['edit_quantity'][$key]['#multiple'] = FALSE;
-      unset($form['edit_quantity'][$key]['#size']);
-    }
-  }
-}
-
-/**
- * Implements hook_commerce_addressbook_labels_alter().
- */
-function celia_commerce_commerce_addressbook_labels_alter(&$labels, $profiles) {
-  // Display the addresses names instead of the street.
-  foreach ($profiles as $profile_id => $profile) {
-    // Skip profiles that don't have a name stored.
-    if (empty($profile->field_address_name)) {
-      continue;
-    }
-    $profile_wrapper = entity_metadata_wrapper('commerce_customer_profile', $profile);
-    $labels[$profile_id] = check_plain($profile_wrapper->field_address_name->value());
-  }
-}
-
-/**
- * Implements hook_form_FORM_ID_alter().
- */
-function celia_commerce_form_commerce_checkout_form_checkout_alter(&$form, &$form_state) {
-  $form['commerce_shipping']['#attributes']['class'][] = 'element-invisible';
-  $form['commerce_payment']['#attributes']['class'][] =  'element-invisible';
-  // For the shipping to always have a default value.
-  if (isset($form_state['triggering_element']['#parents']) && isset($form_state['input']['commerce_shipping'])) {
-    if (in_array('recalculate', $form_state['triggering_element']['#parents'])) {
-      $form_state['input']['commerce_shipping'] = array();
-    }
-  }
-}
-
-/**
- * Implements hook_commerce_shipping_recalculate_services_refresh_alter().
- *
- * Refresh the order total pane.
- */
-function celia_commerce_commerce_shipping_recalculate_services_refresh_alter(&$commands, $form, $form_state) {
-  if (!empty($form_state['recalculate']) && isset($form_state['values']['commerce_shipping'])) {
-    $shipping_rate = key($form_state['values']['commerce_shipping']['shipping_rates']);
-    module_load_include('inc', 'commerce_shipping', 'commerce_shipping.rules');
-    commerce_shipping_rate_apply($form_state['order'], $shipping_rate);
-    $pane = commerce_checkout_pane_load('celia_commerce_order_total');
-    $callback = commerce_checkout_pane_callback($pane, 'checkout_form');
-    //error_log('la 1');
-    $return = $callback($form, $form_state, $pane, $form_state['order']);
-    //error_log('la 2');
-    $commands[] = ajax_command_replace('.commerce-order-handler-area-order-total', drupal_render($return));
-  }
-}
-
-/**
- * Implements hook_commerce_coupon_add_coupon_ajax_alter().
- *
- * Refresh the order total pane.
- */
-function celia_commerce_commerce_coupon_add_coupon_ajax_alter(&$commands, $form, &$form_state) {
-  if (!empty($form_state['values']['commerce_shipping'])) {
-    $shipping_rate = key($form_state['values']['commerce_shipping']['shipping_rates']);
-    module_load_include('inc', 'commerce_shipping', 'commerce_shipping.rules');
-    commerce_shipping_rate_apply($form_state['order'], $shipping_rate);
-  }
-  $pane = commerce_checkout_pane_load('celia_commerce_order_total');
-  $callback = commerce_checkout_pane_callback($pane, 'checkout_form');
-  $return = $callback($form, $form_state, $pane, $form_state['order']);
-  $commands[] = ajax_command_replace('.commerce-order-handler-area-order-total', drupal_render($return));
-}
-
-
-/**
- * Implements hook_commerce_checkout_pane_info().
- */
-function celia_commerce_commerce_checkout_pane_info() {
-  $checkout_panes = array();
-
-  $checkout_panes['celia_commerce_order_total'] = array(
-    'title' => t('Order total'),
-    'base' => 'celia_commerce_order_total_pane',
-    'file' => 'includes/celia_commerce.checkout_pane.inc',
-    'page' => 'checkout',
-    'weight' => -10,
+function main_theme($existing, $type, $theme, $path) {
+  return array(
+//    'social_links' => array(
+//      'path' => drupal_get_path('module', 'main') . '/templates',
+//      'template' => 'social_links',
+//    ),
   );
-
-  return $checkout_panes;
-}
-
-/**
- * Implements hook_ds_fields_info().
- */
-function celia_commerce_ds_fields_info($entity_type) {
-    if ($entity_type ==  'commerce_customer_profile') {
-        $fields = array();
-
-        $fields[$entity_type]['links'] = array(
-            'title' => t('Profile links'),
-            'field_type' => DS_FIELD_TYPE_FUNCTION,
-            'function' => 'celia_commerce_customer_profile_links',
-        );
-        return array($entity_type => $fields[$entity_type]);
-    }
-}
-
-function celia_commerce_customer_profile_links($field) {
-    global $user;
-
-    $entity = $field['entity'];
-    $links = array();
-    if (commerce_addressbook_profile_access('update', $entity)) {
-        static $record;
-        if (empty($record) || $record->uid != $user->uid || $record->type != $entity->type) {
-            $query = db_select('commerce_addressbook_defaults', 'cad')
-                ->fields('cad')
-                ->condition('uid', $user->uid)
-                ->condition('type', $entity->type)
-                ->execute();
-            $record = $query->fetchObject();
-        }
-        drupal_add_library('system', 'drupal.ajax');
-        if (empty($record) || ($record->profile_id != $entity->profile_id)) {
-            $links['default'] = array(
-                '#theme' => 'link',
-                '#text' => t('set as default'),
-                '#path' => 'user/' . $entity->uid . '/addressbook/' . $entity->type . '/default/' . $entity->profile_id . '/nojs',
-                '#options' => array(
-                    'attributes' => array('class' => array('use-ajax')),
-                    'html' => FALSE,
-                ),
-                '#suffix' => ' | ',
-            );
-        }
-        $links['edit'] = array(
-            '#theme' => 'link',
-            '#text' => t('edit'),
-            '#path' => 'user/' . $entity->uid . '/addressbook/' . $entity->type . '/edit/' . $entity->profile_id,
-            '#options' => array(
-                'attributes' => array(),
-                'html' => FALSE,
-            ),
-            '#suffix' => ' | ',
-        );
-    }
-    if (commerce_addressbook_profile_access('delete', $entity)) {
-        $links['delete'] = array(
-            '#theme' => 'link',
-            '#text' => t('delete'),
-            '#path' => 'user/' .$entity->uid. '/addressbook/' . $entity->type . '/delete/' . $entity->profile_id,
-            '#options' => array(
-                'attributes' => array(),
-                'html' => FALSE,
-            ),
-        );
-    }
-
-    return drupal_render($links);
-}
-
-/**
- * Implements hook_commerce_checkout_page_info_alter().
- */
-function celia_commerce_commerce_checkout_page_info_alter(&$checkout_pages) {
-  $checkout_pages['payment']['status_cart'] = TRUE;
 }
