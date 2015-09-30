@@ -4,6 +4,8 @@
 !/drupal/sites/all
 /drupal/sites/all/*
 
+!drupal/sites/all/drush
+
 !/drupal/sites/all/modules
 /drupal/sites/all/modules/*
 !/drupal/sites/all/modules/custom
