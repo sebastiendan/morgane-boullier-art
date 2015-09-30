@@ -21,8 +21,24 @@ function main_block_view($delta) {
   $block = array();
   switch ($delta) {
     case 'home_push':
+      $query = new EntityFieldQuery();
 
-      $block['content'] = theme('social_share');
+      $query->entityCondition('entity_type', 'node')
+        ->entityCondition('bundle', 'home_push')
+        ->propertyCondition('status', NODE_PUBLISHED)
+        ->range(0, 1)
+        ->addMetaData('account', user_load(1)); // Run the query as user 1.
+
+      $result = $query->execute();
+
+      if (isset($result['node'])) {
+        $nid = array_keys($result['node']);
+        $node = entity_load('node', $nid);
+        $node = reset($node);
+        $nodeView = node_view($node, 'full');
+      }
+
+      $block['content'] = drupal_render($nodeView);
       break;
   }
   return $block;
