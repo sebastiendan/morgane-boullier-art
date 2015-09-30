@@ -11,6 +11,7 @@ core = 7.x
 stylesheets[all][] = css/twinings.reset.css
 stylesheets[all][] = css/twinings.styles.css
 stylesheets[all][] = css/base/main.css
+stylesheets[all][] = css/components/nodes/node--home-push/node--home-push.css
 
 ; ========================================
 ; Scripts
