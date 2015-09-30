@@ -16,3 +16,5 @@
 /backups/
 
 /.idea/*
+
+*.DS_Store
