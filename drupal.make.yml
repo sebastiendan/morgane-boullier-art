@@ -82,6 +82,8 @@ projects:
     version: '1.4'
   module_filter:
     version: '2.0'
+  omega:
+    version: '4.4'
   pathauto:
     version: '1.2'
   queue_ui:
