@@ -13,7 +13,7 @@
 !/drupal/sites/all/themes
 /drupal/sites/all/themes/*
 !/drupal/sites/all/themes/custom
-/drupal/sites/all/themes/custom/twinings/css
+/drupal/sites/all/themes/custom/twinings/css/*
 
 /backups/*
 /backups/
