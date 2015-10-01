@@ -6,11 +6,6 @@
 function main_block_info() {
   $blocks = array();
 
-  $blocks['home_push'] = array(
-    'info' => t('Home push'),
-    'cache' => DRUPAL_CACHE_GLOBAL,
-  );
-
   $blocks['main_menu_button'] = array(
     'info' => t('Main menu button'),
     'cache' => DRUPAL_CACHE_GLOBAL,
