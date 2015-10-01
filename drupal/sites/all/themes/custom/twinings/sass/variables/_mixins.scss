@@ -1,0 +1,26 @@
+@import 'variables';
+//@import 'fonts';
+
+@mixin transform($t) {
+  transform: $t;
+  -webkit-transform: $t;
+  -moz-transform: $t;
+  -oz-transform: $t;
+  -ms-transform: $t;
+}
+
+@mixin transform-origin($t) {
+  transform-origin: $t;
+  -webkit-transform-origin: $t;
+  -moz-transform-origin: $t;
+  -oz-transform-origin: $t;
+  -ms-transform-origin: $t;
+}
+
+@mixin transition($t) {
+  transition: $t;
+  -webkit-transition: $t;
+  -moz-transition: $t;
+  -oz-transition: $t;
+  -ms-transition: $t;
+}
