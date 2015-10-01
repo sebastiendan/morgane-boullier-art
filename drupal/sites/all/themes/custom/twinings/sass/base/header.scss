@@ -1,0 +1,81 @@
+@import '../variables/mixins';
+
+header {
+  .l-branding {
+    position: relative;
+    height: 50px;
+    background-color: $darkGrey;
+    border-bottom: 2px solid $gold;
+
+    a.site-logo {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+    }
+  }
+
+  .l-region--navigation {
+    position: relative;
+
+    #block-main-main-menu-button {
+      width: 115px;
+      height: 115px;
+      position: absolute;
+      top: -75px;
+      left: 50%;
+      @include transform(translateX(-50%));
+      background-color: $darkGrey;
+      border: 2px solid $gold;
+      border-radius: 50%;
+
+      .block__content {
+        button {
+          position: absolute;
+          top: 37%;
+          left: 50%;
+          height: 150px;
+          width: 100px;
+          @include transform(translateX(-50%) translateY(-50%));
+
+          div:nth-of-type(1) {
+            text-align: center;
+            text-transform: uppercase;
+            opacity: 0.6;
+          }
+
+          div:nth-of-type(2) {
+            position: relative;
+            top: 17px;
+            height: 4px;
+            width: 35px;
+            margin: auto;
+            border-radius: 4px;
+            background-color: white;
+
+            &:before, &:after {
+              content: '';
+              position: absolute;
+              left: 0;
+              height: 4px;
+              width: 35px;
+              border-radius: 4px;
+              background-color: white;
+            }
+
+            &:before {
+              top: -10px;
+            }
+
+            &:after {
+              top: 10px;
+            }
+          }
+        }
+      }
+    }
+
+    #block-system-main-menu {
+      display: none;
+    }
+  }
+}

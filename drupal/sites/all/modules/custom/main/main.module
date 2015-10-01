@@ -11,6 +11,21 @@ function main_block_info() {
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
 
+  $blocks['main_menu_button'] = array(
+    'info' => t('Main menu button'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+
+  $blocks['newsletter'] = array(
+    'info' => t('Newsletter'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+
+  $blocks['social'] = array(
+    'info' => t('Social'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+
   return $blocks;
 }
 
@@ -20,25 +35,14 @@ function main_block_info() {
 function main_block_view($delta) {
   $block = array();
   switch ($delta) {
-    case 'home_push':
-      $query = new EntityFieldQuery();
-
-      $query->entityCondition('entity_type', 'node')
-        ->entityCondition('bundle', 'home_push')
-        ->propertyCondition('status', NODE_PUBLISHED)
-        ->range(0, 1)
-        ->addMetaData('account', user_load(1)); // Run the query as user 1.
-
-      $result = $query->execute();
-
-      if (isset($result['node'])) {
-        $nid = array_keys($result['node']);
-        $node = entity_load('node', $nid);
-        $node = reset($node);
-        $nodeView = node_view($node, 'full');
-      }
-
-      $block['content'] = drupal_render($nodeView);
+    case 'main_menu_button':
+      $block['content'] = theme('main_menu_button');
+      break;
+    case 'newsletter':
+      $block['content'] = theme('newsletter');
+      break;
+    case 'social':
+      $block['content'] = theme('social');
       break;
   }
   return $block;
@@ -49,9 +53,17 @@ function main_block_view($delta) {
  */
 function main_theme($existing, $type, $theme, $path) {
   return array(
-//    'social_links' => array(
-//      'path' => drupal_get_path('module', 'main') . '/templates',
-//      'template' => 'social_links',
-//    ),
+    'main_menu_button' => array(
+      'path' => drupal_get_path('module', 'main') . '/templates',
+      'template' => 'main_menu_button',
+    ),
+    'newsletter' => array(
+      'path' => drupal_get_path('module', 'main') . '/templates',
+      'template' => 'newsletter',
+    ),
+    'social' => array(
+      'path' => drupal_get_path('module', 'main') . '/templates',
+      'template' => 'social',
+    ),
   );
 }
