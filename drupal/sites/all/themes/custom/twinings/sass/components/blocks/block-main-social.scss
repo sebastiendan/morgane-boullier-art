@@ -1,0 +1,10 @@
+@import '../../variables/mixins';
+
+#block-main-social {
+  ul#header-socials {
+    li {
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+}

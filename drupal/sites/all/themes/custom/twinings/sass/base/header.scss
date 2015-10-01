@@ -12,6 +12,18 @@ header {
       top: 10px;
       left: 20px;
     }
+
+    .l-region--branding {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      @include transform(translateY(-50%));
+
+      >div {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
   }
 
   .l-region--navigation {
@@ -24,58 +36,75 @@ header {
       top: -75px;
       left: 50%;
       @include transform(translateX(-50%));
-      background-color: $darkGrey;
-      border: 2px solid $gold;
-      border-radius: 50%;
 
       .block__content {
-        button {
+        #container {
           position: absolute;
-          top: 37%;
-          left: 50%;
-          height: 150px;
-          width: 100px;
-          @include transform(translateX(-50%) translateY(-50%));
+          bottom: 5px;
+          height: 37px;
+          width: 115px;
+          overflow: hidden;
+          box-sizing: border-box;
 
-          div:nth-of-type(1) {
-            text-align: center;
-            text-transform: uppercase;
-            opacity: 0.6;
+          div {
+            width: 115px;
+            height: 115px;
+            border-radius: 50%;
+            background-color: $darkGrey;
+            border: 2px solid $gold;
+            position: absolute;
+            bottom: 0;
+            box-sizing: border-box;
           }
+        }
+      }
 
-          div:nth-of-type(2) {
-            position: relative;
-            top: 17px;
+      button {
+        position: absolute;
+        top: 37%;
+        left: 50%;
+        height: 115px;
+        width: 100px;
+        @include transform(translateX(-50%) translateY(-50%));
+
+        div:nth-of-type(1) {
+          text-align: center;
+          text-transform: uppercase;
+          opacity: 0.6;
+        }
+
+        div:nth-of-type(2) {
+          position: relative;
+          top: 17px;
+          height: 4px;
+          width: 35px;
+          margin: auto;
+          border-radius: 4px;
+          background-color: white;
+
+          &:before, &:after {
+            content: '';
+            position: absolute;
+            left: 0;
             height: 4px;
             width: 35px;
-            margin: auto;
             border-radius: 4px;
             background-color: white;
+          }
 
-            &:before, &:after {
-              content: '';
-              position: absolute;
-              left: 0;
-              height: 4px;
-              width: 35px;
-              border-radius: 4px;
-              background-color: white;
-            }
+          &:before {
+            top: -10px;
+          }
 
-            &:before {
-              top: -10px;
-            }
-
-            &:after {
-              top: 10px;
-            }
+          &:after {
+            top: 10px;
           }
         }
       }
     }
+  }
 
-    #block-system-main-menu {
-      display: none;
-    }
+  #block-system-main-menu {
+    display: none;
   }
 }
