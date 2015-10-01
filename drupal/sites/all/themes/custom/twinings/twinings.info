@@ -10,7 +10,10 @@ core = 7.x
 ; ========================================
 stylesheets[all][] = css/twinings.reset.css
 stylesheets[all][] = css/twinings.styles.css
+stylesheets[all][] = css/variables/_mixins.css
+stylesheets[all][] = css/variables/_variables.css
 stylesheets[all][] = css/base/main.css
+stylesheets[all][] = css/base/header.css
 stylesheets[all][] = css/components/nodes/node--home-page/node--home-page.css
 
 ; ========================================

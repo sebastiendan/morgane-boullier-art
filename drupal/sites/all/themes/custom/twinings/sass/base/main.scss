@@ -1,3 +1,15 @@
-body {
+@import '../variables/mixins';
 
+body {
+  background-color: $darkGrey;
+  color: white;
+}
+
+button {
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  color: white;
+  cursor: pointer;
 }
