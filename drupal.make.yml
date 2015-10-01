@@ -104,6 +104,8 @@ projects:
     version: '3.3'
   wysiwyg:
     version: '2.x-dev'
+  youtube:
+    version: '1.6'
   luminijs:
     type: module
     download:
