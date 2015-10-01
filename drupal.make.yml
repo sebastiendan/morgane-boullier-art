@@ -44,6 +44,8 @@ projects:
     version: '1.0-rc1'
   entitycache:
     version: '1.2'
+  eu_cookie_compliance:
+    version: '1.14'
   fast_404:
     version: '1.3'
   field_group:
