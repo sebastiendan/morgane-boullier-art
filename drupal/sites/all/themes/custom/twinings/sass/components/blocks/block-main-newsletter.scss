@@ -1,0 +1,22 @@
+@import '../../variables/mixins';
+
+#block-main-newsletter {
+  position: relative;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 47%;
+    left: -10px;
+    @include transform(translateY(-50%));
+    border-top: 4px solid transparent;
+    border-bottom: 4px solid transparent;
+    border-left: 7px solid white;
+  }
+
+  button {
+    font-family: Didot;
+    font-size: 12px;
+    opacity: 0.6;
+  }
+}
