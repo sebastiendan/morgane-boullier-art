@@ -100,16 +100,16 @@ projects:
     version: '2.5'
     patch:
       - 'https://www.drupal.org/files/issues/variable-admin-permissions-2268415-1.patch'
+  video:
+    version: '2.11'
   videojs:
-      version: '3.0-alpha2'
+    version: '3.0-alpha2'
   views:
     version: '3.11'
   views_bulk_operations:
     version: '3.3'
   wysiwyg:
     version: '2.x-dev'
-  youtube:
-    version: '1.6'
   luminijs:
     type: module
     download:
