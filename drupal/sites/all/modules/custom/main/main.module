@@ -60,5 +60,25 @@ function main_theme($existing, $type, $theme, $path) {
       'path' => drupal_get_path('module', 'main') . '/templates',
       'template' => 'social',
     ),
+    'video_play_button' => array(
+      'path' => drupal_get_path('module', 'main') . '/templates',
+      'template' => 'video_play_button',
+    ),
   );
+}
+
+/**
+ * Implements hook_node_view_alter().
+ */
+/**
+ * Implements hook_node_view().
+ */
+function main_node_view($node, $view_mode, $langcode) {
+  switch($node->type) {
+    case 'home_page':
+      if (!empty($node->field_home_video)) {
+        $node->content['field_headline']['#suffix'] = theme('video_play_button');
+      }
+      break;
+  }
 }

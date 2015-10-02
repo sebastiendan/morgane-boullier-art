@@ -1,9 +1,64 @@
+@import '../../../variables/mixins';
+
 .node--home-page  {
   .node__content {
-    .field--name-field-image {
-      img {
-        width: 100%;
-        height: auto;
+    position: relative;
+
+    .group-media {
+      .field--name-field-home-video {
+        overflow: hidden;
+      }
+    }
+
+    .group-headline {
+      position: absolute;
+      top: 47%;
+      left: 50%;
+      width: 415px;
+      height: 250px;
+      border-left: 1px solid white;
+      border-top: 1px solid white;
+      border-right: 1px solid white;
+      @include transform(translateX(-50%));
+
+      .field--name-title-field {
+        font-family: Dancing;
+        font-size: 45px;
+        text-align: center;
+        width: 250px;
+        margin: 20px auto;
+      }
+
+      .field--name-field-headline {
+        font-size: 15px;
+        text-align: center;
+        margin: 0 10px;
+
+      }
+
+      .video-play-button-wrapper {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 100.7%;
+        @include transform(translateX(-50%) translateY(50%));
+
+        &:before, &:after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          height: 0;
+          width: 175px;
+          border-top: 1px solid white;
+        }
+
+        &:before {
+          left: 0;
+        }
+
+        &:after {
+          right: 0;
+        }
       }
     }
   }

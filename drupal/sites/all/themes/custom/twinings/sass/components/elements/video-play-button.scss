@@ -1,0 +1,30 @@
+@import '../../variables/mixins';
+
+.video-play-button-wrapper {
+  position: relative;
+  height: 70px;
+
+  button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    @include transform(translateX(-50%) translateY(-50%));
+    border: 2px solid white;
+    border-radius: 50%;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 55%;
+      width: 0;
+      height: 0;
+      @include transform(translateX(-50%) translateY(-50%));
+      border-top: 12px solid transparent;
+      border-left: 22px solid white;
+      border-bottom: 12px solid transparent;
+    }
+  }
+}

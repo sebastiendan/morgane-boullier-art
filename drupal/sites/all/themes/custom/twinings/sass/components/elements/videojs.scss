@@ -1,0 +1,7 @@
+@import '../../variables/mixins';
+
+.video-js {
+  .vjs-control-bar {
+    display: none !important;
+  }
+}
