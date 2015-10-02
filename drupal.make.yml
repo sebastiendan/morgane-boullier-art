@@ -100,6 +100,8 @@ projects:
     version: '2.5'
     patch:
       - 'https://www.drupal.org/files/issues/variable-admin-permissions-2268415-1.patch'
+  videojs:
+      version: '3.0-alpha2'
   views:
     version: '3.11'
   views_bulk_operations:
