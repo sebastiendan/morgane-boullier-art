@@ -19,6 +19,7 @@ stylesheets[all][] = css/components/elements/video-play-button.css
 stylesheets[all][] = css/components/elements/videojs.css
 stylesheets[all][] = css/components/blocks/block-main-social.css
 stylesheets[all][] = css/components/blocks/block-main-newsletter.css
+stylesheets[all][] = css/components/blocks/block-main-home-scroll-banner.css
 stylesheets[all][] = css/components/nodes/node--home-page/node--home-page.css
 
 ; ========================================

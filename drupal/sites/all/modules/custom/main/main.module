@@ -21,6 +21,11 @@ function main_block_info() {
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
 
+  $blocks['home_scroll_banner'] = array(
+    'info' => t('Home scroll banner'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+
   return $blocks;
 }
 
@@ -38,6 +43,9 @@ function main_block_view($delta) {
       break;
     case 'social':
       $block['content'] = theme('social');
+      break;
+    case 'home_scroll_banner':
+      $block['content'] = theme('home_scroll_banner');
       break;
   }
   return $block;
@@ -63,6 +71,10 @@ function main_theme($existing, $type, $theme, $path) {
     'video_play_button' => array(
       'path' => drupal_get_path('module', 'main') . '/templates',
       'template' => 'video_play_button',
+    ),
+    'home_scroll_banner' => array(
+      'path' => drupal_get_path('module', 'main') . '/templates',
+      'template' => 'home_scroll_banner',
     ),
   );
 }

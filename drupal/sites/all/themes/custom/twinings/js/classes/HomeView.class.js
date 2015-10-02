@@ -9,7 +9,7 @@ HomeView.prototype.init = function (tag, parent) {
   this.$playButton = this.$tag.find('.video-play-button');
   this.$headline = this.$tag.find('.group-headline');
 
-  this.headerHeight = jQuery('.l-page').children('header').height();
+  this.usedHeight = jQuery('.l-page').children('header').height() + 10; // header height + height of scroll banner that is visible
   this.id = this.$tag.find('.video-js').attr('id');
 
   this.player = videojs(this.id);
@@ -31,10 +31,10 @@ HomeView.prototype.onPlayerReady = function() {
 };
 
 HomeView.prototype.onStageResize = function() {
-  var scale = Math.max(jQuery(window).width() / this.initWidth, (jQuery(window).height() - this.headerHeight) / this.initHeight);
+  var scale = Math.max(jQuery(window).width() / this.initWidth, (jQuery(window).height() - this.usedHeight) / this.initHeight);
   this.player.width(this.initWidth*scale);
   this.player.height(this.initHeight*scale);
-  this.$player.css({'top':(jQuery(window).height() - this.headerHeight - this.player.height())/2, 'left':(jQuery(window).width() - this.player.width())/2});
+  this.$player.css({'top':(jQuery(window).height() - this.usedHeight - this.player.height())/2, 'left':(jQuery(window).width() - this.player.width())/2});
 };
 
 HomeView.prototype.onPlayButtonClick = function() {
