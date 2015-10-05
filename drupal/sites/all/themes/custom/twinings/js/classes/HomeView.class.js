@@ -10,6 +10,7 @@ HomeView.prototype.init = function (tag, parent) {
 
   this.$playButton = this.$tag.find('.video-play-button');
   this.$headline = this.$tag.find('.group-headline');
+  this.$videoContainer = this.$tag.find('.field--name-field-home-video');
   this.$scrollBanner = this.$tag.find('#block-main-home-scroll-banner');
   this.$groupHeadline = this.$tag.find('.group-headline');
 
@@ -42,8 +43,9 @@ HomeView.prototype.onStageResize = function() {
   var scale = Math.max(ww / this.initWidth, (wh - this.usedHeight) / this.initHeight);
   this.player.width(this.initWidth*scale);
   this.player.height(this.initHeight*scale);
+  this.$videoContainer.css({'width':ww, 'height':wh - this.usedHeight});
 
-  this.$player.css({'top':(wh - this.usedHeight - this.player.height())/2, 'left':(ww - this.player.width())/2});
+  this.$player.css({'top':(wh - this.usedHeight - this.player.height())/4, 'left':(ww - this.player.width())/2});
   this.$groupHeadline.offset({'top':(wh - this.usedHeight - this.$groupHeadline.height())/1.5});
 
   this.$scrollBanner.css({'top':wh - this.visibleBannerHeight});
