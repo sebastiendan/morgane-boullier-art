@@ -20,12 +20,14 @@ stylesheets[all][] = css/components/elements/videojs.css
 stylesheets[all][] = css/components/blocks/block-main-social.css
 stylesheets[all][] = css/components/blocks/block-main-newsletter.css
 stylesheets[all][] = css/components/blocks/block-main-home-scroll-banner.css
+stylesheets[all][] = css/components/nodes/node--content-page/node--content-page--teaser.css
 stylesheets[all][] = css/components/nodes/node--home-page/node--home-page.css
 
 ; ========================================
 ; Scripts
 ; ========================================
 scripts[] = js/twinings.behaviors.js
+scripts[] = js/classes/ContentLinkView.class.js
 scripts[] = js/classes/HomeView.class.js
 scripts[] = js/classes/Main.class.js
 scripts[] = js/script.js

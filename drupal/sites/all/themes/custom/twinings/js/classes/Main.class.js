@@ -6,4 +6,11 @@ Main.prototype.init = function() {
     var homeView = new HomeView();
     homeView.init('body.front');
   }
+
+  if (jQuery('.node--content-page.node-teaser').length > 0) {
+    jQuery('.node--content-page.node-teaser').each(function(index, element){
+      var contentLinkView = new ContentLinkView();
+      contentLinkView.init(element);
+    });
+  }
 };

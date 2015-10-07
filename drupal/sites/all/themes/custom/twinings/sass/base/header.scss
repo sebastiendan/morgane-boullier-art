@@ -5,7 +5,7 @@ header {
     position: relative;
     height: 50px;
     background-color: $darkGrey;
-    border-bottom: 2px solid $gold;
+    border-bottom: 2px solid $goldAlpha;
 
     a.site-logo {
       position: absolute;
@@ -53,7 +53,7 @@ header {
             height: 115px;
             border-radius: 50%;
             background-color: $darkGrey;
-            border: 2px solid $gold;
+            border: 2px solid $goldAlpha;
             position: absolute;
             bottom: 0;
             box-sizing: border-box;

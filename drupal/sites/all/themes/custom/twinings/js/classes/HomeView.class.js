@@ -12,6 +12,7 @@ HomeView.prototype.init = function (tag, parent) {
   this.$headline = this.$tag.find('.group-headline');
   this.$videoContainer = this.$tag.find('.field--name-field-home-video');
   this.$scrollBanner = this.$tag.find('#block-main-home-scroll-banner');
+  this.$groupContentLinks = this.$tag.find('.group-content-links');
   this.$groupHeadline = this.$tag.find('.group-headline');
 
   this.usedHeight = jQuery('.l-page').children('header').height() + this.visibleBannerHeight;
@@ -53,7 +54,10 @@ HomeView.prototype.onStageResize = function() {
 
 HomeView.prototype.onStageScroll = function() {
   var wh = jQuery(window).height();
-  this.$scrollBanner.css({'top':wh - this.visibleBannerHeight-jQuery(document).scrollTop()/2});
+  var scroll = jQuery(document).scrollTop();
+
+  this.$scrollBanner.css({'top':wh - this.visibleBannerHeight - scroll/2});
+  this.$groupContentLinks.css({'top':wh - scroll/2 - this.usedHeight + this.$scrollBanner.height()});
 };
 
 HomeView.prototype.onPlayButtonClick = function() {

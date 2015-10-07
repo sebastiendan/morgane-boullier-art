@@ -24,3 +24,11 @@
   -oz-transition: $t;
   -ms-transition: $t;
 }
+
+@mixin filter($t) {
+  filter: $t;
+  -webkit-filter: $t;
+  -moz-filter: $t;
+  -oz-filter: $t;
+  -ms-filter: $t;
+}
