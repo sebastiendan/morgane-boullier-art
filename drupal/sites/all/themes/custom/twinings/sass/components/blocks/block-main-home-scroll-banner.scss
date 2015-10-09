@@ -4,7 +4,22 @@
   position: absolute;
   width: 100%;
   height: 320px;
-  background-color: #ebb705;
+  background-image: url(../../../images/teapot.svg), url(../../../images/ricepaper_yellow.png);
+  background-repeat: no-repeat, repeat;
+  background-position: center -25px, center;
+  background-size: 685px, 485px 485px;
+  border-image:  30 round;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    height: 10px;
+    width: 100%;
+    background-image: url(../../../images/triangle_yellow.png);
+    background-repeat: repeat-x;
+    background-size: 11px;
+  }
 
   button#scroll-down {
     position: absolute;
@@ -13,8 +28,8 @@
     @include transform(translateX(-50%));
     height: 55px;
     width: 100px;
+    background-image: url(../../../images/ricepaper_yellow.png);
     border-radius: 90px 90px 0 0;
-    background-color: #ebb705;
 
     &:before, &:after {
       content: '';

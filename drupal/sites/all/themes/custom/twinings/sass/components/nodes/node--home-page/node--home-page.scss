@@ -19,6 +19,7 @@
       border-top: 1px solid white;
       border-right: 1px solid white;
       @include transform(translateX(-50%));
+      @include transition(opacity .4s linear);
 
       .field--name-title-field {
         font-size: 45px;
@@ -65,15 +66,68 @@
     .group-content-links {
       position: absolute;
       width: 100%;
-      min-height: 500px;
+      height: 1330px;
       background: url(../../../../images/pattern_background.png);
 
       .field--name-field-content-links {
+        position: relative;
         width: 900px;
         margin: auto;
 
+        .field__item .node {
+          opacity: 0;
+        }
+
         .field__item:nth-of-type(1) .node {
-          top: 100px;
+//          top: 180px;
+          top: 230px;
+          left: 130px;
+          @include transition(top .4s linear 0s, opacity .4s linear 0s);
+
+          &:before, &:after {
+            top: -130px;
+          }
+
+          &:after {
+            height: 130px;
+          }
+        }
+
+        .field__item:nth-of-type(2) .node {
+//          top: 280px;
+          top: 330px;
+          right: 130px;
+          @include transition(top .4s linear .4s, opacity .4s linear .4s);
+        }
+
+        .field__item:nth-of-type(3) .node {
+//          top: 620px;
+          top: 670px;
+          left: 130px;
+          @include transition(top .4s linear .8s, opacity .4s linear .8s);
+
+          &:before, &:after {
+            top: -80px;
+          }
+
+          &:after {
+            height: 80px;
+          }
+        }
+
+        .field__item:nth-of-type(4) .node {
+//          top: 800px;
+          top: 850px;
+          right: 130px;
+          @include transition(top .4s linear 1.2s, opacity .4s linear 1.2s);
+
+          &:before, &:after {
+            top: -80px;
+          }
+
+          &:after {
+            height: 80px;
+          }
         }
       }
     }

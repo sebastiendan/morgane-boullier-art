@@ -81,8 +81,8 @@ ContentLinkView.prototype.onMouseOut = function() {
 ContentLinkView.prototype.onCanvasUpdate = function() {
   var x = this.mask.width / 2;
   var y = this.mask.height / 2;
-  var width = (1 + this.tween.target.factor/8)*this.$image.attr('width');
-  var height = (1 + this.tween.target.factor/8)*this.$image.attr('height');
+  var width = (1 + this.tween.target.factor/12)*this.$image.attr('width');
+  var height = (1 + this.tween.target.factor/12)*this.$image.attr('height');
   var angle = this.tween.target.factor*Math.PI/15*0;
 
   this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
