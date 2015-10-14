@@ -1,11 +1,12 @@
 @import 'variables';
+@import 'animations';
 @import 'fonts';
 
 @mixin transform($t) {
   transform: $t;
   -webkit-transform: $t;
   -moz-transform: $t;
-  -oz-transform: $t;
+  -o-transform: $t;
   -ms-transform: $t;
 }
 
@@ -13,22 +14,45 @@
   transform-origin: $t;
   -webkit-transform-origin: $t;
   -moz-transform-origin: $t;
-  -oz-transform-origin: $t;
+  -o-transform-origin: $t;
   -ms-transform-origin: $t;
 }
 
-@mixin transition($t1, $t2:"") {
-  transition: $t1, unquote($t2);
-  -webkit-transition: $t1, unquote($t2);
-  -moz-transition: $t1, unquote($t2);
-  -oz-transition: $t1, unquote($t2);
-  -ms-transition: $t1, unquote($t2);
+@mixin transition($t) {
+  transition: $t;
+  -webkit-transition: $t;
+  -moz-transition: $t;
+  -o-transition: $t;
+  -ms-transition: $t;
+}
+
+@mixin transition2($t1, $t2) {
+  transition: $t1, $t2;
+  -webkit-transition: $t1, $t2;
+  -moz-transition: $t1, $t2;
+  -o-transition: $t1, $t2;
+  -ms-transition: $t1, $t2;
 }
 
 @mixin filter($t) {
   filter: $t;
   -webkit-filter: $t;
   -moz-filter: $t;
-  -oz-filter: $t;
+  -o-filter: $t;
   -ms-filter: $t;
+}
+
+@mixin box-shadow($t) {
+  box-shadow: $t;
+  -webkit-box-shadow: $t;
+  -moz-box-shadow: $t;
+  -o-box-shadow: $t;
+  -ms-box-shadow: $t;
+}
+
+@mixin animation($t) {
+  animation: $t;
+  -webkit-animation: $t;
+  -moz-animation: $t;
+  -o-animation: $t;
 }

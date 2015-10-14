@@ -28,6 +28,7 @@ stylesheets[all][] = css/components/nodes/node--home-page/node--home-page.css
 ; ========================================
 scripts[] = js/twinings.behaviors.js
 scripts[] = js/classes/ContentLinkView.class.js
+scripts[] = js/classes/NavigationView.class.js
 scripts[] = js/classes/HomeView.class.js
 scripts[] = js/classes/Main.class.js
 scripts[] = js/script.js

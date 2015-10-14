@@ -1,0 +1,131 @@
+// Swipe down
+@keyframes swipeDown {
+  from {-ms-transform: translateY(-100%)}
+  to {-ms-transform: translateY(0)}
+}
+
+@keyframes swipeDown {
+  from {transform: translateY(-100%)}
+  to {transform: translateY(0)}
+}
+
+@-webkit-keyframes swipeDown {
+  from {-webkit-transform: translateY(-100%)}
+  to {-webkit-transform: translateY(0)}
+}
+
+@-moz-keyframes swipeDown {
+  from {-moz-transform: translateY(-100%)}
+  to {-moz-transform: translateY(0)}
+}
+
+@-o-keyframes swipeDown {
+  from {-o-transform: translateY(-100%)}
+  to {-o-transform: translateY(0)}
+}
+
+// Swipe down
+@keyframes swipeDownBack {
+  from {-ms-transform: translateY(0)}
+  to {-ms-transform: translateY(-100%)}
+}
+
+@keyframes swipeDownBack {
+  from {transform: translateY(0)}
+  to {transform: translateY(-100%)}
+}
+
+@-webkit-keyframes swipeDownBack {
+  from {-webkit-transform: translateY(0)}
+  to {-webkit-transform: translateY(-100%)}
+}
+
+@-moz-keyframes swipeDownBack {
+  from {-moz-transform: translateY(0)}
+  to {-moz-transform: translateY(-100%)}
+}
+
+@-o-keyframes swipeDownBack {
+  from {-o-transform: translateY(0)}
+  to {-o-transform: translateY(-100%)}
+}
+
+
+// Swipe up
+@keyframes swipeUp {
+  from {transform: translateY(100%)}
+  to {transform: translateY(0)}
+}
+
+@-webkit-keyframes swipeUp {
+  from {-webkit-transform: translateY(100%)}
+  to {-webkit-transform: translateY(0)}
+}
+
+@-moz-keyframes swipeUp {
+  from {-moz-transform: translateY(100%)}
+  to {-moz-transform: translateY(0)}
+}
+
+@-o-keyframes swipeUp {
+  from {-o-transform: translateY(100%)}
+  to {-o-transform: translateY(0)}
+}
+
+@keyframes swipeUp {
+  from {-ms-transform: translateY(100%)}
+  to {-ms-transform: translateY(0)}
+}
+
+
+// Swipe left
+@keyframes swipeLeft {
+  from {transform: translateX(100%)}
+  to {transform: translateX(0)}
+}
+
+@-webkit-keyframes swipeLeft {
+  from {-webkit-transform: translateX(100%)}
+  to {-webkit-transform: translateX(0)}
+}
+
+@-moz-keyframes swipeLeft {
+  from {-moz-transform: translateX(100%)}
+  to {-moz-transform: translateX(0)}
+}
+
+@-o-keyframes swipeLeft {
+  from {-o-transform: translateX(100%)}
+  to {-o-transform: translateX(0)}
+}
+
+@keyframes swipeLeft {
+  from {-ms-transform: translateX(100%)}
+  to {-ms-transform: translateX(0)}
+}
+
+// Swipe right
+@keyframes swipeRight {
+  from {transform: translateX(-100%)}
+  to {transform: translateX(0)}
+}
+
+@-webkit-keyframes swipeRight {
+  from {-webkit-transform: translateX(-100%)}
+  to {-webkit-transform: translateX(0)}
+}
+
+@-moz-keyframes swipeRight {
+  from {-moz-transform: translateX(-100%)}
+  to {-moz-transform: translateX(0)}
+}
+
+@-o-keyframes swipeRight {
+  from {-o-transform: translateX(-100%)}
+  to {-o-transform: translateX(0)}
+}
+
+@keyframes swipeRight {
+  from {-ms-transform: translateX(-100%)}
+  to {-ms-transform: translateX(0)}
+}

@@ -3,6 +3,7 @@
 header {
   .l-branding {
     position: relative;
+    z-index: 2;
     height: 50px;
     background-color: $darkGrey;
     border-bottom: 2px solid $goldAlpha;
@@ -12,6 +13,10 @@ header {
       top: 10px;
       left: 20px;
       z-index: 1;
+
+      img {
+        @include box-shadow(0px 0px 10px 0px black);
+      }
     }
 
     .l-region--branding {
@@ -36,7 +41,7 @@ header {
       position: absolute;
       top: -75px;
       left: 50%;
-      z-index: 1;
+      z-index: 2;
       @include transform(translateX(-50%));
 
       .block__content {
@@ -69,46 +74,82 @@ header {
         width: 100px;
         @include transform(translateX(-50%) translateY(-50%));
 
-        div:nth-of-type(1) {
+        div {
           text-align: center;
           text-transform: uppercase;
-          opacity: 0.6;
           font-family: Didot;
           font-size: 10px;
         }
 
-        div:nth-of-type(2) {
-          position: relative;
-          top: 17px;
-          height: 4px;
-          width: 35px;
-          margin: auto;
-          border-radius: 4px;
-          background-color: white;
-
-          &:before, &:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            height: 4px;
-            width: 35px;
-            border-radius: 4px;
-            background-color: white;
-          }
-
-          &:before {
-            top: -10px;
-          }
-
-          &:after {
-            top: 10px;
-          }
+        > svg {
+          position: absolute;
+          bottom: 17px;
+          left: 50%;
+          @include transform(translateX(-50%));
         }
       }
     }
   }
 
-  #block-system-main-menu {
-    display: none;
+  .menu-name-main-menu {
+    position: absolute;
+    width: 100%;
+    height: 223px;
+    z-index: 1;
+    background: url(../../images/ricepaper_pink.png);
+    @include transition(top .4s ease-out);
+    @include box-shadow(0px 0px 10px 0px black);
+    @include transform(translateY(-100%));
+    @include animation(swipeDownBack .4s ease-out 1 alternate forwards);
+
+    &.open {
+      @include animation(swipeDown .4s ease-out 1 alternate forwards);
+    }
+
+    > ul.menu {
+      width: 960px;
+      margin: auto;
+
+      li {
+        list-style-type: none;
+        list-style-image: none;
+
+        a {
+          color: white;
+          font-family: Didot;
+          text-decoration: none;
+        }
+      }
+
+      > li {
+        display: inline-block;
+        vertical-align: top;
+        text-align: center;
+        padding: 55px 35px;
+
+        > a {
+          display: block;
+          text-transform: uppercase;
+          position: relative;
+          padding-bottom: 20px;
+          margin-bottom: 20px;
+
+          &:after {
+            content: '';
+            width: 100px;
+            height: 1px;
+            background: white;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            @include transform(translateX(-50%));
+          }
+        }
+
+        ul.menu {
+          text-align: center;
+        }
+      }
+    }
   }
 }
