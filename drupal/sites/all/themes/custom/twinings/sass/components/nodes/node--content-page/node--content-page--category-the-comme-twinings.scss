@@ -1,0 +1,19 @@
+@import '../../../variables/mixins';
+
+.node--content-page.node--full.category-the-comme-twinings {
+  .field--name-field-banner {
+    background-image: url(../../../../images/la-decouverte/feuille_bandeau.svg), url(../../../../images/la-decouverte/feuille_bandeau2.svg), url(../../../../images/la-decouverte/feuilles_bandeau.svg), url(../../../../images/ricepaper_turquoise.png);
+    background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+    background-position: 59% -68%, 40px 40px, 80px 80px, center;
+    background-size: 100px, 100px, 100px, 485px 485px;
+
+    &:after {
+      background-image: url(../../../../images/triangle_turquoise.png);
+    }
+
+  }
+
+  button#scroll-down {
+    background-image: url(../../../../images/ricepaper_turquoise.png);
+  }
+}

@@ -1,0 +1,97 @@
+@import '../../../variables/mixins';
+
+.node--content-page.node--full {
+  .group-header {
+    position: relative;
+    height: 32vw;
+    overflow: hidden;
+
+    .field--name-field-header-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .group-title {
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background: rgba(0,0,0,0.5);
+      padding: 15px 10px;
+      @include box-shadow(0px 0px 70px 0px black);
+      @include transform(translateX(-50%) translateY(-50%));
+
+      &:before, &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        height: 1px;
+        width: 100%;
+        background: white;
+      }
+
+      &:before {
+        top: 0;
+      }
+
+      &:after {
+        bottom: 0;
+      }
+
+      .field--name-title-field {
+        font-family: Dancing;
+        font-size: 50px;
+        color: $yellowFont;
+        margin-bottom: 5px;
+      }
+
+      .field--name-field-subtitle {
+        font-family: Didot;
+        font-size: 30px;
+        line-height: 35px;
+        color: white;
+        text-transform: uppercase;
+        text-align: center;
+      }
+    }
+  }
+
+  #banner-wrapper {
+    position: relative;
+
+    .field--name-field-banner {
+      padding: 50px 0;
+      color: black;
+      font-family: Didot;
+      font-size: 16px;
+      line-height: 20px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        height: 10px;
+        width: 100%;
+        background-repeat: repeat-x;
+        background-size: 11px;
+      }
+
+      .field__item {
+        width: 620px;
+        margin: auto;
+      }
+    }
+  }
+
+  .field--name-field-content-links {
+    width: 100%;
+    height: 1330px;
+  }
+}

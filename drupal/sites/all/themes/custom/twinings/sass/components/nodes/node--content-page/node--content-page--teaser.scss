@@ -56,15 +56,6 @@
     display: none;
   }
 
-  canvas {
-//    @include filter(grayscale(100%));
-//    @include transition(filter .4s linear);
-  }
-
-  &:hover canvas {
-//    @include filter(grayscale(0%));
-  }
-
   #button {
     position: absolute;
     left: 50%;
@@ -91,5 +82,10 @@
       background-image: url(../../../../images/content_link_button_bck.png);
       background-position: top left;
     }
+  }
+
+  li.node-readmore {
+    float: none;
+    margin-right: 0;
   }
 }

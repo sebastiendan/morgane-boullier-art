@@ -1,0 +1,19 @@
+@import '../../../variables/mixins';
+
+.node--content-page.node--full.category-la-decouverte {
+  .field--name-field-banner {
+    background-image: url(../../../../images/la-decouverte/feuille_bandeau.svg), url(../../../../images/la-decouverte/feuille_bandeau2.svg), url(../../../../images/la-decouverte/feuilles_bandeau.svg), url(../../../../images/ricepaper_light_green.png);
+    background-repeat: no-repeat, no-repeat, no-repeat, repeat;
+    background-position: 72% 1px, left 80% bottom 8px, 21% 80px, center;
+    background-size: 100px, 100px, 100px, 485px 485px;
+
+    &:after {
+      background-image: url(../../../../images/triangle_light_green.png);
+    }
+
+  }
+
+  button#scroll-down {
+    background-image: url(../../../../images/ricepaper_light_green.png);
+  }
+}

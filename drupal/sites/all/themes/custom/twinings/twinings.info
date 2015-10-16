@@ -17,11 +17,17 @@ stylesheets[all][] = css/base/main.css
 stylesheets[all][] = css/base/header.css
 stylesheets[all][] = css/components/elements/video-play-button.css
 stylesheets[all][] = css/components/elements/videojs.css
+stylesheets[all][] = css/components/elements/scroll-down-button.css
+stylesheets[all][] = css/components/elements/group-content-links.css
 stylesheets[all][] = css/components/blocks/block-main-social.css
 stylesheets[all][] = css/components/blocks/block-main-newsletter.css
 stylesheets[all][] = css/components/blocks/block-main-home-scroll-banner.css
+stylesheets[all][] = css/components/nodes/node--content-page/node--content-page--full.css
 stylesheets[all][] = css/components/nodes/node--content-page/node--content-page--teaser.css
+stylesheets[all][] = css/components/nodes/node--content-page/node--content-page--category-la-decouverte.css
+stylesheets[all][] = css/components/nodes/node--content-page/node--content-page--category-the-comme-twinings.css
 stylesheets[all][] = css/components/nodes/node--home-page/node--home-page.css
+stylesheets[all][] = css/pages/la-decouverte.css
 
 ; ========================================
 ; Scripts

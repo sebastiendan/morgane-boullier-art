@@ -67,8 +67,8 @@ HomeView.prototype.onStageScroll = function() {
   var wh = jQuery(window).height();
   var scroll = jQuery(document).scrollTop();
 
-  this.$scrollBanner.css({'top':wh - this.visibleBannerHeight - scroll/2});
-  this.$groupContentLinks.css({'top':wh - scroll/2 - this.usedHeight + this.$scrollBanner.height()});
+  this.$scrollBanner.css({'top':wh - this.visibleBannerHeight - scroll});
+  this.$groupContentLinks.css({'top':wh - scroll - this.usedHeight + this.$scrollBanner.height()});
 
   var headlineTop = this.$groupHeadline[0].getBoundingClientRect().top;
   if (headlineTop !== 0 && headlineTop < jQuery(window).height()/3) {

@@ -8,7 +8,7 @@ ContentLinkView.prototype.init = function (tag, parent) {
 
   this.factor = 0;
   this.mask = new Image();
-  this.mask.src = 'sites/all/themes/custom/twinings/images/content_link_shape.png';
+  this.mask.src = '/sites/all/themes/custom/twinings/images/content_link_shape.png';
 
   this.$image = this.$tag.find('.field--name-field-teaser-image img');
   this.image = new Image();
@@ -34,7 +34,7 @@ ContentLinkView.prototype.onImageLoaded = function () {
 ContentLinkView.prototype.onLoaded = function () {
   if (this.maskLoaded && this.imageLoaded) {
     this.createCanvases();
-    this.$tag[0].appendChild(this.canvas);
+    this.$tag.find('li.node-readmore a')[0].appendChild(this.canvas);
     this.onCanvasUpdate();
   }
 };

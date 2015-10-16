@@ -97,13 +97,14 @@ header {
     height: 223px;
     z-index: 1;
     background: url(../../images/ricepaper_pink.png);
-    @include transition(top .4s ease-out);
+    @include transition(transform .4s ease-out);
     @include box-shadow(0px 0px 10px 0px black);
     @include transform(translateY(-100%));
-    @include animation(swipeDownBack .4s ease-out 1 alternate forwards);
+//    @include animation(swipeDownBack .4s ease-out 1 alternate forwards);
 
     &.open {
-      @include animation(swipeDown .4s ease-out 1 alternate forwards);
+      @include transform(translateY(0));
+//      @include animation(swipeDown .4s ease-out 1 alternate forwards);
     }
 
     > ul.menu {

@@ -80,6 +80,10 @@ function main_theme($existing, $type, $theme, $path) {
       'path' => drupal_get_path('module', 'main') . '/templates',
       'template' => 'video_play_button',
     ),
+    'scroll_down_button' => array(
+      'path' => drupal_get_path('module', 'main') . '/templates',
+      'template' => 'scroll_down_button',
+    ),
     'home_scroll_banner' => array(
       'path' => drupal_get_path('module', 'main') . '/templates',
       'template' => 'home_scroll_banner',
@@ -105,11 +109,16 @@ function main_node_view($node, $view_mode, $langcode) {
       }
       break;
     case 'content_page':
+      if ($view_mode == 'full') {
+        $node->content['field_banner']['#prefix'] = '<div id="banner-wrapper">' . theme('scroll_down_button');
+        $node->content['field_banner']['#suffix'] = '</div>';
+      }
       if ($view_mode == 'teaser') {
         $node->content['button'] = array(
           '#markup' => theme('content_link_button'),
           '#weight' => 10,
         );
+        $node->content['links']['node']['#links']['node-readmore']['title'] = '';
       }
       break;
   }
@@ -120,6 +129,16 @@ function main_preprocess_node(&$variables) {
     case 'content_page':
       $variables['page'] = TRUE;
       $variables['display_submitted'] = FALSE;
+
+      $menu = menu_link_get_preferred(current_path());
+      switch($menu['p1']) {
+        case 437:
+          $variables['classes_array'][] = 'category-la-decouverte';
+          break;
+        case 455:
+          $variables['classes_array'][] = 'category-the-comme-twinings';
+          break;
+      }
       break;
   }
 }
