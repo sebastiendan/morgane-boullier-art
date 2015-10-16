@@ -24,6 +24,8 @@ projects:
     version: '1.0-beta1'
   coder:
     version: '2.2'
+  ckeditor:
+    version: '1.16'
   ctools:
     version: '1.9'
   date:

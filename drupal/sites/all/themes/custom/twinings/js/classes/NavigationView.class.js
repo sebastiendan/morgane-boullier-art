@@ -35,8 +35,8 @@ NavigationView.prototype.init = function (tag, parent) {
   };
 
   this.lineLength = this.$line1[0].getAttribute('x2') - this.$line1[0].getAttribute('x1');
-  this.centerX = this.$burgerButtonSvg.width()/2;
-  this.centerY = this.$burgerButtonSvg.height()/2;
+  this.centerX = this.$burgerButtonSvg[0].getBoundingClientRect().width/2;
+  this.centerY = this.$burgerButtonSvg[0].getBoundingClientRect().height/2;
 
   this.bind(this.$burgerButton, 'click', this.onBurgerButtonClick);
 };
