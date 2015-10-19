@@ -131,6 +131,10 @@ function main_node_view($node, $view_mode, $langcode) {
       if ($view_mode == 'teaser') {
         $node->content['links']['node']['#links']['node-readmore']['title'] = '';
       }
+      if ($view_mode == 'full') {
+        $node->content['field_banner']['#prefix'] = '<div id="banner-wrapper">' . theme('scroll_down_button');
+        $node->content['field_banner']['#suffix'] = '</div>';
+      }
       break;
   }
 }
@@ -154,6 +158,9 @@ function main_preprocess_node(&$variables) {
     case 'product':
       $variables['page'] = TRUE;
       $variables['display_submitted'] = FALSE;
+      $term = taxonomy_term_load($variables['field_theme_variation'][LANGUAGE_NONE][0]['tid']);
+      $variables['attributes_array']['data-colour'] = $term->field_colour[LANGUAGE_NONE][0]['value'];
+      $variables['attributes_array']['data-pattern'] = file_create_url($term->field_pattern[LANGUAGE_NONE][0]['uri']);
       break;
   }
 }

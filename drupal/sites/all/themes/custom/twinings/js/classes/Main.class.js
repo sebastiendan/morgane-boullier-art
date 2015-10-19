@@ -33,4 +33,9 @@ Main.prototype.init = function() {
       contentLinkView.init(element);
     });
   }
+
+  if (jQuery('.node--product.node--full').length > 0) {
+    var productView = new ProductView();
+    productView.init('.node--product.node--full');
+  }
 };

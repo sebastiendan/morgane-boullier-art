@@ -29,6 +29,7 @@ stylesheets[all][] = css/components/nodes/node--content-page/node--content-page-
 stylesheets[all][] = css/components/nodes/node--content-page/node--content-page--category-the-comme-twinings.css
 stylesheets[all][] = css/components/nodes/node--products-page/node--products-page--full.css
 stylesheets[all][] = css/components/nodes/node--product/node--product--teaser.css
+stylesheets[all][] = css/components/nodes/node--product/node--product--full.css
 stylesheets[all][] = css/components/nodes/node--home-page/node--home-page.css
 stylesheets[all][] = css/pages/la-decouverte.css
 stylesheets[all][] = css/pages/the-comme-twinings.css
@@ -43,6 +44,7 @@ scripts[] = js/classes/GroupHeaderInnerView.class.js
 scripts[] = js/classes/GroupContentLinksView.class.js
 scripts[] = js/classes/ScrollButtonView.class.js
 scripts[] = js/classes/HomeView.class.js
+scripts[] = js/classes/ProductView.class.js
 scripts[] = js/classes/Main.class.js
 scripts[] = js/script.js
 
