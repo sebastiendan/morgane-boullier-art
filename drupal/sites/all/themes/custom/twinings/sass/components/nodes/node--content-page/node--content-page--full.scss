@@ -21,52 +21,63 @@
     }
 
     .group-title {
-      display: inline-block;
       position: absolute;
       top: 50%;
       left: 50%;
-      background: rgba(0,0,0,0.5);
-      padding: 15px 10px;
-      @include box-shadow(0px 0px 70px 0px black);
+      width: 100%;
+      text-align: center;
+      overflow: hidden;
       @include transform(translateX(-50%) translateY(-50%));
 
-      &:before, &:after {
-        content: '';
-        position: absolute;
-        left: 0;
-        height: 1px;
-        width: 100%;
-        background: white;
-      }
+      .group-title-inner {
+        position: relative;
+        display: inline-block;
+        @include box-shadow2(0px 0px 23px 12px rgba(0, 0, 0, 0.5), 0px 0px 25px 41px rgba(0, 0, 0, 0.5) inset);
+        padding: 15px 10px;
 
-      &:before {
-        top: 0;
-      }
+        &:before, &:after {
+          content: '';
+          position: absolute;
+          left: 50%;
+          width: 100%;
+          height: 1px;
+          z-index: 1;
+          background-image: url(../../../../images/filet.png);
+          background-repeat: no-repeat;
+          background-position: center;
+          @include transform(translateX(-50%));
+        }
 
-      &:after {
-        bottom: 0;
-      }
+        &:before {
+          top: 0;
+        }
 
-      .field--name-title-field {
-        font-family: Dancing;
-        font-size: 50px;
-        color: $yellowFont;
-        margin-bottom: 5px;
-      }
+        &:after {
+          bottom: 0;
+        }
 
-      .field--name-field-subtitle {
-        font-family: Didot;
-        font-size: 30px;
-        line-height: 35px;
-        color: white;
-        text-transform: uppercase;
-        text-align: center;
+        .field--name-title-field {
+          font-family: Dancing;
+          font-size: 50px;
+          color: $yellowFont;
+          margin-bottom: 5px;
+        }
+
+        .field--name-field-subtitle {
+          font-family: Didot;
+          font-size: 30px;
+          line-height: 35px;
+          color: white;
+          text-transform: uppercase;
+          text-align: center;
+        }
       }
     }
   }
 
   #banner-wrapper {
     position: relative;
+    z-index: 1;
 
     .field--name-field-banner {
       padding: 50px 0;

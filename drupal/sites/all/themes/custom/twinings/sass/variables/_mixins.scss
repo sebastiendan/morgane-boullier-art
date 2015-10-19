@@ -50,6 +50,14 @@
   -ms-box-shadow: $t;
 }
 
+@mixin box-shadow2($t1, $t2) {
+  box-shadow: $t1, $t2;
+  -webkit-box-shadow: $t1, $t2;
+  -moz-box-shadow: $t1, $t2;
+  -o-box-shadow: $t1, $t2;
+  -ms-box-shadow: $t1, $t2;
+}
+
 @mixin animation($t) {
   animation: $t;
   -webkit-animation: $t;

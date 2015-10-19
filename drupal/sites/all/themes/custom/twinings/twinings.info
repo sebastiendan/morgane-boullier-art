@@ -29,6 +29,7 @@ stylesheets[all][] = css/components/nodes/node--content-page/node--content-page-
 stylesheets[all][] = css/components/nodes/node--content-page/node--content-page--category-the-comme-twinings.css
 stylesheets[all][] = css/components/nodes/node--home-page/node--home-page.css
 stylesheets[all][] = css/pages/la-decouverte.css
+stylesheets[all][] = css/pages/the-comme-twinings.css
 
 ; ========================================
 ; Scripts
