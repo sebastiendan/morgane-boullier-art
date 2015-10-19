@@ -1,0 +1,23 @@
+@import '../../../variables/mixins';
+
+.node--product.node--teaser {
+  width: 240px;
+  text-align: center;
+
+  .field--name-title-field {
+    font-family: Dancing;
+    font-size: 25px;
+    color: $lightYellowFont;
+    margin-bottom: 10px;
+  }
+
+  .field--name-field-summary {
+    font-family: Didot;
+    font-size: 15px;
+  }
+
+  > a {
+    text-decoration: none;
+    color: white;
+  }
+}

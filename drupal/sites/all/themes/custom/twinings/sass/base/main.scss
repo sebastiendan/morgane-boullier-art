@@ -14,3 +14,35 @@ button {
   cursor: pointer;
   outline: none;
 }
+
+.ajax-progress-throbber {
+  position: absolute;
+  left: 50%;
+  @include transform(translateX(-50%));
+  display: block !important;
+  width: 20px;
+  height: 20px;
+  background-image: url(../../images/ajax-throbber/tasse.png);
+  background-size: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  &:before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: -5px;
+    left: -5px;
+    @include transform-origin(center center);
+    @include animation(spin 2s linear 0s infinite normal);
+    background-image: url(../../images/ajax-throbber/elipse.png);
+    background-size: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+}
+
+.ajax-progress, .throbber {
+  display: none;
+}

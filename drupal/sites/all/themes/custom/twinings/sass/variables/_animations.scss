@@ -129,3 +129,29 @@
   from {-ms-transform: translateX(-100%)}
   to {-ms-transform: translateX(0)}
 }
+
+// Spin
+
+@keyframes spin {
+  0%   {-ms-transform: rotate(0deg)}
+  50%  {-ms-transform: rotate(180deg)}
+  100% {-ms-transform: rotate(360deg)}
+}
+
+@keyframes spin {
+  0%   {transform: rotate(0deg)}
+  50%  {transform: rotate(180deg)}
+  100% {transform: rotate(360deg)}
+}
+
+@-webkit-keyframes spin {
+  0%   {-webkit-transform: rotate(0deg)}
+  50%  {-webkit-transform: rotate(180deg)}
+  100% {-webkit-transform: rotate(360deg)}
+}
+
+@-moz-keyframes spin {
+  0%   {-moz-transform: rotate(0deg)}
+  50%  {-moz-transform: rotate(180deg)}
+  100% {-moz-transform: rotate(360deg)}
+}
