@@ -6,15 +6,17 @@
     height: 32vw;
     overflow: hidden;
 
-    .field--name-field-header-image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-
-      img {
+    .group-header-inner {
+      .field--name-field-header-image {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        height: auto;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
       }
     }
 
@@ -88,10 +90,5 @@
         margin: auto;
       }
     }
-  }
-
-  .field--name-field-content-links {
-    width: 100%;
-    height: 1330px;
   }
 }

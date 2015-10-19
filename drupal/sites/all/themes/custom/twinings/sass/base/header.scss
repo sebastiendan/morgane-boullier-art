@@ -1,6 +1,8 @@
 @import '../variables/mixins';
 
-header {
+.l-header {
+  position: relative;
+
   .l-branding {
     position: relative;
     z-index: 2;

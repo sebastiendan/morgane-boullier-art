@@ -11,12 +11,8 @@ HomeView.prototype.init = function (tag, parent) {
   this.$playButton = this.$tag.find('.video-play-button');
   this.$videoContainer = this.$tag.find('.field--name-field-home-video');
   this.$groupHeadline = this.$tag.find('.group-headline');
+  this.$groupHeaderInner = this.$tag.find('.group-header-inner');
   this.$scrollBanner = this.$tag.find('#block-main-home-scroll-banner');
-  this.$scrollButton = this.$scrollBanner.find('button#scroll-down');
-  this.$groupContentLinks = this.$tag.find('.group-content-links');
-  this.$contentLinks = this.$groupContentLinks.find('.node');
-
-  this.bind(this.$scrollButton, 'click', this.onScrollButtonClick);
 
   this.usedHeight = jQuery('.l-page').children('header').height() + this.visibleBannerHeight;
   this.id = this.$tag.find('.video-js').attr('id');
@@ -50,26 +46,13 @@ HomeView.prototype.onStageResize = function() {
   var scale = Math.max(ww / this.initWidth, (wh - this.usedHeight) / this.initHeight);
   this.player.width(this.initWidth*scale);
   this.player.height(this.initHeight*scale);
-  this.$videoContainer.css({'width':ww, 'height':wh - this.usedHeight});
+  this.$groupHeaderInner.css({'height':wh - this.usedHeight});
+  this.$videoContainer.css({'width':ww});
 
   this.$player.css({'top':(wh - this.usedHeight - this.player.height())/4, 'left':(ww - this.player.width())/2});
-  this.$groupHeadline.offset({'top':(wh - this.usedHeight - this.$groupHeadline.height())/1.5});
-
-  this.$scrollBanner.css({'top':wh - this.visibleBannerHeight});
-};
-
-HomeView.prototype.onScrollButtonClick = function() {
-  var scroll = 2/3*(jQuery(window).height() - this.visibleBannerHeight) + 1;
-  jQuery('body').animate({'scrollTop': scroll}, 400);
 };
 
 HomeView.prototype.onStageScroll = function() {
-  var wh = jQuery(window).height();
-  var scroll = jQuery(document).scrollTop();
-
-  this.$scrollBanner.css({'top':wh - this.visibleBannerHeight - scroll});
-  this.$groupContentLinks.css({'top':wh - scroll - this.usedHeight + this.$scrollBanner.height()});
-
   var headlineTop = this.$groupHeadline[0].getBoundingClientRect().top;
   if (headlineTop !== 0 && headlineTop < jQuery(window).height()/3) {
     if (this.player.currentTime() > 0 && !this.isVideoEnded) {
@@ -84,16 +67,6 @@ HomeView.prototype.onStageScroll = function() {
     } else {
       this.groupHeadlineShow();
     }
-  }
-
-  var contentLinksTop = this.$groupContentLinks[0].getBoundingClientRect().top;
-  if (contentLinksTop !== 0 && contentLinksTop < jQuery(window).height()/2 && !this.isContentLinksAnimEnded) {
-    this.$contentLinks.each(function(index, element){
-      var $element = jQuery(element);
-      var top = $element.css('top').split('px')[0];
-      $element.css({'top':top - 50, 'opacity':1});
-    });
-    this.isContentLinksAnimEnded = true;
   }
 };
 

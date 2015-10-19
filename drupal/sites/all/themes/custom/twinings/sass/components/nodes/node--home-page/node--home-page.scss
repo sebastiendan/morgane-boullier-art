@@ -9,62 +9,70 @@
       overflow: hidden;
 
       .field--name-field-home-video {
+        position: absolute;
+        top: 50%;
+        @include transform(translateY(-50%));
         overflow: hidden;
       }
 
-      .group-headline {
-        position: absolute;
-        left: 50%;
-        width: 415px;
-        padding-bottom: 70px;
-        border-left: 1px solid white;
-        border-top: 1px solid white;
-        border-right: 1px solid white;
-        @include transform(translateX(-50%));
-        @include transition(opacity .4s linear);
+      .group-header-inner {
+        position: relative;
 
-        .field--name-title-field {
-          font-size: 45px;
-          font-family: Dancing;
-          text-align: center;
-          width: 250px;
-          margin: 20px auto;
-        }
-
-        .field--name-field-headline {
-          font-size: 15px;
-          font-family: Didot;
-          text-align: center;
-          margin: 0 10px;
-
-        }
-
-        .video-play-button-wrapper {
+        .group-headline {
           position: absolute;
-          bottom: 0;
+          top: 50%;
           left: 50%;
-          width: 100.7%;
-          @include transform(translateX(-50%) translateY(50%));
+          @include transform(translateY(-50%));
+          width: 415px;
+          padding-bottom: 70px;
+          border-left: 1px solid white;
+          border-top: 1px solid white;
+          border-right: 1px solid white;
+          @include transform(translateX(-50%));
+          @include transition(opacity .4s linear);
 
-          &:before, &:after {
-            content: '';
+          .field--name-title-field {
+            font-size: 45px;
+            font-family: Dancing;
+            text-align: center;
+            width: 250px;
+            margin: 20px auto;
+          }
+
+          .field--name-field-headline {
+            font-size: 15px;
+            font-family: Didot;
+            text-align: center;
+            margin: 0 10px;
+
+          }
+
+          .video-play-button-wrapper {
             position: absolute;
-            top: 50%;
-            height: 0;
-            width: 175px;
-            border-top: 1px solid white;
-          }
+            bottom: 0;
+            left: 50%;
+            width: 100.7%;
+            @include transform(translateX(-50%) translateY(50%));
 
-          &:before {
-            left: 0;
-          }
+            &:before, &:after {
+              content: '';
+              position: absolute;
+              top: 50%;
+              height: 0;
+              width: 175px;
+              border-top: 1px solid white;
+            }
 
-          &:after {
-            right: 0;
+            &:before {
+              left: 0;
+            }
+
+            &:after {
+              right: 0;
+            }
           }
         }
       }
     }
-
   }
 }

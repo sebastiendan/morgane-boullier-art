@@ -1,0 +1,12 @@
+@import '../../variables/mixins';
+
+.group-header {
+  position: relative;
+  overflow: hidden;
+
+  .group-header-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+}
