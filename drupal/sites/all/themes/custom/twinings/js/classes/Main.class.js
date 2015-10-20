@@ -49,6 +49,11 @@ Main.prototype.init = function() {
     jQuery('#banner-wrapper').after('<div id="todo-wrapper"><img id="todo" src="/sites/all/themes/custom/twinings/images/confection.png"/></div>');
   }
 
+  //The dans le mmonde todo
+  if (jQuery('body.page-node-7').length > 0) {
+    jQuery('#banner-wrapper').after('<div id="todo-wrapper"><img id="todo" src="/sites/all/themes/custom/twinings/images/map.png"/></div>');
+  }
+
   //Histoire todo
   if (jQuery('body.page-node-10').length > 0) {
     jQuery('#banner-wrapper').after('<div id="todo-wrapper"><img id="todo" src="/sites/all/themes/custom/twinings/images/histoire.png"/></div>');

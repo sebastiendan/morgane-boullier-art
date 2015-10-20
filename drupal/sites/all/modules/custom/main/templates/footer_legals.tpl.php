@@ -1,0 +1,1 @@
+<div id="footer-legals">© 2015 <?= t('Twinings all right reserved')?> </div>

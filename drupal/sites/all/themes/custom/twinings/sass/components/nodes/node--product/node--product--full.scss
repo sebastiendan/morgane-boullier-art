@@ -78,6 +78,7 @@
     .group-features {
       width: 960px;
       margin: auto;
+      padding-bottom: 50px;
 
       .group-features-inner {
         margin-top: 15px;
@@ -114,12 +115,11 @@
           :after {
             content: '';
             width: 1px;
-            height: 150px;
+            height: 140px;
             background-color: white;
             position: absolute;
             right: 0;
-            top: 50%;
-            @include transform(translateY(-50%));
+            top: 13px;
           }
         }
 

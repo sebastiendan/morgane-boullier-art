@@ -32,7 +32,7 @@
       .group-title-inner {
         position: relative;
         display: inline-block;
-        @include box-shadow2(0px 0px 23px 12px rgba(0, 0, 0, 0.5), 0px 0px 25px 41px rgba(0, 0, 0, 0.5) inset);
+        @include box-shadow2(0px 0px 23px 18px rgba(0, 0, 0, 0.5), 0px 0px 25px 52px rgba(0, 0, 0, 0.5) inset);
         padding: 15px 10px;
 
         &:before, &:after {

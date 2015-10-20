@@ -15,6 +15,7 @@ stylesheets[all][] = css/variables/_variables.css
 stylesheets[all][] = css/variables/_mixins.css
 stylesheets[all][] = css/base/main.css
 stylesheets[all][] = css/base/header.css
+stylesheets[all][] = css/base/footer.css
 stylesheets[all][] = css/components/elements/video-play-button.css
 stylesheets[all][] = css/components/elements/videojs.css
 stylesheets[all][] = css/components/elements/scroll-down-button.css

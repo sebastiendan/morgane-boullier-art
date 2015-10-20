@@ -2,6 +2,7 @@
 
 .node--product.node--teaser {
   width: 240px;
+  margin-bottom: 10px;
   text-align: center;
 
   .field--name-title-field {
@@ -14,6 +15,8 @@
   .field--name-field-summary {
     font-family: Didot;
     font-size: 15px;
+    line-height: 18px;
+    padding: 0px 10px;
   }
 
   > a {
