@@ -112,6 +112,22 @@ function main_node_view($node, $view_mode, $langcode) {
       if ($view_mode == 'full') {
         $node->content['field_banner']['#prefix'] = '<div id="banner-wrapper">' . theme('scroll_down_button');
         $node->content['field_banner']['#suffix'] = '</div>';
+
+        // La plante
+        if ($node->nid == 6) {
+          $nodes = main_load_nodes('tea_type');
+          $markup = '';
+          foreach($nodes as $element) {
+            $item = node_view($element);
+            $markup .= render($item);
+          }
+          $node->content['tea_types'] = array(
+            '#markup' => $markup,
+            '#prefix' => '<div id="tea-types-wrapper"><div id="section-title">' . t('Main tea types') . '</div><div id="tea-types">',
+            '#suffix' => '</div></div>',
+            '#weight' => 2,
+          );
+        }
       }
       if ($view_mode == 'teaser') {
         $node->content['button'] = array(
@@ -164,6 +180,10 @@ function main_preprocess_node(&$variables) {
 //      $term = taxonomy_term_load($variables['field_intensity'][LANGUAGE_NONE][0]['tid']);
       $term = taxonomy_term_load($variables['field_intensity'][0]['tid']);
       $variables['classes_array'][] = strtolower($term->name_field['en'][0]['value']) . '-intensity';
+      break;
+    case 'tea_type':
+      $variables['page'] = TRUE;
+      $variables['display_submitted'] = FALSE;
       break;
   }
 }
@@ -255,4 +275,22 @@ function main_inline_entity_form_table_fields_alter(&$fields, $context) {
       'weight' => 2
     );
   }
+}
+
+function main_load_nodes($type) {
+  $query = new EntityFieldQuery();
+
+  $query->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', $type)
+    ->propertyCondition('status', NODE_PUBLISHED)
+    ->addMetaData('account', user_load(1)); // Run the query as user 1.
+
+  $result = $query->execute();
+
+  if (isset($result['node'])) {
+    $nids = array_keys($result['node']);
+    $items = entity_load('node', $nids);
+  }
+
+  return $items;
 }

@@ -39,6 +39,11 @@ Main.prototype.init = function() {
     productView.init('.node--product.node--full');
   }
 
+  if (jQuery('#tea-types-wrapper').length > 0) {
+    var teaTypesView = new TeaTypesView();
+    teaTypesView.init('#tea-types-wrapper');
+  }
+
   //Confection todo
   if (jQuery('body.page-node-8').length > 0) {
     jQuery('#banner-wrapper').after('<div id="todo-wrapper"><img id="todo" src="/sites/all/themes/custom/twinings/images/confection.png"/></div>');

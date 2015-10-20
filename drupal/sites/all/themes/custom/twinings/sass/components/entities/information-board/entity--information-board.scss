@@ -92,10 +92,12 @@
       .group-media {
         display: inline-block;
         vertical-align: middle;
+        width: 240px;
+        margin-left: 100px;
 
         .field--name-field-quote {
           position: relative;
-          width: 240px;
+          width: 100%;
           border: 1px solid white;
           font-family: Didot;
           font-size: 23px;
@@ -106,7 +108,6 @@
           padding-right: 20px;
           padding-top: 30px;
           padding-bottom: 30px;
-          margin-left: 100px;
 
           &:before {
             content: '';
@@ -118,6 +119,10 @@
             background-image: url(../../../../images/guillemets.svg);
             background-repeat: no-repeat;
           }
+        }
+
+        img {
+          max-width: 100%;
         }
       }
     }

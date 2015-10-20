@@ -104,6 +104,10 @@
   }
 
   .group-specific-content {
+    background-image: url(../../../../images/feuilles_filigrane_left.svg), url(../../../../images/feuilles_filigrane_right.svg);
+    background-repeat: no-repeat;
+    background-position: left 10px bottom 40%, right 10px top 40%;
+    background-size: 200px;
     .field--name-field-information-boards {
       padding: 50px 0;
 

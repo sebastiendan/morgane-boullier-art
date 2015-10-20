@@ -45,6 +45,7 @@ scripts[] = js/classes/NavigationView.class.js
 scripts[] = js/classes/GroupHeaderInnerView.class.js
 scripts[] = js/classes/GroupContentLinksView.class.js
 scripts[] = js/classes/ScrollButtonView.class.js
+scripts[] = js/classes/TeaTypesView.class.js
 scripts[] = js/classes/HomeView.class.js
 scripts[] = js/classes/ProductView.class.js
 scripts[] = js/classes/Main.class.js
