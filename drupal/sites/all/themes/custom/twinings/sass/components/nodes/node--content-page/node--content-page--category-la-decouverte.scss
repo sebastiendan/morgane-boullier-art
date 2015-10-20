@@ -16,4 +16,18 @@
   button#scroll-down {
     background-image: url(../../../../images/ricepaper_light_green.png);
   }
+
+  .field--name-field-information-boards {
+    .entity-information-board {
+      .form-wrapper.collapsible {
+        > .fieldset-wrapper {
+          background-image: url(../../../../images/ricepaper_light_green.png);
+
+          &:after {
+            background-image: url(../../../../images/triangle_light_green.png);
+          }
+        }
+      }
+    }
+  }
 }

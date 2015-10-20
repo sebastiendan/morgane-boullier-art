@@ -102,4 +102,15 @@
       }
     }
   }
+
+  .group-specific-content {
+    .field--name-field-information-boards {
+      padding: 50px 0;
+
+      > .field__items {
+        width: 960px;
+        margin: auto;
+      }
+    }
+  }
 }

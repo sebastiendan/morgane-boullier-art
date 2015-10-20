@@ -133,9 +133,45 @@
           .field--name-field-color {
             margin-bottom: 20px;
           }
+
+          .field--name-field-intensity {
+            .field__item {
+              position: relative;
+              display: inline-block;
+
+              &:before, &:after {
+                content: '';
+                position: absolute;
+                left: 120%;
+                top: 50%;
+                height: 20px;
+                @include transform(translateY(-50%));
+              }
+
+              &:before {
+                background-image: url(../../../../images/intensite_vide.svg);
+                width: 60px;
+              }
+            }
+          }
         }
       }
     }
+  }
+
+  &.low-intensity .group-information .group-features .group-features-inner .group-misc .field--name-field-intensity .field__item:after {
+    width: 20px;
+    background-image: url(../../../../images/intensite.svg);
+  }
+
+  &.average-intensity .group-information .group-features .group-features-inner .group-misc .field--name-field-intensity .field__item:after {
+    width: 40px;
+    background-image: url(../../../../images/intensite.svg);
+  }
+
+  &.high-intensity .group-information .group-features .group-features-inner .group-misc .field--name-field-intensity .field__item:after {
+    width: 60px;
+    background-image: url(../../../../images/intensite.svg);
   }
 
   .field--name-field-products {

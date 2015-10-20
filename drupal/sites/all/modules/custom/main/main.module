@@ -161,7 +161,20 @@ function main_preprocess_node(&$variables) {
       $term = taxonomy_term_load($variables['field_theme_variation'][LANGUAGE_NONE][0]['tid']);
       $variables['attributes_array']['data-colour'] = $term->field_colour[LANGUAGE_NONE][0]['value'];
       $variables['attributes_array']['data-pattern'] = file_create_url($term->field_pattern[LANGUAGE_NONE][0]['uri']);
+//      $term = taxonomy_term_load($variables['field_intensity'][LANGUAGE_NONE][0]['tid']);
+      $term = taxonomy_term_load($variables['field_intensity'][0]['tid']);
+      $variables['classes_array'][] = strtolower($term->name_field['en'][0]['value']) . '-intensity';
       break;
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function main_preprocess_entity(&$variables) {
+  if ($variables['entity_type'] == 'information_board') {
+    $variables['page'] = TRUE;
+    $variables['display_submitted'] = FALSE;
   }
 }
 
@@ -191,5 +204,40 @@ function main_preprocess_views_view(&$vars) {
     $label = $term->field_products_page_label[$language->language][0]['value'];
 
     $vars['product_category_label'] = $label;
+  }
+}
+
+/**
+ * Implements hook_entity_view().
+ */
+function main_entity_view($entity, $type, $view_mode, $langcode) {
+  global $language;
+
+  switch($type){
+    case 'information_board':
+      $entity->content['#groups']['group_content']->label = ' ';
+      break;
+  }
+}
+
+/**
+ * @param $fields
+ * @param $context
+ */
+function main_inline_entity_form_table_fields_alter(&$fields, $context) {
+  if ($context['parent_bundle'] == 'content_page' && $context['entity_type'] == 'information_board') {
+    unset($fields['id']);
+
+    $fields['field_picto'] = array(
+      'type' => 'field',
+      'label' => t('Image'),
+      'weight' => 1
+    );
+
+    $fields['title_field'] = array(
+      'type' => 'field',
+      'label' => t('Title'),
+      'weight' => 2
+    );
   }
 }

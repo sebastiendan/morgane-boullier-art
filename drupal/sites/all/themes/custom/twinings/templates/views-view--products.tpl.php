@@ -51,9 +51,11 @@
     </div>
   <?php endif; ?>
 
-  <div class="product-category-label">
-    <?php print $product_category_label; ?>
-  </div>
+  <?php if (isset($product_category_label)): ?>
+    <div class="product-category-label">
+      <?php print $product_category_label; ?>
+    </div>
+  <?php endif; ?>
 
   <?php if ($rows): ?>
     <div class="view-content">
