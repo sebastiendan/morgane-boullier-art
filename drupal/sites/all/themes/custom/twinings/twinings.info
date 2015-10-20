@@ -32,6 +32,7 @@ stylesheets[all][] = css/components/nodes/node--product/node--product--teaser.cs
 stylesheets[all][] = css/components/nodes/node--product/node--product--full.css
 stylesheets[all][] = css/components/nodes/node--home-page/node--home-page.css
 stylesheets[all][] = css/components/entities/information-board/entity--information-board.css
+stylesheets[all][] = css/components/entities/information-boards-group/entity--information-boards-group.css
 stylesheets[all][] = css/pages/la-decouverte.css
 stylesheets[all][] = css/pages/the-comme-twinings.css
 

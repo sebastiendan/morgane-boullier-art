@@ -38,4 +38,14 @@ Main.prototype.init = function() {
     var productView = new ProductView();
     productView.init('.node--product.node--full');
   }
+
+  //Confection todo
+  if (jQuery('body.page-node-8').length > 0) {
+    jQuery('#banner-wrapper').after('<div id="todo-wrapper"><img id="todo" src="/sites/all/themes/custom/twinings/images/confection.png"/></div>');
+  }
+
+  //Histoire todo
+  if (jQuery('body.page-node-10').length > 0) {
+    jQuery('#banner-wrapper').after('<div id="todo-wrapper"><img id="todo" src="/sites/all/themes/custom/twinings/images/histoire.png"/></div>');
+  }
 };

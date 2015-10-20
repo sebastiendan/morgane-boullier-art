@@ -176,6 +176,11 @@ function main_preprocess_entity(&$variables) {
     $variables['page'] = TRUE;
     $variables['display_submitted'] = FALSE;
   }
+
+  if ($variables['entity_type'] == 'information_boards_group') {
+    $variables['page'] = TRUE;
+    $variables['display_submitted'] = FALSE;
+  }
 }
 
 /**
@@ -225,7 +230,17 @@ function main_entity_view($entity, $type, $view_mode, $langcode) {
  * @param $context
  */
 function main_inline_entity_form_table_fields_alter(&$fields, $context) {
-  if ($context['parent_bundle'] == 'content_page' && $context['entity_type'] == 'information_board') {
+  if ($context['parent_bundle'] == 'content_page' && $context['entity_type'] == 'information_boards_group') {
+    unset($fields['id']);
+
+    $fields['title_field'] = array(
+      'type' => 'field',
+      'label' => t('Title'),
+      'weight' => 2
+    );
+  }
+
+  if ($context['parent_bundle'] == 'information_boards_group' && $context['entity_type'] == 'information_board') {
     unset($fields['id']);
 
     $fields['field_picto'] = array(

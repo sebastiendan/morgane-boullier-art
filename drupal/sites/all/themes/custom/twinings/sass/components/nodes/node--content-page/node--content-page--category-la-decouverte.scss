@@ -20,12 +20,30 @@
   .field--name-field-information-boards {
     .entity-information-board {
       .form-wrapper.collapsible {
+
         > .fieldset-wrapper {
-          background-image: url(../../../../images/ricepaper_light_green.png);
+          background-image: url(../../../../images/la-decouverte/feuille_encart_texte.svg), url(../../../../images/la-decouverte/feuille_encart_texte.svg), url(../../../../images/la-decouverte/feuille_encart_texte.svg), url(../../../../images/la-decouverte/feuille_encart_texte.svg), url(../../../../images/ricepaper_light_green.png);
+          background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, repeat;
+          background-position: right 25px top 20px, left 40px top 80px, 72% 1px, 72% 1px, center;
+          background-size: 68px, 33px, 68px, 68px, 485px 485px;
 
           &:after {
             background-image: url(../../../../images/triangle_light_green.png);
           }
+
+//          &:before {
+//            content: '';
+//            position: absolute;
+//            bottom: 0;
+//            left: 50%;
+//            z-index: 1;
+//            width: 70px;
+//            height: 70px;
+//            background-image: url(../../../../images/la-decouverte/feuille_verte.svg);
+//            background-repeat: no-repeat;
+//            background-position: 72% 1px;
+//            background-size: 70px;
+//          }
         }
       }
     }
