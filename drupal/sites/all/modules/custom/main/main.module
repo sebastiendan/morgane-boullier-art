@@ -183,13 +183,12 @@ function main_form_alter(&$form, &$form_state, $form_id) {
  */
 function main_preprocess_views_view(&$vars) {
   global $language;
-  $language->language = 'fr';
 
   $view = $vars['view'];
-  if ($view->name == 'products') {
+  if ($view->name == 'products' && isset($view->exposed_raw_input['field_category_tid'])) {
     $tid = $view->exposed_raw_input['field_category_tid'];
     $term = taxonomy_term_load($tid);
-    $label = $term->field_product_page_label[$language->language][0]['value'];
+    $label = $term->field_products_page_label[$language->language][0]['value'];
 
     $vars['product_category_label'] = $label;
   }
