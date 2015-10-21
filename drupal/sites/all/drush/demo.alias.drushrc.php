@@ -7,20 +7,7 @@ $options = array(
   'remote-host' => '10.200.33.9',
   'remote-user' => 'root',
   'path-aliases' => array(
-    '%files' => 'shared/default/files'
-  ),
-  'databases' => array(
-    'default' => array(
-      'default' => array(
-        'database' => 'twinings',
-        'username' => 'twinings',
-        'password' => 'BRNjGVeoIQE3YEA1',
-        'host' => 'demo.lumini.fr',
-        'port' => '',
-        'driver' => 'mysql',
-        'prefix' => '',
-      ),
-    ),
+    '%files' => 'sites/default/files'
   ),
 );
 
