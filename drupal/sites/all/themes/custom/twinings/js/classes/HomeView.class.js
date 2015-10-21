@@ -18,6 +18,7 @@ HomeView.prototype.init = function (tag, parent) {
   this.id = this.$tag.find('.video-js').attr('id');
 
   this.player = videojs(this.id);
+  console.log(this.player);
   this.player.ready(jQuery.proxy(this.onPlayerReady, this));
 };
 

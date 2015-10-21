@@ -99,13 +99,15 @@
     height: 223px;
     z-index: 1;
     background: url(../../images/ricepaper_pink.png);
-    @include transition(transform .4s ease-out);
+    @include transition(top .4s ease-out);
     @include box-shadow(0px 0px 10px 0px black);
-    @include transform(translateY(-100%));
+//    @include transform(translateY(-100%));
+    top: -223px;
 //    @include animation(swipeDownBack .4s ease-out 1 alternate forwards);
 
     &.open {
-      @include transform(translateY(0));
+//      @include transform(translateY(0));
+      top: 0;
 //      @include animation(swipeDown .4s ease-out 1 alternate forwards);
     }
 
