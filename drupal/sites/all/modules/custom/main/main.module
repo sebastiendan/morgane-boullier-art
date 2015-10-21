@@ -6,7 +6,6 @@
 function main_init() {
   drupal_add_js('http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js', 'external');
   drupal_add_js('http://cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js', 'external');
-  drupal_add_js('http://vjs.zencdn.net/5.0/video.min.js', 'external');
 }
 
 /**
@@ -59,7 +58,7 @@ function main_block_view($delta) {
       $block['content'] = theme('social');
       break;
     case 'home_scroll_banner':
-      $block['content'] = theme('home_scroll_banner');
+      $block['content'] = theme('home_scroll_banner', array('url' => drupal_get_path_alias('node/5')));
       break;
     case 'footer_legals':
       $block['content'] = theme('footer_legals');
@@ -96,6 +95,7 @@ function main_theme($existing, $type, $theme, $path) {
     'home_scroll_banner' => array(
       'path' => drupal_get_path('module', 'main') . '/templates',
       'template' => 'home_scroll_banner',
+      'url' => '',
     ),
     'content_link_button' => array(
       'path' => drupal_get_path('module', 'main') . '/templates',
@@ -104,6 +104,12 @@ function main_theme($existing, $type, $theme, $path) {
     'footer_legals' => array(
       'path' => drupal_get_path('module', 'main') . '/templates',
       'template' => 'footer_legals',
+    ),
+    'bullet_popup' => array(
+      'path' => drupal_get_path('module', 'main') . '/templates',
+      'template' => 'bullet_popup',
+      'text_position' => '',
+      'text' => '',
     ),
   );
 }
@@ -120,6 +126,8 @@ function main_node_view($node, $view_mode, $langcode) {
       if (!empty($node->field_home_video)) {
         $node->content['field_headline']['#suffix'] = theme('video_play_button');
       }
+
+      $node->content['bullet_popups'][] = theme('bullet_popup');
       break;
     case 'content_page':
       if ($view_mode == 'full') {
@@ -280,6 +288,16 @@ function main_entity_view($entity, $type, $view_mode, $langcode) {
  */
 function main_inline_entity_form_table_fields_alter(&$fields, $context) {
   if ($context['parent_bundle'] == 'content_page' && $context['entity_type'] == 'information_boards_group') {
+    unset($fields['id']);
+
+    $fields['title_field'] = array(
+      'type' => 'field',
+      'label' => t('Title'),
+      'weight' => 2
+    );
+  }
+
+  if ($context['entity_type'] == 'bullet_popup') {
     unset($fields['id']);
 
     $fields['title_field'] = array(

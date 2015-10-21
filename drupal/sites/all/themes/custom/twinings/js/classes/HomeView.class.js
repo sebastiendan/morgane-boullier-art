@@ -6,8 +6,6 @@ HomeView._extends(AbstractView);
 HomeView.prototype.init = function (tag, parent) {
   HomeView._super.init.call(this, tag, parent);
 
-  this.bind(jQuery(window), 'beforeunload', this.onBeforeUnload);
-
   this.$playButton = this.$tag.find('.video-play-button');
   this.$videoContainer = this.$tag.find('.field--name-field-home-video');
   this.$groupHeadline = this.$tag.find('.group-headline');
@@ -18,7 +16,6 @@ HomeView.prototype.init = function (tag, parent) {
   this.id = this.$tag.find('.video-js').attr('id');
 
   this.player = videojs(this.id);
-  console.log(this.player);
   this.player.ready(jQuery.proxy(this.onPlayerReady, this));
 };
 
@@ -27,6 +24,7 @@ HomeView.prototype.onPlayerReady = function() {
   this.$poster = this.$player.find('.vjs-poster');
   this.initWidth = this.player.width();
   this.initHeight = this.player.height();
+  console.log(this.initWidth, this.initHeight);
 
   this.bind(this.$playButton, 'click', this.onPlayButtonClick);
   this.bind(this.$player.find('video'), 'click', this.onVideoClick);
