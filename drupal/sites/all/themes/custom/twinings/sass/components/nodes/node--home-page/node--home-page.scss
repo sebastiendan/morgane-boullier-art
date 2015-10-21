@@ -75,6 +75,7 @@
       }
     }
     .group-content-links {
+      position: relative;
       height: 1330px;
       background-image: url(../../../../images/background_global_home.png), url(../../../../images/pattern_background.png);
       background-repeat: no-repeat, repeat;
@@ -121,7 +122,36 @@
           }
         }
       }
-    }
 
+      .field--name-field-bullet-popups {
+        > .field__items > .field__item {
+          &:nth-of-type(1) .group-button {
+            right: 30%;
+            top: 650px;
+
+            #bullet-button {
+              right: -80%;
+              top: 50%;
+              @include transform(translateY(-50%));
+            }
+
+            .field--name-field-button-label {
+              position: relative;
+              width: 165px;
+
+              &:after {
+                content: '';
+                position: absolute;
+                top: -35px;
+                right: -28px;
+                width: 87px;
+                height: 38px;
+                background-image: url(../../../../images/bullet/fleche_puce.png);
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }

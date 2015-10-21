@@ -1,0 +1,58 @@
+@import '../../../variables/mixins';
+
+.entity-bullet-popup {
+  position: static;
+
+  .group-button {
+    position: absolute;
+
+    .field--name-field-button-label {
+      font-family: Dancing;
+      font-size: 28px;
+      line-height: 23px;
+    }
+
+    #bullet-button {
+      cursor: pointer;
+      position: absolute;
+      width: 132px;
+      height: 132px;
+      background-image: url(../../../../images/bullet/puce_guillemet.png);
+    }
+  }
+
+  .group-popup {
+    display: none;
+    width: 590px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    @include transform(translateX(-50%) translateY(-50%));
+    background-image: url(../../../../images/motif_popup.png);
+    background-color: #09a99c;
+    padding: 40px;
+
+    #close-button {
+      position: absolute;
+      top: 0px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 45px;
+      color: $lightYellowFont;
+    }
+
+    .field--name-title-field {
+      font-family: Dancing;
+      font-size: 25px;
+      margin-bottom: 30px;
+      color: $lightYellowFont;
+    }
+
+    .field--name-field-text {
+      font-family: Didot;
+      font-size: 13px;
+      line-height: 20px;
+    }
+  }
+}

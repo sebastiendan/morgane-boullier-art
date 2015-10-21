@@ -1,0 +1,1 @@
+<div id="close-button">×</div>

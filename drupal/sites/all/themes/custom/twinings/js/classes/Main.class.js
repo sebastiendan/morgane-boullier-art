@@ -34,6 +34,13 @@ Main.prototype.init = function() {
     });
   }
 
+  if (jQuery('.entity-bullet-popup').length > 0) {
+    jQuery('.entity-bullet-popup').each(function(index, element){
+      var bulletPopupView = new BulletPopupView();
+      bulletPopupView.init(jQuery(element));
+    });
+  }
+
   if (jQuery('.node--product.node--full').length > 0) {
     var productView = new ProductView();
     productView.init('.node--product.node--full');

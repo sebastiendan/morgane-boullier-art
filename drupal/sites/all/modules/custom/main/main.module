@@ -105,11 +105,13 @@ function main_theme($existing, $type, $theme, $path) {
       'path' => drupal_get_path('module', 'main') . '/templates',
       'template' => 'footer_legals',
     ),
-    'bullet_popup' => array(
+    'close_button' => array(
       'path' => drupal_get_path('module', 'main') . '/templates',
-      'template' => 'bullet_popup',
-      'text_position' => '',
-      'text' => '',
+      'template' => 'close_button',
+    ),
+    'bullet_button' => array(
+      'path' => drupal_get_path('module', 'main') . '/templates',
+      'template' => 'bullet_button',
     ),
   );
 }
@@ -126,8 +128,6 @@ function main_node_view($node, $view_mode, $langcode) {
       if (!empty($node->field_home_video)) {
         $node->content['field_headline']['#suffix'] = theme('video_play_button');
       }
-
-      $node->content['bullet_popups'][] = theme('bullet_popup');
       break;
     case 'content_page':
       if ($view_mode == 'full') {
@@ -238,6 +238,11 @@ function main_preprocess_entity(&$variables) {
     $variables['page'] = TRUE;
     $variables['display_submitted'] = FALSE;
   }
+
+  if ($variables['entity_type'] == 'bullet_popup') {
+    $variables['page'] = TRUE;
+    $variables['display_submitted'] = FALSE;
+  }
 }
 
 /**
@@ -278,6 +283,13 @@ function main_entity_view($entity, $type, $view_mode, $langcode) {
   switch($type){
     case 'information_board':
       $entity->content['#groups']['group_content']->label = ' ';
+      break;
+    case 'bullet_popup':
+      $entity->content['close_button']['#markup'] = theme('close_button');
+      $entity->content['#group_children']['close_button'] = 'group_popup';
+      $entity->content['bullet_button']['#markup'] = theme('bullet_button');
+      $entity->content['#group_children']['bullet_button'] = 'group_button';
+      dsm($entity);
       break;
   }
 }

@@ -34,6 +34,7 @@ stylesheets[all][] = css/components/nodes/node--product/node--product--full.css
 stylesheets[all][] = css/components/nodes/node--home-page/node--home-page.css
 stylesheets[all][] = css/components/entities/information-board/entity--information-board.css
 stylesheets[all][] = css/components/entities/information-boards-group/entity--information-boards-group.css
+stylesheets[all][] = css/components/entities/bullet-popup/entity--bullet-popup.css
 stylesheets[all][] = css/pages/la-decouverte.css
 stylesheets[all][] = css/pages/the-comme-twinings.css
 
@@ -47,6 +48,7 @@ scripts[] = js/classes/GroupHeaderInnerView.class.js
 scripts[] = js/classes/GroupContentLinksView.class.js
 scripts[] = js/classes/ScrollButtonView.class.js
 scripts[] = js/classes/TeaTypesView.class.js
+scripts[] = js/classes/BulletPopupView.class.js
 scripts[] = js/classes/HomeView.class.js
 scripts[] = js/classes/ProductView.class.js
 scripts[] = js/classes/Main.class.js
