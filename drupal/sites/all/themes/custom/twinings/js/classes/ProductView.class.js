@@ -7,6 +7,7 @@ ProductView.prototype.init = function (tag, parent) {
   ProductView._super.init.call(this, tag, parent);
 
   this.$header = this.$tag.find('.group-header');
+  this.$title = this.$header.find('.field--name-title-field');
   this.$banner = this.$tag.find('.field--name-field-banner');
   this.$scrollButton = this.$tag.find('button#scroll-down');
   this.themeColour = this.$tag.attr('data-colour');
@@ -25,4 +26,16 @@ ProductView.prototype.init = function (tag, parent) {
   this.$banner.css({'background-size': size});
 
   this.$scrollButton.css({'background-image':this.themePatternSrc});
+
+  this.bind(jQuery(window), 'scroll', this.onStageScroll);
+};
+
+ProductView.prototype.onStageScroll = function() {
+  var titleTop = this.$title[0].getBoundingClientRect().top;
+
+  if (titleTop < 0.8*this.$header.height()) {
+    this.$title.css({'opacity':0});
+  } else {
+    this.$title.css({'opacity':1});
+  }
 };
