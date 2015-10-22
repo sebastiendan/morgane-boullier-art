@@ -186,6 +186,15 @@ function main_node_view($node, $view_mode, $langcode) {
         $node->content['field_banner']['#suffix'] = '</div>';
       }
       break;
+    case 'page':
+      if ($view_mode == 'full') {
+        //Contact
+        if ($node->nid == 15) {
+          $form = drupal_get_form('main_contact_form');
+          $node->content['contact_form']['#markup'] = drupal_render($form);
+        }
+      }
+      break;
   }
 }
 
@@ -289,7 +298,6 @@ function main_entity_view($entity, $type, $view_mode, $langcode) {
       $entity->content['#group_children']['close_button'] = 'group_popup';
       $entity->content['bullet_button']['#markup'] = theme('bullet_button');
       $entity->content['#group_children']['bullet_button'] = 'group_button';
-      dsm($entity);
       break;
   }
 }
@@ -352,4 +360,114 @@ function main_load_nodes($type) {
   }
 
   return $items;
+}
+
+function main_contact_form($form, $form_state) {
+
+  $form['top_block'] = array(
+    '#type' => 'container',
+  );
+
+  $form['top_block']['last_name'] = array(
+    '#type' => 'textfield',
+    '#required' => TRUE,
+    '#attributes' => array('placeholder' => t('Last name') . '*'),
+  );
+
+  $form['top_block']['first_name'] = array(
+    '#type' => 'textfield',
+    '#required' => TRUE,
+    '#attributes' => array('placeholder' => t('First name') . '*'),
+  );
+
+  $form['top_block']['email'] = array(
+    '#type' => 'textfield',
+    '#required' => TRUE,
+    '#attributes' => array('placeholder' => t('Email') . '*'),
+  );
+
+  $form['top_block']['phone'] = array(
+    '#type' => 'textfield',
+    '#required' => TRUE,
+    '#attributes' => array('placeholder' => t('Phone') . '*'),
+  );
+
+  $form['top_block']['address'] = array(
+    '#type' => 'textfield',
+    '#attributes' => array('placeholder' => t('Address')),
+  );
+
+  $form['top_block']['city'] = array(
+    '#type' => 'textfield',
+    '#attributes' => array('placeholder' => t('City')),
+  );
+
+  $form['top_block']['post_code'] = array(
+    '#type' => 'textfield',
+    '#required' => TRUE,
+    '#attributes' => array('placeholder' => t('Post code') . '*'),
+  );
+
+  $form['top_block']['birthday'] = array(
+    '#type' => 'date_popup',
+    '#date_format' => 'd/m/Y',
+    '#attributes' => array('placeholder' => t('Birthday')),
+  );
+
+  $form['top_block']['message'] = array(
+    '#type' => 'textarea',
+    '#required' => TRUE,
+    '#attributes' => array('placeholder' => t('Message') . '*'),
+  );
+
+  $form['top_block']['captcha'] = array(
+    '#type' => 'captcha',
+    '#captcha_type' => 'recaptcha/reCAPTCHA',
+  );
+
+  $form['bottom_block'] = array(
+    '#type' => 'container',
+  );
+
+  $form['bottom_block']['actions'] = array(
+    '#type' => 'container',
+  );
+
+  $form['bottom_block']['actions']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Send'),
+  );
+
+  $form['#submit'][] = 'main_contact_form_submit';
+
+  return $form;
+}
+
+function main_contact_form_submit($form, $form_state) {
+  drupal_set_message(t('Your message has been taken into account. We will get back to you via email shortly.'));
+//  $mail_to = variable_get('site_mail', '');
+  $mail_to = 'sebastien@lumini.fr';
+  drupal_mail(
+    'main',
+    'contact',
+    $mail_to,
+    language_default(),
+    array(
+      'values' => $form_state['values'],
+    )
+  );
+}
+
+function main_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'contact':
+      $message['subject'] = variable_get('site_name') . ' : ' . t('Contact message');
+      $message['body'][] = t('@first_name @last_name (@email) sent a message: ', array(
+        '@first_name' => $params['values']['first_name'],
+        '@last_name' => $params['values']['last_name'],
+        '@email' => $params['values']['email']
+      ));
+      $message['body'][] = $params['values']['message'];
+      break;
+  }
 }

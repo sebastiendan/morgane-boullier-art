@@ -1,0 +1,82 @@
+@import '../../variables/mixins';
+
+form {
+  text-align: left;
+
+  .form-item {
+    input[type=text], textarea {
+      width: 100% !important;
+      height: 100%;
+      -webkit-appearance: none;
+      background: none;
+      border: 1px solid white;
+      color: white;
+      font-family: Didot;
+      font-size: 14px;
+      box-sizing: border-box;
+      padding-left: 15px;
+      outline: none;
+
+    }
+
+    textarea {
+      padding-top: 5px;
+    }
+
+    .grippie {
+      display: none;
+    }
+  }
+
+  .form-type-date-popup {
+    label, .description {
+      display: none;
+    }
+
+    .date-padding {
+      padding: 0;
+      float: none;
+    }
+  }
+
+  input[type=submit] {
+    cursor: pointer;
+    position: relative;
+    -webkit-appearance: none;
+    background: none;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 12px 25px;
+    margin-top: 8px;
+    font-family: Didot;
+    font-size: 14px;
+    outline: none;
+  }
+
+  .form-item.form-type-checkbox {
+    input {
+      display: none;
+    }
+
+    label {
+      position: relative;
+      display: inline-block;
+      width: 90%;
+      color: black;
+      font-family: Didot;
+      font-size: 14px;
+      line-height: 18px;
+      padding-left: 20px;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 1px;
+        left: -11px;
+        width: 11px;
+        height: 11px;
+        border: 1px solid black;
+      }
+    }
+  }
+}
