@@ -52,6 +52,7 @@ scripts[] = js/classes/GroupHeaderInnerView.class.js
 scripts[] = js/classes/GroupContentLinksView.class.js
 scripts[] = js/classes/ScrollButtonView.class.js
 scripts[] = js/classes/TeaTypesView.class.js
+scripts[] = js/classes/MapCountriesView.class.js
 scripts[] = js/classes/BulletPopupView.class.js
 scripts[] = js/classes/HomeView.class.js
 scripts[] = js/classes/ProductView.class.js

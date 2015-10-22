@@ -51,14 +51,14 @@ Main.prototype.init = function() {
     teaTypesView.init('#tea-types-wrapper');
   }
 
+  if (jQuery('#map-countries-wrapper').length > 0) {
+    var mapCountriesView = new MapCountriesView();
+    mapCountriesView.init('#map-countries-wrapper');
+  }
+
   //Confection todo
   if (jQuery('body.page-node-8').length > 0) {
     jQuery('#banner-wrapper').after('<div id="todo-wrapper"><img id="todo" src="/sites/all/themes/custom/twinings/images/confection.png"/></div>');
-  }
-
-  //The dans le mmonde todo
-  if (jQuery('body.page-node-7').length > 0) {
-    jQuery('#banner-wrapper').after('<div id="todo-wrapper"><img id="todo" src="/sites/all/themes/custom/twinings/images/map.png"/></div>');
   }
 
   //Histoire todo

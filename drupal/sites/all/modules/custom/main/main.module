@@ -123,6 +123,8 @@ function main_theme($existing, $type, $theme, $path) {
  * Implements hook_node_view().
  */
 function main_node_view($node, $view_mode, $langcode) {
+  global $language;
+
   switch($node->type) {
     case 'home_page':
       if (!empty($node->field_home_video)) {
@@ -145,6 +147,22 @@ function main_node_view($node, $view_mode, $langcode) {
           $node->content['tea_types'] = array(
             '#markup' => $markup,
             '#prefix' => '<div id="tea-types-wrapper"><div id="section-title">' . t('Main tea types') . '</div><div id="tea-types">',
+            '#suffix' => '</div></div>',
+            '#weight' => 2,
+          );
+        }
+
+        // Thé dans le monde (carte)
+        if ($node->nid == 7) {
+          $nodes = main_load_nodes('map_country');
+          $markup = '';
+          foreach($nodes as $element) {
+            $item = node_view($element);
+            $markup .= render($item);
+          }
+          $node->content['map_countries'] = array(
+            '#markup' => $markup,
+            '#prefix' => '<div id="map-countries-wrapper"><div id="section-title">' . t('Twinings around the world') . '</div><div id="map-countries">',
             '#suffix' => '</div></div>',
             '#weight' => 2,
           );
@@ -195,6 +213,11 @@ function main_node_view($node, $view_mode, $langcode) {
         }
       }
       break;
+    case 'map_country':
+      if ($view_mode == 'full') {
+        $node->content['popup-title']['#markup'] = '<div id="popup-title">' . $node->title_field[$language->language][0]['value'] . '</div>';
+        $node->content['#group_children']['popup-title'] = 'group_map_popup';
+      }
   }
 }
 
@@ -228,6 +251,10 @@ function main_preprocess_node(&$variables) {
       }
       break;
     case 'tea_type':
+      $variables['page'] = TRUE;
+      $variables['display_submitted'] = FALSE;
+      break;
+    case 'map_country':
       $variables['page'] = TRUE;
       $variables['display_submitted'] = FALSE;
       break;
