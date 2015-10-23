@@ -45,6 +45,7 @@ stylesheets[all][] = css/pages/la-decouverte.css
 stylesheets[all][] = css/pages/the-comme-twinings.css
 stylesheets[all][] = css/pages/confection.css
 stylesheets[all][] = css/pages/contact.css
+stylesheets[all][] = css/pages/nous-trouver.css
 
 ; ========================================
 ; Scripts
