@@ -6,6 +6,7 @@ ContentLinkView._extends(AbstractView);
 ContentLinkView.prototype.init = function (tag, parent) {
   ContentLinkView._super.init.call(this, tag, parent);
 
+  this.$button = this.$tag.find('#button');
   this.factor = 0;
   this.mask = new Image();
   this.mask.src = '/sites/all/themes/custom/twinings/images/content_link_shape.png';
@@ -19,6 +20,7 @@ ContentLinkView.prototype.init = function (tag, parent) {
 
   this.bind(this.$tag, 'mouseover', this.onMouseOver);
   this.bind(this.$tag, 'mouseout', this.onMouseOut);
+  this.bind(this.$button, 'click', this.onButtonClick);
 };
 
 ContentLinkView.prototype.onMaskLoaded = function () {
@@ -115,4 +117,9 @@ ContentLinkView.prototype.onCanvasUpdate = function () {
   this.ctx.drawImage(this.photoCanvas, -width / 2, -height / 2, width, height);
   this.ctx.translate(-x, -y);
   this.ctx.globalCompositeOperation = 'source-over';
+};
+
+ContentLinkView.prototype.onButtonClick = function() {
+  var url = this.$tag.find('ul.links a').attr('href');
+  window.location.href = url;
 };
