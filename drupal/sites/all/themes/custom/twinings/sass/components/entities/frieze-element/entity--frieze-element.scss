@@ -1,0 +1,43 @@
+@import '../../../variables/mixins';
+
+.entity-frieze-element {
+  position: relative;
+  overflow: hidden;
+
+  .group-text {
+    width: 47%;
+
+    .field--name-title-field {
+      font-family: Didot;
+      font-size: 50px;
+      color: $lightYellowFont;
+    }
+
+    .field--name-field-subtitle {
+      font-family: Dancing;
+      font-size: 25px;
+      color: $lightYellowFont;
+      margin-bottom: 20px;
+    }
+
+    .field--name-field-text-element {
+      font-family: Didot;
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+
+  &.text-on-the-left {
+    .group-text {
+      float: left;
+      text-align: right;
+    }
+  }
+
+  &.text-on-the-right {
+    .group-text {
+      float: right;
+      text-align: left;
+    }
+  }
+}

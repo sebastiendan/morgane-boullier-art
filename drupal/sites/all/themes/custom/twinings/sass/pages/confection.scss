@@ -1,0 +1,90 @@
+@import '../variables/mixins';
+
+.page-node-8 {
+  .field--name-field-frieze-elements {
+    > .field__items {
+      > .field__item:nth-of-type(1) {
+        background-image: url(../../images/confection/fleur.svg), url(../../images/confection/fleur2.svg);
+        background-repeat: no-repeat;
+        background-position: right 42% top 40px, right 43% top 110px;
+        background-size: 60px, 30px;
+      }
+
+      > .field__item:nth-of-type(2) {
+        background-image: url(../../images/confection/baies.svg), url(../../images/confection/tasse.svg);
+        background-repeat: no-repeat;
+        background-position: left 37% top 60px, left 38% bottom 20px;
+        background-size: 140px, 120px;
+      }
+
+      > .field__item:nth-of-type(3) {
+        background-image: url(../../images/confection/feuilles_vertes.svg);
+        background-repeat: no-repeat;
+        background-position: right 43% top 40px;
+        background-size: 60px;
+      }
+
+      > .field__item:nth-of-type(4) {
+        background-image: url(../../images/confection/theiere.svg);
+        background-repeat: no-repeat;
+        background-position: left 40% bottom 10px;
+        background-size: 100px;
+      }
+    }
+
+    .field__item:nth-of-type(2) {
+      .field--name-field-text-element {
+        margin-top: 60px;
+        .field__item {
+          position: relative;
+          display: inline-block;
+          vertical-align: top;
+          width: 40%;
+          min-height: 250px;
+          padding: 10px 10px;
+          text-align: center;
+          color: black;
+          font-family: Didot;
+          font-size: 14px;
+          background-image: url(../../images/motif_popup_orange.png);
+          background-color: #d2802f;
+          margin-right: 20px;
+          box-sizing: border-box;
+
+          &:nth-of-type(1):after {
+            content: '';
+            position: absolute;
+            top: -48px;
+            left: 50%;
+            width: 96px;
+            height: 96px;
+            @include transform(translateX(-50%));
+            background-image: url(../../images/confection/methode1.png);
+            background-repeat: no-repeat;
+          }
+
+          &:nth-of-type(2):after {
+            content: '';
+            position: absolute;
+            top: -48px;
+            left: 50%;
+            width: 96px;
+            height: 96px;
+            @include transform(translateX(-50%));
+            background-image: url(../../images/confection/methode2.png);
+            background-repeat: no-repeat;
+          }
+
+          p:first-of-type {
+            text-transform: uppercase;
+            margin-top: 50px;
+          }
+
+          p:not(:first-of-type) {
+            line-height: 18px;
+          }
+        }
+      }
+    }
+  }
+}
