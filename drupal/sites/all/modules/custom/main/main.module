@@ -194,6 +194,13 @@ function main_node_view($node, $view_mode, $langcode) {
         $node->content['field_banner']['#prefix'] = '<div id="banner-wrapper">' . theme('scroll_down_button');
         $node->content['field_banner']['#suffix'] = '</div>';
       }
+      if ($view_mode == 'teaser') {
+        $node->content['button'] = array(
+          '#markup' => theme('content_link_button'),
+          '#weight' => 10,
+        );
+        $node->content['links']['node']['#links']['node-readmore']['title'] = '';
+      }
       break;
     case 'product':
       if ($view_mode == 'teaser') {
@@ -249,6 +256,10 @@ function main_preprocess_node(&$variables) {
         $term = taxonomy_term_load($variables['field_intensity'][0]['tid']);
         $variables['classes_array'][] = strtolower($term->name_field['en'][0]['value']) . '-intensity';
       }
+      break;
+    case 'products_page':
+      $variables['page'] = TRUE;
+      $variables['display_submitted'] = FALSE;
       break;
     case 'tea_type':
       $variables['page'] = TRUE;
@@ -510,5 +521,14 @@ function main_mail($key, &$message, $params) {
       ));
       $message['body'][] = $params['values']['message'];
       break;
+  }
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function main_preprocess_page(&$variables) {
+  if ($variables['node']->nid == 3) {
+    drupal_goto('/node/16');
   }
 }

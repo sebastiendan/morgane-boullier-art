@@ -27,8 +27,8 @@ Main.prototype.init = function() {
     groupContentLinksView.init('.group-content-links');
   }
 
-  if (jQuery('.node--content-page.node-teaser').length > 0) {
-    jQuery('.node--content-page.node-teaser').each(function(index, element){
+  if (jQuery('.node--content-page.node-teaser').length > 0 || jQuery('.node--products-page.node-teaser').length > 0) {
+    jQuery('.node--content-page.node-teaser, .node--products-page.node-teaser').each(function(index, element){
       var contentLinkView = new ContentLinkView();
       contentLinkView.init(element);
     });
