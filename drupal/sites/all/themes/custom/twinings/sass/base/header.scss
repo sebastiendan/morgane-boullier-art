@@ -101,19 +101,19 @@
     background: url(../../images/ricepaper_pink.png);
     @include transition(top .4s ease-out);
     @include box-shadow(0px 0px 10px 0px black);
-//    @include transform(translateY(-100%));
     top: -223px;
-//    @include animation(swipeDownBack .4s ease-out 1 alternate forwards);
 
     &.open {
-//      @include transform(translateY(0));
       top: 0;
-//      @include animation(swipeDown .4s ease-out 1 alternate forwards);
     }
 
     > ul.menu {
       width: 960px;
       margin: auto;
+      background-image: url(../../images/menu/feuille.svg), url(../../images/menu/feuille2.svg), url(../../images/menu/table.svg), url(../../images/menu/tasse.svg), url(../../images/menu/theiere.svg);
+      background-repeat: no-repeat;
+      background-size: 113px, 77px, 116px, 111px, 182px;
+      background-position: left 0px top -38px, left 150px bottom 45px, right 75px bottom 62px, left 360px bottom 50px, right 200px top -12px;
 
       li {
         list-style-type: none;
