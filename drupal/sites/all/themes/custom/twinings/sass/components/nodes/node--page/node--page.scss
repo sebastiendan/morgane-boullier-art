@@ -2,6 +2,37 @@
 
 .node--page  {
   .node__content {
+    .field--name-title-field {
+      position: relative;
+      display: inline-block;
+      padding: 15px 50px;
+      margin-top: 70px;
+      margin-bottom: 20px;
+      font-family: Dancing;
+      font-size: 26px;
+      color: $yellowFont;
+
+      &:before, &:after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        width: 100%;
+        height: 1px;
+        background-image: url(../../../../images/filet.png);
+        background-repeat: no-repeat;
+        background-position: center;
+        @include transform(translateX(-50%));
+      }
+
+      &:before {
+        top: 0;
+      }
+
+      &:after {
+        bottom: 0;
+      }
+    }
+
     .field--name-body {
       width: 960px;
       margin: 40px auto;
