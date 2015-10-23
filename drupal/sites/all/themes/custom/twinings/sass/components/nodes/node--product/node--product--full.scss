@@ -48,6 +48,10 @@
   .group-information {
     position: relative;
     padding-bottom: 50px;
+    background-image: url(../../../../images/feuilles_filigrane_left.svg), url(../../../../images/feuilles_filigrane_right.svg);
+    background-repeat: repeat-y, repeat-y;
+    background-position: left 10px top 550px, right 10px top 150px;
+    background-size: 200px, 200px;
 
     &:after {
       content: '';

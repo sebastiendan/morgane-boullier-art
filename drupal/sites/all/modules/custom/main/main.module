@@ -156,6 +156,7 @@ function main_node_view($node, $view_mode, $langcode) {
             '#suffix' => '</div></div>',
             '#weight' => 2,
           );
+          $node->content['#group_children']['tea_types'] = 'group_specific_content';
         }
 
         // Thé dans le monde (carte)

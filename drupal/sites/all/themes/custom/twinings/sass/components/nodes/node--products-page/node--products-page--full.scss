@@ -128,7 +128,11 @@
   }
 
   .field--name-field-products {
-    margin-bottom: 100px;
+    padding-bottom: 100px;
+    background-image: url(../../../../images/feuilles_filigrane_left.svg), url(../../../../images/feuilles_filigrane_right.svg);
+    background-repeat: repeat-y, repeat-y;
+    background-position: left 10px top 550px, right 10px top 150px;
+    background-size: 200px, 200px;
 
     .view {
       text-align: center;

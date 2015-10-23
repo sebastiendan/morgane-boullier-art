@@ -2,9 +2,10 @@
 
 .page-node-2 {
   .group-content-links {
-    background-image: url(../../images/background_global.png), url(../../images/pattern_background.png);
-    background-repeat: no-repeat, repeat;
-    background-position: center bottom;
+    background-image: url(../../images/background_global.png), url(../../images/feuilles_filigrane_left.svg), url(../../images/feuilles_filigrane_right.svg), url(../../images/pattern_background.png);
+    background-repeat: no-repeat, repeat-y, repeat-y, repeat;
+    background-position: center bottom, left 10px top 550px, right 10px top 150px, center bottom;
+    background-size: 805px 1057px, 200px, 200px, 520px 520px;
 
     .field--name-field-content-links {
       .field__item:nth-of-type(1) .node {

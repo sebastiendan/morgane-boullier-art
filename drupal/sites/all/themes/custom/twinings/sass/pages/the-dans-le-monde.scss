@@ -1,0 +1,10 @@
+@import '../variables/mixins';
+
+.page-node-7 {
+  .node__content {
+    background-image: url(../../images/feuilles_filigrane_left.svg), url(../../images/feuilles_filigrane_right.svg);
+    background-repeat: repeat-y, repeat-y;
+    background-position: left 10px top 550px, right 10px top 150px;
+    background-size: 200px, 200px;
+  }
+}
