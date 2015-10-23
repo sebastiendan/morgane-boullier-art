@@ -24,16 +24,30 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 100%;
+      display: inline-block;
       text-align: center;
-      overflow: hidden;
       @include transform(translateX(-50%) translateY(-50%));
+
+      &:before {
+        content: '';
+        width: 150%;
+        height: 300%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include transform(translateX(-50%) translateY(-50%));
+        background-image: url(../../../../images/nos-trouvailles/feuilles_titre.svg), url(../../../../images/nos-trouvailles/oiseau_titre.svg), url(../../../../images/nos-trouvailles/fleur_titre.svg);
+        background-repeat: no-repeat;
+        background-size: 47px, 50px, 49px;
+        background-position: left 11% bottom 31%, left 14% top 29%, right 13% top 32%;
+      }
 
       .group-title-inner {
         position: relative;
         display: inline-block;
-        @include box-shadow2(0px 0px 23px 12px rgba(0, 0, 0, 0.5), 0px 0px 25px 41px rgba(0, 0, 0, 0.5) inset);
-        padding: 15px 10px;
+        background-image: url(../../../../images/shadow_title.png);
+        background-size: 100%;
+        padding: 15px 30px;
 
         &:before, &:after {
           content: '';
@@ -45,6 +59,7 @@
           background-image: url(../../../../images/filet.png);
           background-repeat: no-repeat;
           background-position: center;
+          background-size: 100%;
           @include transform(translateX(-50%));
         }
 

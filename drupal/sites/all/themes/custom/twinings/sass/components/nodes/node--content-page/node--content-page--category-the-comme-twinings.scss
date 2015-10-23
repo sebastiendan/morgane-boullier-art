@@ -17,6 +17,22 @@
     background-image: url(../../../../images/ricepaper_turquoise.png);
   }
 
+  .group-title {
+    &:before {
+      content: '';
+      width: 150%;
+      height: 300%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      @include transform(translateX(-50%) translateY(-50%));
+      background-image: url(../../../../images/the-comme-twinings/feuilles_titre.svg), url(../../../../images/the-comme-twinings/fleurs_titre.svg), url(../../../../images/the-comme-twinings/theiere_titre.svg);
+      background-repeat: no-repeat;
+      background-size: 82px, 59px, 70px;
+      background-position: right 4% bottom 31%, left 8% top 34%, right 5% top 27%;
+    }
+  }
+
   .field--name-field-information-boards {
     .entity-information-board {
       .form-wrapper.collapsible {
