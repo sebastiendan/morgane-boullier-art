@@ -24,7 +24,6 @@ HomeView.prototype.onPlayerReady = function() {
   this.$poster = this.$player.find('.vjs-poster');
   this.initWidth = this.player.width();
   this.initHeight = this.player.height();
-  console.log(this.initWidth, this.initHeight);
 
   this.bind(this.$playButton, 'click', this.onPlayButtonClick);
   this.bind(this.$player.find('video'), 'click', this.onVideoClick);

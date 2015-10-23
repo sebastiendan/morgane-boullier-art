@@ -294,7 +294,6 @@ function main_preprocess_entity(&$variables) {
   if ($variables['entity_type'] == 'frieze_element') {
     $variables['page'] = TRUE;
     $variables['display_submitted'] = FALSE;
-    dsm($variables);
     if (isset($variables['elements']['#entity']->field_text_position[LANGUAGE_NONE][0])) {
       $variables['classes_array'][] = 'text-on-the-' . $variables['elements']['#entity']->field_text_position[LANGUAGE_NONE][0]['value'];
     }
