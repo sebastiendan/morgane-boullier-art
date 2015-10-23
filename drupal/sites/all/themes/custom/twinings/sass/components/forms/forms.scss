@@ -51,6 +51,10 @@ form {
     font-family: Didot;
     font-size: 14px;
     outline: none;
+    background-image: url(../../../images/contact/triangle_black_send.svg);
+    background-repeat: no-repeat;
+    background-position: left 10px top 17px;
+    background-size: 8px;
   }
 
   .form-item.form-type-checkbox {
@@ -81,6 +85,6 @@ form {
   }
 
   .g-recaptcha {
-    padding-left: 250px;
+    padding-left: 230px;
   }
 }

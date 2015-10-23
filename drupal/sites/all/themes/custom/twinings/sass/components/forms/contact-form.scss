@@ -3,9 +3,11 @@
 form.main-contact-form {
   #edit-top-block {
     position: relative;
-    left: 25px;
+    left: 45px;
     width: 600px;
-    margin: 50px auto;
+    margin: auto;
+    margin-top: 0;
+    margin-bottom: 50px;
 
     .form-type-textfield, .form-type-date-popup {
       display: inline-block;
@@ -14,13 +16,17 @@ form.main-contact-form {
       height: 30px;
     }
 
+    .form-type-textarea {
+      width: 530px;
+    }
+
     .container-inline-date {
       display: inline-block;
     }
 
     .form-item:nth-of-type(2n+1) {
-      margin-right: 45px;
-      margin-bottom: 25px;
+      margin-right: 25px;
+      margin-bottom: 20px;
     }
   }
 
