@@ -31,6 +31,15 @@
           @include transform(translateX(-50%));
           @include transition(opacity .4s linear);
 
+          &:before {
+            content: '';
+            width: 150%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include transform(translateX(-50%) translateY(-50%));
+          }
+
           .field--name-title-field {
             font-size: 45px;
             font-family: Dancing;
