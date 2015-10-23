@@ -28,6 +28,7 @@
     &:after {
       content: '';
       position: absolute;
+      z-index: -1;
       top: 15px;
       right: 15px;
       width: 24px;
@@ -52,10 +53,6 @@
 
       span {
         background: none !important;
-
-        a {
-
-        }
       }
     }
 
