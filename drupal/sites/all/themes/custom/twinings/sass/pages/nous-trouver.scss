@@ -2,23 +2,58 @@
 
 .page-node-16 {
   .node__content {
-//    position: relative;
+    position: relative;
     text-align: center;
 //    background-image: url(../../images/contact/feuille_jaune.svg), url(../../images/contact/feuille_jaune2.svg), url(../../images/contact/fleur.svg), url(../../images/contact/fleur2.svg), url(../../images/contact/libellule.svg), url(../../images/contact/oiseau.svg), url(../../images/contact/papillon.svg), url(../../images/contact/petales.svg);
 //    background-repeat: no-repeat;
 //    background-size: 114px, 84px, 31px, 72px, 71px, 112px, 66px, 84px;
 //    background-position: left 0px top 100px, left 5px top 80px, right 0px top 50px, right 5px top 70px, left 20px top 20px, right 50px top 500px, top 10px right 10px, right 10px top 100px;
 
-//    &:after {
-//      content:'';
-//      width: 820px;
-//      height: 517px;
-//      position: absolute;
-//      left: 50%;
-//      top: 110px;
-//      @include transform(translateX(-50%));
-//      background-image: url(../../images/contact/illustrations_contact.png);
-//      background-repeat: no-repeat;
-//    }
+    &:before {
+      content:'';
+      width: 820px;
+      height: 517px;
+      position: absolute;
+      left: 50%;
+      top: 110px;
+      @include transform(translateX(-50%));
+      background-image: url(../../images/contact/illustrations_contact.png);
+      background-repeat: no-repeat;
+    }
+
+    #link-wrapper {
+      position: relative;
+      width: 100%;
+      background-image: url(../../images/ricepaper_yellow.png);
+
+      a {
+        display: inline-block;
+        text-decoration: none;
+        padding: 10px 30px;
+        margin: 40px 0;
+        border: 1px solid black;
+        border-radius: 10px;
+
+        span {
+          position: relative;
+          color: black;
+          font-size: 15px;
+          font-family: Didot;
+
+          &:before {
+            content:'';
+            position: absolute;
+            top: 50%;
+            left: -15px;
+            width: 0;
+            height: 0;
+            border-top: 5px solid transparent;
+            border-bottom: 5px solid transparent;
+            border-left: 8px solid black;
+            @include transform(translateY(-50%));
+          }
+        }
+      }
+    }
   }
 }

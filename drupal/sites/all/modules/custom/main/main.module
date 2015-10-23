@@ -46,6 +46,7 @@ function main_block_info() {
  * Implements hook_block_view().
  */
 function main_block_view($delta) {
+  global $language;
   $block = array();
   switch ($delta) {
     case 'main_menu_button':
@@ -58,7 +59,7 @@ function main_block_view($delta) {
       $block['content'] = theme('social');
       break;
     case 'home_scroll_banner':
-      $block['content'] = theme('home_scroll_banner', array('url' => drupal_get_path_alias('node/5')));
+      $block['content'] = theme('home_scroll_banner', array('url' => drupal_get_path_alias('node/5', $language->language)));
       break;
     case 'footer_legals':
       $block['content'] = theme('footer_legals');
@@ -112,6 +113,11 @@ function main_theme($existing, $type, $theme, $path) {
     'bullet_button' => array(
       'path' => drupal_get_path('module', 'main') . '/templates',
       'template' => 'bullet_button',
+    ),
+    'contact_link' => array(
+      'path' => drupal_get_path('module', 'main') . '/templates',
+      'template' => 'contact_link',
+      'url' => '',
     ),
   );
 }
@@ -217,6 +223,13 @@ function main_node_view($node, $view_mode, $langcode) {
         if ($node->nid == 15) {
           $form = drupal_get_form('main_contact_form');
           $node->content['contact_form']['#markup'] = drupal_render($form);
+        }
+
+        //Nous trouver
+        if ($node->nid == 16) {
+          $url = drupal_get_path_alias('node/15', $language->language);
+          $node->content['contact_link']['#markup'] = '<div id="link-wrapper">' . theme('contact_link', array('url' => $url)) . '</div>';
+          $node->content['contact_link']['#weight'] = 10;
         }
       }
       break;

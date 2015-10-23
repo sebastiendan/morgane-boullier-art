@@ -28,16 +28,22 @@
           border-left: 1px solid white;
           border-top: 1px solid white;
           border-right: 1px solid white;
+          background-color: rgba(0, 0, 0, 0.3);
           @include transform(translateX(-50%));
           @include transition(opacity .4s linear);
 
           &:before {
             content: '';
             width: 150%;
+            height: 150%;
             position: absolute;
             top: 50%;
             left: 50%;
             @include transform(translateX(-50%) translateY(-50%));
+            background-image: url(../../../../images/home/feuilles_evenmentiel.svg), url(../../../../images/home/papillon_evenementiel.svg), url(../../../../images/home/papillon_evenementiel.svg);
+            background-repeat: no-repeat;
+            background-size: 68px, 55px, 55px;
+            background-position: right 56px bottom 16px, right 45px top 0px, left 39px bottom 10px;
           }
 
           .field--name-title-field {
@@ -78,6 +84,10 @@
 
             &:after {
               right: 0;
+            }
+
+            button {
+              background-color: rgba(0, 0, 0, 0.3);
             }
           }
         }

@@ -32,8 +32,10 @@
       .group-title-inner {
         position: relative;
         display: inline-block;
-        @include box-shadow2(0px 0px 23px 18px rgba(0, 0, 0, 0.5), 0px 0px 25px 52px rgba(0, 0, 0, 0.5) inset);
-        padding: 15px 10px;
+//        @include box-shadow2(0px 0px 23px 18px rgba(0, 0, 0, 0.5), 0px 0px 25px 52px rgba(0, 0, 0, 0.5) inset);
+        background-image: url(../../../../images/shadow_title.png);
+        background-size: 100%;
+        padding: 15px 30px;
 
         &:before, &:after {
           content: '';
