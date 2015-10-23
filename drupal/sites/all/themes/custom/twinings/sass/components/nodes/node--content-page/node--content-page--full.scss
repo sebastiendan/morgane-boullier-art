@@ -60,7 +60,7 @@
         .field--name-title-field {
           font-family: Dancing;
           font-size: 50px;
-          color: $yellowFont;
+          color: $lightYellowFont;
           margin-bottom: 5px;
         }
 
@@ -71,6 +71,30 @@
           color: white;
           text-transform: uppercase;
           text-align: center;
+        }
+      }
+    }
+  }
+
+  &:not(.parent) {
+    .group-header {
+      .group-title {
+        .group-title-inner {
+          .field--name-title-field {
+            font-family: Dancing;
+            font-size: 50px;
+            color: $lightYellowFont;
+            margin-bottom: 5px;
+          }
+
+          .field--name-title-field {
+            font-family: Didot;
+            font-size: 30px;
+            line-height: 35px;
+            color: white;
+            text-transform: uppercase;
+            text-align: center;
+          }
         }
       }
     }

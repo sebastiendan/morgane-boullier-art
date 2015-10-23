@@ -248,6 +248,9 @@ function main_preprocess_node(&$variables) {
       $variables['display_submitted'] = FALSE;
 
       $menu = menu_link_get_preferred(current_path());
+      if ($menu['plid'] == 0) {
+        $variables['classes_array'][] = 'parent';
+      }
       switch($menu['p1']) {
         case 437:
           $variables['classes_array'][] = 'category-la-decouverte';
