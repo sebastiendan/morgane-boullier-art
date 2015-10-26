@@ -175,3 +175,36 @@
     }
   }
 }
+
+@media only screen and (max-width: $tabletBreakpoint) {
+  .node--home-page {
+    > .node__content {
+      .group-header {
+        .group-header-inner {
+          .group-headline {
+            top: 30%;
+            width: 85%;
+            padding-bottom: 45px;
+
+            &:before {
+              width: 135%;
+              height: 125%;
+              background-size: 40px, 38px, 38px;
+              background-position: right 27px bottom 4px, right 32px top 0px, left 32px bottom 0px;
+            }
+
+            .video-play-button-wrapper {
+              &:before, &:after {
+                width: 32vw;
+              }
+            }
+          }
+        }
+      }
+
+      .group-content-links {
+        height: auto;
+      }
+    }
+  }
+}

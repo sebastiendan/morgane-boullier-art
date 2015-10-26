@@ -90,3 +90,9 @@
     margin-right: 0;
   }
 }
+
+@media only screen and (max-width: $tabletBreakpoint) {
+  .node--products-page.node-teaser {
+    position: relative;
+  }
+}

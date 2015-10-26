@@ -62,3 +62,33 @@
     }
   }
 }
+
+@media only screen and (max-width: $tabletBreakpoint) {
+  #block-main-home-scroll-banner {
+    height: auto;
+    text-align: center;
+    background-size: 400px, 485px 485px;
+    background-position: center;
+
+    &:after {
+      left: 0;
+      background-size: 8px;
+    }
+
+    .text {
+      position: static;
+      @include transform(none);
+      padding: 30px 20px;
+      font-size: 7vw;
+    }
+
+    a#discover {
+      position: relative;
+      top: 0;
+      left: 0;
+      @include transform(none);
+      display: inline-block;
+      margin-bottom: 70px;
+    }
+  }
+}

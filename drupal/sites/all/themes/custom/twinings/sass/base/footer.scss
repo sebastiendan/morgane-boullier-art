@@ -69,3 +69,11 @@
     }
   }
 }
+
+@media only screen and (max-width: $tabletBreakpoint) {
+  .l-footer {
+    #block-main-footer-legals {
+      width: 100%;
+    }
+  }
+}

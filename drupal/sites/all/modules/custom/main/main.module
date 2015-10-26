@@ -544,7 +544,7 @@ function main_mail($key, &$message, $params) {
  * Implements hook_preprocess_HOOK().
  */
 function main_preprocess_page(&$variables) {
-  if ($variables['node']->nid == 3) {
+  if (isset($variables['node']) && $variables['node']->nid == 3) {
     drupal_goto('/node/16');
   }
 }

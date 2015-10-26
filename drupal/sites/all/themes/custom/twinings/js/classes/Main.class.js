@@ -2,6 +2,10 @@ function Main() {
 };
 
 Main.prototype.init = function() {
+  if (Main.isMobile()) {
+    jQuery('head').prepend('<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">');
+  }
+
   if (jQuery('.l-region--navigation').length > 0) {
     var navigationView = new NavigationView();
     navigationView.init('.l-region--navigation');
@@ -60,4 +64,8 @@ Main.prototype.init = function() {
   if (jQuery('body.page-node-10').length > 0) {
     jQuery('#banner-wrapper').after('<div id="todo-wrapper"><img id="todo" src="/sites/all/themes/custom/twinings/images/histoire.png"/></div>');
   }
+};
+
+Main.isMobile = function() {
+  return (screen.width <= 640 || jQuery(window).width() <= 640);
 };

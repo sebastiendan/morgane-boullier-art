@@ -36,3 +36,13 @@
     }
   }
 }
+
+@media only screen and (max-width: $tabletBreakpoint) {
+  .group-content-links {
+    height: auto;
+
+    .field--name-field-content-links {
+      width: 100%;
+    }
+  }
+}
