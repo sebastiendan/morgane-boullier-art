@@ -6,7 +6,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 
 gulp.task('sass:prod', function () {
-  gulp.src('./sass/*.scss')
+  gulp.src('./sass/**/*.scss')
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
        browsers: ['last 2 version']
