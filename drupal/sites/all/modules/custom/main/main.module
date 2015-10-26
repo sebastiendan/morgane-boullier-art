@@ -214,8 +214,8 @@ function main_node_view($node, $view_mode, $langcode) {
         $node->content['links']['node']['#links']['node-readmore']['title'] = '';
       }
       if ($view_mode == 'full') {
-        $node->content['field_banner']['#prefix'] = '<div id="banner-wrapper">' . theme('scroll_down_button');
-        $node->content['field_banner']['#suffix'] = '</div>';
+        $node->content['scroll_down_button']['#markup'] = theme('scroll_down_button');
+        $node->content['#group_children']['scroll_down_button'] = 'group_features';
       }
       break;
     case 'page':

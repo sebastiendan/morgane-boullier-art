@@ -6,7 +6,7 @@ ScrollButtonView._extends(AbstractView);
 ScrollButtonView.prototype.init = function (tag, parent) {
   ScrollButtonView._super.init.call(this, tag, parent);
 
-  this.$banner = jQuery('.field--name-field-banner, #block-main-home-scroll-banner');
+  this.$banner = jQuery('.field--name-field-banner, #block-main-home-scroll-banner, .group-features');
   this.bind(this.$tag, 'click', this.onScrollButtonClick);
 };
 
