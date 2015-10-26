@@ -4,6 +4,7 @@
 !/drupal/sites/all
 /drupal/sites/all/*
 
+/npm-debug.log
 !drupal/sites/all/drush
 
 !/drupal/sites/all/modules
