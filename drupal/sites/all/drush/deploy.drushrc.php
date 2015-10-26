@@ -55,3 +55,14 @@ function _updatedb($d) {
 }
 
 $options['before']['deploy-symlink'][] = '_updatedb';
+
+/**
+ * @task
+ */
+function gulp($d) {
+  global $options;
+  drush_log('-- gulp --');
+  $d->run('cd %s/drupal/sites/all/themes/custom/%s && npm install && gulp', $d->latest_release(), $options['application']);
+}
+
+$options['before']['deploy-symlink'][] = 'gulp';
