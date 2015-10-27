@@ -217,7 +217,7 @@ function main_node_view($node, $view_mode, $langcode) {
     case 'products_page':
       if ($view_mode == 'full') {
         $node->content['field_banner']['#prefix'] = '<div id="banner-wrapper">' . theme('scroll_down_button');
-        $node->content['field_banner']['#suffix'] = '</div>';
+        $node->content['field_banner']['#suffix'] = '</div><div id="choose-category">' . t('Choose category') . '</div>';
       }
       if ($view_mode == 'teaser') {
         $node->content['button'] = array(

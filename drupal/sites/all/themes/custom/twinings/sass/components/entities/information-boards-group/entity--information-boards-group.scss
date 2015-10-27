@@ -21,3 +21,22 @@
     margin-top: 20px;
   }
 }
+
+@media only screen and (max-width: $tabletBreakpoint) {
+  .entity-information-boards-group {
+    > .content > .field--name-title-field {
+      .field__item {
+        width: 90%;
+        margin: auto;
+        margin-top: 15px;
+        margin-bottom: 25px;
+      }
+    }
+
+    .field--name-field-text {
+      width: 90%;
+      margin: auto;
+      margin-top: 20px;
+    }
+  }
+}

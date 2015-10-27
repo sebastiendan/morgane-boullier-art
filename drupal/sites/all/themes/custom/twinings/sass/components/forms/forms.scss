@@ -88,3 +88,15 @@ form {
     padding-left: 230px;
   }
 }
+
+@media only screen and (max-width: $tabletBreakpoint) {
+  form {
+    .g-recaptcha {
+      padding-left: 0;
+
+      div {
+        margin: auto;
+      }
+    }
+  }
+}

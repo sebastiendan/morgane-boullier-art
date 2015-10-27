@@ -25,23 +25,6 @@
     position: relative;
     height: auto;
 
-    &:after {
-      content: '';
-      position: absolute;
-      z-index: -1;
-      top: 15px;
-      right: 15px;
-      width: 24px;
-      height: 24px;
-      background-image: url(../../../../images/fleche_deroulante.svg);
-      background-repeat: no-repeat;
-      @include transform(rotate(-90deg));
-    }
-
-    &:not(.collapsed):after {
-      @include transform(rotate(0deg));
-    }
-
     legend, legend span, legend span a {
       display: block;
       width: 100%;
@@ -49,11 +32,29 @@
     }
 
     legend {
+      position: relative;
       padding-left: 20px;
+
+      &:after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        right: 35px;
+        width: 24px;
+        height: 24px;
+        background-image: url(../../../../images/fleche_deroulante.svg);
+        background-repeat: no-repeat;
+        @include transform(rotate(-90deg) translateX(50%));
+      }
 
       span {
         background: none !important;
       }
+    }
+
+    &:not(.collapsed) legend:after {
+      @include transform(rotate(0deg) translateY(-50%));
     }
 
     > .fieldset-wrapper {
@@ -122,6 +123,59 @@
         img {
           max-width: 100%;
         }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $tabletBreakpoint) {
+  .entity-information-board {
+    .field--name-title-field {
+      top: 0;
+      width: 70%;
+      height: 50px;
+
+      .field__item {
+        position: absolute;
+        top: 50%;
+        @include transform(translateY(-50%));
+      }
+
+      .field__item {
+        line-height: 18px;
+      }
+    }
+
+    .form-wrapper.collapsible {
+      > .fieldset-wrapper {
+        padding-bottom: 1px;
+
+        .field--name-field-text {
+          display: block;
+          width: 90%;
+          padding-left: 0;
+          padding-bottom: 25px;
+
+          &:before {
+            content: none !important;
+          }
+        }
+
+        .group-media {
+          display: block;
+          width: 90%;
+          margin-left: 0;
+          margin: auto;
+        }
+      }
+
+      legend, legend span {
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+
+      legend:after {
+        right: 5px;
       }
     }
   }

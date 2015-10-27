@@ -47,3 +47,39 @@ form.main-contact-form {
     }
   }
 }
+
+@media only screen and (max-width: $tabletBreakpoint) {
+  form.main-contact-form {
+    #edit-top-block {
+      width: 100%;
+      left: 0;
+      text-align: center;
+
+      .form-item {
+        margin-right: 0 !important;
+      }
+
+      .container-inline-date {
+        width: 90%;
+      }
+
+      > .form-type-textfield {
+        width: 90%;
+      }
+
+      .form-type-date-popup {
+        width: 100%;
+      }
+
+      .form-item-birthday-date {
+        width: 100%;
+      }
+
+      .form-type-textarea {
+        width: 90%;
+        margin: auto !important;
+        margin-bottom: 20px !important;
+      }
+    }
+  }
+}

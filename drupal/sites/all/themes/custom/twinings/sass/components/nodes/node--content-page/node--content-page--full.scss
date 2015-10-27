@@ -81,13 +81,6 @@
       .group-title {
         .group-title-inner {
           .field--name-title-field {
-            font-family: Dancing;
-            font-size: 50px;
-            color: $lightYellowFont;
-            margin-bottom: 5px;
-          }
-
-          .field--name-title-field {
             font-family: Didot;
             font-size: 30px;
             line-height: 35px;
@@ -139,6 +132,76 @@
       > .field__items {
         width: 960px;
         margin: auto;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $tabletBreakpoint) {
+  .node--content-page.node--full {
+    .group-header {
+      height: 100vw;
+
+      .group-header-inner {
+        .field--name-field-header-image {
+          .field__item {
+            position: relative;
+            height: 100vw;
+
+            img {
+              position: absolute;
+              top: 0;
+              left: 50%;
+              height: 100vw;
+              width: auto;
+              @include transform(translateX(-50%));
+            }
+          }
+        }
+      }
+
+      .group-title {
+        width: 80vw;
+
+        .group-title-inner {
+          .field--name-title-field {
+            font-size: 12vw;
+          }
+
+          .field--name-field-subtitle {
+            font-size: 6vw;
+            line-height: 7vw;
+          }
+        }
+      }
+    }
+
+    &:not(.parent) .group-header .group-title .group-title-inner {
+      .field--name-title-field {
+        font-size: 7vw !important;
+        line-height: 8vw !important;
+      }
+    }
+
+    #banner-wrapper {
+      .field--name-field-banner {
+        padding: 50px 27px;
+
+        &:after {
+          left: 0;
+        }
+
+        .field__item {
+          width: 100%;
+        }
+      }
+    }
+
+    .group-specific-content {
+      .field--name-field-information-boards {
+        > .field__items {
+          width: 90%;
+        }
       }
     }
   }

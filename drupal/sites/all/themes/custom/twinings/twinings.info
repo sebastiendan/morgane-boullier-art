@@ -60,9 +60,12 @@ scripts[] = js/classes/GroupContentLinksView.class.js
 scripts[] = js/classes/ScrollButtonView.class.js
 scripts[] = js/classes/TeaTypesView.class.js
 scripts[] = js/classes/MapCountriesView.class.js
+scripts[] = js/classes/MapCountriesMobileView.class.js
 scripts[] = js/classes/BulletPopupView.class.js
 scripts[] = js/classes/HomeView.class.js
+scripts[] = js/classes/ProductsPageView.class.js
 scripts[] = js/classes/ProductView.class.js
+scripts[] = js/classes/InformationBoardView.class.js
 scripts[] = js/classes/Main.class.js
 scripts[] = js/script.js
 
