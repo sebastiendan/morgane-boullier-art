@@ -102,6 +102,10 @@ projects:
     version: '2.0-rc1'
   recaptcha:
       version: '2.0'
+  s3fs:
+      version: '2.3'
+  s3fs_cors:
+      version: '1.4'
   token:
     version: '1.5'
   title:
