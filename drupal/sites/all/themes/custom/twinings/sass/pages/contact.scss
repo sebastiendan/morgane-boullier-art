@@ -22,3 +22,13 @@
     }
   }
 }
+
+@media only screen and (max-width: $tabletBreakpoint) {
+  .page-node-15 {
+    .node__content {
+      &:before {
+        content: none;
+      }
+    }
+  }
+}

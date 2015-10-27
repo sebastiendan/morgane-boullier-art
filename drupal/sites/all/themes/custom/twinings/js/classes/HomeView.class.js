@@ -52,7 +52,13 @@ HomeView.prototype.onStageResize = function() {
 
 HomeView.prototype.onStageScroll = function() {
   var headlineTop = this.$groupHeadline[0].getBoundingClientRect().top;
-  if (headlineTop !== 0 && headlineTop < jQuery(window).height()/3) {
+  if (Main.isMobile()) {
+    var limit = jQuery(window).height()/5;
+  } else {
+    var limit = jQuery(window).height()/3;
+  }
+
+  if (headlineTop !== 0 && headlineTop < limit) {
     if (this.player.currentTime() > 0 && !this.isVideoEnded) {
       this.player.pause();
       this.groupHeadlineHide();

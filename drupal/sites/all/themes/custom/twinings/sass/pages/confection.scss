@@ -88,3 +88,27 @@
     }
   }
 }
+
+@media only screen and (max-width: $tabletBreakpoint) {
+  .page-node-8 {
+    .field--name-field-frieze-elements {
+      > .field__items {
+        .field__item:nth-of-type(2) {
+          .field--name-field-text-element {
+            .field__item {
+              width: auto;
+              margin-bottom: 14vw;
+
+              &:after {
+                top: -12vw;
+                width: 23vw;
+                height: 23vw;
+                background-size: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

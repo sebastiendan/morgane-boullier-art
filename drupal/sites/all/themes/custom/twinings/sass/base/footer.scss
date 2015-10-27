@@ -75,5 +75,21 @@
     #block-main-footer-legals {
       width: 100%;
     }
+
+    .menu-name-main-menu {
+      > ul.menu {
+        text-align: center;
+        padding: 12px 0;
+
+        > li {
+          display: block;
+          padding: 10px;
+
+          ul.menu {
+            display: none;
+          }
+        }
+      }
+    }
   }
 }

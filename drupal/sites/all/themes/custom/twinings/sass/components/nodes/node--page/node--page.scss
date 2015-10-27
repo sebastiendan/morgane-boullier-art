@@ -43,3 +43,13 @@
     }
   }
 }
+
+@media only screen and (max-width: $tabletBreakpoint) {
+  .node--page {
+    .node__content {
+      .field--name-body {
+        width: 90%;
+      }
+    }
+  }
+}

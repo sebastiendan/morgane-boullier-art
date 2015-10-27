@@ -94,5 +94,38 @@
 @media only screen and (max-width: $tabletBreakpoint) {
   .node--products-page.node-teaser {
     position: relative;
+    display: inline-block;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    background-size: 67vw;
+
+    .field--name-title-field {
+      width: 62vw;
+      height: 11vw;
+      top: 22vw;
+      font-size: 8vw;
+      line-height: 10vw;
+    }
+
+    #button {
+      width: 14vw;
+      height: 14vw;
+      bottom: 4vw;
+      line-height: 13vw;
+
+      &:after {
+        top: -12vw;
+        left: -12vw;
+        width: 30vw;
+        height: 30vw;
+        background-size: 38vw;
+      }
+    }
+
+    canvas {
+      width: 68vw;
+    }
   }
 }

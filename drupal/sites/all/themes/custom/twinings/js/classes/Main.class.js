@@ -16,7 +16,7 @@ Main.prototype.init = function() {
     homeView.init('body.front');
   }
 
-  if (jQuery('.group-header-inner').length > 0) {
+  if (jQuery('.group-header-inner').length > 0 && !Main.isMobile()) {
     var groupHeaderInner = new GroupHeaderInnerView();
     groupHeaderInner.init('.group-header-inner');
   }
@@ -45,9 +45,21 @@ Main.prototype.init = function() {
     });
   }
 
+  if (jQuery('.entity-information-board').length > 0 && Main.isMobile()) {
+    jQuery('.entity-information-board').each(function(index, element){
+      var informationBoardView = new InformationBoardView();
+      informationBoardView.init(jQuery(element));
+    });
+  }
+
   if (jQuery('.node--product.node--full').length > 0) {
     var productView = new ProductView();
     productView.init('.node--product.node--full');
+  }
+
+  if (jQuery('.node--products-page.node--full').length > 0) {
+    var productsPageView = new ProductsPageView();
+    productsPageView.init('.node--products-page.node--full');
   }
 
   if (jQuery('#tea-types-wrapper').length > 0) {
@@ -56,14 +68,22 @@ Main.prototype.init = function() {
   }
 
   if (jQuery('#map-countries-wrapper').length > 0) {
-    var mapCountriesView = new MapCountriesView();
-    mapCountriesView.init('#map-countries-wrapper');
+    if (Main.isMobile()) {
+      var mapCountriesView = new MapCountriesMobileView();
+      mapCountriesView.init('#map-countries-wrapper');
+    } else {
+      var mapCountriesView = new MapCountriesView();
+      mapCountriesView.init('#map-countries-wrapper');
+    }
   }
 
   //Histoire todo
   if (jQuery('body.page-node-10').length > 0) {
     jQuery('#banner-wrapper').after('<div id="todo-wrapper"><img id="todo" src="/sites/all/themes/custom/twinings/images/histoire.png"/></div>');
   }
+
+  var $body = jQuery('body');
+  jQuery('#popup-bck').css({'width':$body.width(), 'height':$body.height()});
 };
 
 Main.isMobile = function() {

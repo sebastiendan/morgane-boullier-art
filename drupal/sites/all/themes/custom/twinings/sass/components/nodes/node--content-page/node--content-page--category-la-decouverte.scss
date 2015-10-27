@@ -327,3 +327,122 @@
     }
   }
 }
+
+@media only screen and (max-width: $tabletBreakpoint) {
+  .node--content-page.node--full.category-la-decouverte {
+    #tea-types-wrapper {
+      width: 100%;
+      height: auto;
+
+      #tea-types {
+        .node {
+          .field--name-field-tea-image {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            cursor: pointer;
+
+            img {
+              width: 95px;
+              height: auto;
+            }
+          }
+
+          &:nth-of-type(1) .field--name-field-tea-image {
+            @include transform(translateX(-160%));
+          }
+
+          &:nth-of-type(2) .field--name-field-tea-image {
+            @include transform(translateX(-50%));
+          }
+
+          &:nth-of-type(3) .field--name-field-tea-image {
+            @include transform(translateX(60%));
+          }
+
+          &:nth-of-type(4) .field--name-field-tea-image {
+            @include transform(translateX(-104%) translateY(100%));
+          }
+
+          &:nth-of-type(5) .field--name-field-tea-image {
+            @include transform(translateX(6%) translateY(100%));
+          }
+
+          &.current {
+            .field--name-field-tea-image {
+              &:before {
+                width: 155px;
+                height: 155px;
+                background-size: 100%;
+              }
+            }
+          }
+
+          .field--name-title-field {
+            position: static;
+            opacity: initial;
+            padding-top: 240px;
+            @include transform(none);
+          }
+
+          .field--name-field-description {
+            position: static;
+            opacity: initial;
+            width: 90vw;
+            margin: auto;
+            margin-top: 20px;
+            @include transform(none);
+          }
+        }
+      }
+    }
+
+    #map-countries-wrapper {
+      width: 100%;
+      height: auto;
+      background-size: 100%;
+      background-position: top 150px left;
+
+      .node--map-country {
+        .field--name-title-field {
+          position: static;
+        }
+
+        .group-map-popup {
+          margin: 50px auto;
+          position: static;
+          opacity: initial;
+
+          #popup-title {
+            opacity: initial;
+          }
+
+          .field--name-field-text {
+            opacity: initial;
+          }
+        }
+      }
+
+      #title-wrapper {
+        margin-top: 85vw;
+
+        .field--name-title-field {
+          display: inline-block;
+          vertical-align: middle;
+          text-transform: uppercase;
+          border: 1px solid white;
+          border-radius: 5px;
+          padding: 5px;
+          margin-right: 5px;
+          margin-bottom: 5px;
+          font-size: 5vw;
+
+          &.current {
+            color: $lightYellowFont;
+            border: 1px solid $lightYellowFont;
+          }
+        }
+      }
+    }
+  }
+}

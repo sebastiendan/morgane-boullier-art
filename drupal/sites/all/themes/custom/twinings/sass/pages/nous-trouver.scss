@@ -57,3 +57,13 @@
     }
   }
 }
+
+@media only screen and (max-width: $tabletBreakpoint) {
+  .page-node-16 {
+    .node__content {
+      &:before {
+        content: none;
+      }
+    }
+  }
+}
