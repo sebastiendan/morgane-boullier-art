@@ -53,6 +53,11 @@ function main_block_info() {
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
 
+  $blocks['prehome_cup'] = array(
+    'info' => t('Prehome cup'),
+    'cache' => DRUPAL_CACHE_GLOBAL,
+  );
+
   return $blocks;
 }
 
@@ -77,6 +82,13 @@ function main_block_view($delta) {
       break;
     case 'footer_legals':
       $block['content'] = theme('footer_legals');
+      break;
+    case 'prehome_cup':
+      $items = array(
+        t('Discover all the secrets of tea.'),
+      );
+      $texts = theme('item_list', array('items' => $items));
+      $block['content'] = theme('prehome_cup', array('texts' => $texts, 'call' => t('Shake your curiosity')));
       break;
   }
   return $block;
@@ -132,6 +144,12 @@ function main_theme($existing, $type, $theme, $path) {
       'path' => drupal_get_path('module', 'main') . '/templates',
       'template' => 'contact_link',
       'url' => '',
+    ),
+    'prehome_cup' => array(
+      'path' => drupal_get_path('module', 'main') . '/templates',
+      'template' => 'prehome_cup',
+      'texts' => '',
+      'call' => '',
     ),
   );
 }
