@@ -8,6 +8,20 @@ function main_init() {
   drupal_add_js('http://cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js', 'external');
 }
 
+function main_menu() {
+  $items['admin/config/twinings'] = array(
+    'title' => 'Twinings settings',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('main_admin_settings_form'),
+    'access arguments' => array('administer twinings'),
+    'file' => 'main.admin.form.inc',
+    'file path' => drupal_get_path('module', 'main'),
+    'type' => MENU_NORMAL_ITEM,
+  );
+
+  return $items;
+}
+
 /**
  * Implements hook_block_info().
  */
