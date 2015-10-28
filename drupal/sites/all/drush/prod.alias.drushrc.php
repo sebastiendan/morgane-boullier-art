@@ -5,7 +5,7 @@ $options = array(
   'uri' => 'mytwinings.fr',
   'root' => $deploy_to . '/current/drupal',
   'remote-host' => '10.200.33.204',
-  'remote-user' => 'lumini',
+  'remote-user' => 'root',
   'path-aliases' => array(
     '%files' => 'sites/default/files'
   ),
