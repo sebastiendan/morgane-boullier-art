@@ -10,13 +10,34 @@ HomeView.prototype.init = function (tag, parent) {
   this.$videoContainer = this.$tag.find('.field--name-field-home-video');
   this.$groupHeadline = this.$tag.find('.group-headline');
   this.$groupHeaderInner = this.$tag.find('.group-header-inner');
-  this.$scrollBanner = this.$tag.find('#block-main-home-scroll-banner');
-
   this.usedHeight = jQuery('.l-page').children('header').height() + this.visibleBannerHeight;
+
+  if (this.$videoContainer.length > 0) {
+    this.initHomeEvent();
+  } else {
+    this.initHomeNotEvent();
+  }
+};
+
+HomeView.prototype.initHomeEvent = function() {
   this.id = this.$tag.find('.video-js').attr('id');
 
   this.player = videojs(this.id);
   this.player.ready(jQuery.proxy(this.onPlayerReady, this));
+};
+
+HomeView.prototype.initHomeNotEvent = function() {
+  this.$image = this.$groupHeaderInner.find('.field--name-field-image img');
+  this.$lines = this.$groupHeadline.find('.line');
+  this.$link = this.$groupHeadline.find('.link-wrapper a');
+
+  this.initWidth = this.$image.width();
+  this.initHeight = this.$image.height();
+
+  this.bind(jQuery(window), 'scroll', this.onStageScrollNotEvent);
+  this.bind(jQuery(window), 'resize', this.onStageResizeNotEvent);
+
+  this.$image.load(jQuery.proxy(this.onImageLoaded, this));
 };
 
 HomeView.prototype.onPlayerReady = function() {
@@ -30,27 +51,45 @@ HomeView.prototype.onPlayerReady = function() {
   this.player.on('play', jQuery.proxy(this.onVideoPlay, this));
   this.player.on('pause', jQuery.proxy(this.onVideoPause, this));
   this.player.on('ended', jQuery.proxy(this.onVideoEnd, this));
-  this.bind(jQuery(window), 'scroll', this.onStageScroll);
-  this.bind(jQuery(window), 'resize', this.onStageResize);
+  this.bind(jQuery(window), 'scroll', this.onStageScrollEvent);
+  this.bind(jQuery(window), 'resize', this.onStageResizeEvent);
 
-  this.onStageResize();
+  this.onStageResizeEvent();
 };
 
-HomeView.prototype.onStageResize = function() {
+HomeView.prototype.onImageLoaded = function() {
+  this.$image.fadeIn(400);
+  this.onStageResizeNotEvent();
+};
+
+HomeView.prototype.onStageResizeEvent = function() {
+
   var $window = jQuery(window);
   var ww = $window.width();
   var wh = $window.height();
-
   var scale = Math.max(ww / this.initWidth, (wh - this.usedHeight) / this.initHeight);
+
   this.player.width(this.initWidth*scale);
   this.player.height(this.initHeight*scale);
-  this.$groupHeaderInner.css({'height':wh - this.usedHeight});
   this.$videoContainer.css({'width':ww});
-
   this.$player.css({'top':(wh - this.usedHeight - this.player.height())/4, 'left':(ww - this.player.width())/2});
+
+  this.$groupHeaderInner.css({'height':wh - this.usedHeight});
 };
 
-HomeView.prototype.onStageScroll = function() {
+HomeView.prototype.onStageResizeNotEvent = function() {
+  var $window = jQuery(window);
+  var ww = $window.width();
+  var wh = $window.height();
+  var scale = Math.max(ww / this.initWidth, (wh - this.usedHeight) / this.initHeight);
+
+  this.$image.css({'width':this.initWidth*scale, 'height':this.initHeight*scale, 'top':(wh - this.usedHeight - this.initHeight*scale)/4, 'left':(ww - this.initWidth*scale)/2});
+  this.$groupHeaderInner.css({'height':wh - this.usedHeight});
+
+  this.$lines.css({'width': this.$link.offset().left - this.$groupHeadline.offset().left - 1});
+};
+
+HomeView.prototype.onStageScrollEvent = function() {
   var headlineTop = this.$groupHeadline[0].getBoundingClientRect().top;
   if (Main.isMobile()) {
     var limit = jQuery(window).height()/5;
@@ -71,6 +110,21 @@ HomeView.prototype.onStageScroll = function() {
     } else {
       this.groupHeadlineShow();
     }
+  }
+};
+
+HomeView.prototype.onStageScrollNotEvent = function() {
+  var headlineTop = this.$groupHeadline[0].getBoundingClientRect().top;
+  if (Main.isMobile()) {
+    var limit = jQuery(window).height()/5;
+  } else {
+    var limit = jQuery(window).height()/3;
+  }
+
+  if (headlineTop !== 0 && headlineTop < limit) {
+    this.groupHeadlineHide();
+  } else {
+    this.groupHeadlineShow();
   }
 };
 

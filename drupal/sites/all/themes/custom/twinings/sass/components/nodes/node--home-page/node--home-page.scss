@@ -1,6 +1,74 @@
 @import '../../../variables/mixins';
 
 .node--home-page  {
+  &.no-event {
+    > .node__content {
+      .group-header {
+        .group-header-inner {
+          .group-headline {
+            padding-bottom: 50px;
+
+            &:before {
+              background-image: url(../../../../images/home/fleur.svg), url(../../../../images/home/papillons.svg), url(../../../../images/home/papillon.svg), url(../../../../images/home/papillon.svg);
+              background-repeat: no-repeat;
+              background-size: 95px, 96px, 45px, 30px;
+              background-position: right 49px bottom 28px, right 45px top 0px, left 117px top 40px, left 81px top 20px;
+            }
+
+            .link-wrapper {
+              position: absolute;
+              bottom: 0;
+              left: 50%;
+              @include transform(translateX(-50%) translateY(50%));
+              width: 100%;
+              text-align: center;
+            }
+
+            a {
+              position: relative;
+              border: 1px solid white;
+              border-radius: 10px;
+              color: white;
+              font-family: Didot;
+              font-size: 15px;
+              padding: 13px 25px;
+              text-decoration: none;
+              background-color: rgba(0, 0, 0, 0.3);
+
+              &:before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 10px;
+                @include transform(translateY(-50%));
+                width: 0;
+                height: 0;
+                border-top: 5px solid transparent;
+                border-left: 8px solid white;
+                border-bottom: 5px solid transparent;
+              }
+            }
+
+            .line {
+              position: absolute;
+              bottom: 8px;
+              height: 1px;
+              background-color: white;
+
+              &:first-of-type {
+                left: 0;
+              }
+
+              &:last-of-type {
+                right: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
   > .node__content {
     position: relative;
 
@@ -13,6 +81,12 @@
         top: 50%;
         @include transform(translateY(-50%));
         overflow: hidden;
+      }
+
+      .field--name-field-image {
+        img {
+          display: none;
+        }
       }
 
       .group-header-inner {
@@ -40,10 +114,10 @@
             top: 50%;
             left: 50%;
             @include transform(translateX(-50%) translateY(-50%));
-            background-image: url(../../../../images/home/feuilles_evenmentiel.svg), url(../../../../images/home/papillon_evenementiel.svg), url(../../../../images/home/papillon_evenementiel.svg);
+            background-image: url(../../../../images/home/feuilles_evenmentiel.svg), url(../../../../images/home/papillon_evenementiel.svg), url(../../../../images/home/papillon_evenementiel2.svg);
             background-repeat: no-repeat;
-            background-size: 68px, 55px, 55px;
-            background-position: right 56px bottom 16px, right 45px top 0px, left 39px bottom 10px;
+            background-size: 68px, 55px, 45px;
+            background-position: right 56px bottom 16px, right 45px top 0px, left 49px bottom 20px;
           }
 
           .field--name-title-field {
@@ -59,7 +133,6 @@
             font-family: Didot;
             text-align: center;
             margin: 0 10px;
-
           }
 
           .video-play-button-wrapper {
