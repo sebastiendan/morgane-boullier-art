@@ -49,6 +49,7 @@ button {
 
 .l-page {
   overflow: hidden;
+  padding-top: 52px;
 }
 
 .ajax-progress, .throbber {
@@ -169,6 +170,10 @@ button {
   #section-title {
     width: 90%;
     margin: auto;
+  }
+
+  .l-page {
+    padding-top: 0;
   }
 
   .ajax-progress-throbber {
