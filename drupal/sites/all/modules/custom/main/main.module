@@ -4,8 +4,8 @@
  * Implements hook_init().
  */
 function main_init() {
-  drupal_add_js('http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js', 'external');
-  drupal_add_js('http://cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js', 'external');
+//  drupal_add_js('http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenLite.min.js', 'external');
+//  drupal_add_js('http://cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js', 'external');
 }
 
 function main_menu() {

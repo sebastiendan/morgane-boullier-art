@@ -1,0 +1,24 @@
+{
+  "name": "twinings",
+  "description": "",
+  "main": "",
+  "authors": [
+    "andrzej-lumini <andrzej@lumini.fr>"
+  ],
+  "license": "MIT",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "libraries",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "pixi.js": "^3.0.6",
+    "tweenlite": "~1.11.5",
+    "velocity": "~1.2.3"
+  }
+}
