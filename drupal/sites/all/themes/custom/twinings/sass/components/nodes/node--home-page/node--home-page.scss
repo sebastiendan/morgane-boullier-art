@@ -255,7 +255,7 @@
       .group-header {
         .group-header-inner {
           .group-headline {
-            top: 20%;
+            top: 35%;
             width: 85%;
             padding-bottom: 45px;
 
@@ -277,6 +277,23 @@
 
       .group-content-links {
         height: auto;
+      }
+    }
+
+    &.no-event {
+      > .node__content {
+        .group-header {
+          .group-header-inner {
+            .group-headline {
+              &:before {
+                width: 135%;
+                height: 125%;
+                background-size: 95px, 109px, 45px, 30px;
+                background-position: right 27px bottom 28px, right 26px top 0px, left 46px top 27px, left 37px top 2px;
+              }
+            }
+          }
+        }
       }
     }
   }

@@ -1,6 +1,10 @@
 @import '../variables/mixins';
 
-html, body {
+html {
+  background: $darkGrey;
+}
+
+body {
   background: url(../../images/pattern_background.png);
   color: white;
 }
@@ -169,5 +173,34 @@ button {
 
   .ajax-progress-throbber {
     display: none !important;
+  }
+
+  #sliding-popup.sliding-popup-top {
+    margin-top: 8vw;
+
+    .popup-content {
+      #popup-text {
+        max-width: 73%;
+
+        a, p {
+          font-size: 12px;
+          line-height: 15px;
+        }
+      }
+
+      #popup-buttons {
+        top: 0;
+        @include transform(none);
+
+        &:before {
+          font-size: 35px;
+        }
+
+        .agree-button {
+          padding-right: 30px;
+          font-size: 13px;
+        }
+      }
+    }
   }
 }
