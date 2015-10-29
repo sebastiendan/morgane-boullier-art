@@ -8,10 +8,14 @@
   .field--name-title-field {
     font-family: Dancing;
     font-size: 25px;
-    color: $lightYellowFont;
     width: 80%;
     margin: auto;
     margin-bottom: 10px;
+
+    a {
+      color: $lightYellowFont;
+      text-decoration: none;
+    }
   }
 
   .field--name-field-summary {
