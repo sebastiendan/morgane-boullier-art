@@ -23,6 +23,8 @@ PrehomeCupView.prototype.init = function(tag, parent){
   this.tempCtx = this.tempCanvas.getContext('2d');
   this.smokeFrameCount = 100;
 
+  var smokeView = new SmokeView()
+  smokeView.init(this.$smoke, this);
 
   jQuery('html').css({'overflow': 'hidden'});
   this.$smoke.css({'opacity': 0});

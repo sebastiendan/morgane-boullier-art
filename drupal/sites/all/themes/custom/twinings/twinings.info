@@ -53,7 +53,7 @@ stylesheets[all][] = css/pages/nous-trouver.css
 ; Scripts
 ; ========================================
 scripts[] = libraries/pixi.js/bin/pixi.js
-scripts[] = libraries/tweenlite/Tweenlite.min.js
+scripts[] = libraries/tweenlite/TweenLite.min.js
 scripts[] = libraries/velocity/velocity.min.js
 
 scripts[] = js/twinings.behaviors.js
