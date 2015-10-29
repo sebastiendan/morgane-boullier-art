@@ -67,6 +67,11 @@ Main.prototype.init = function() {
     productsPageView.init('.node--products-page.node--full');
   }
 
+  if (jQuery('.page-node-15').length > 0 && !Main.isMobile()) {
+    var contactFormView = new ContactFormView();
+    contactFormView.init('.page-node-15');
+  }
+
   if (jQuery('#tea-types-wrapper').length > 0) {
     var teaTypesView = new TeaTypesView();
     teaTypesView.init('#tea-types-wrapper');
