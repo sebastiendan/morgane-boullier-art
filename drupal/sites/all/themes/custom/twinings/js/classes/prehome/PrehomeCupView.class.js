@@ -40,16 +40,15 @@ PrehomeCupView.prototype.init = function(tag, parent){
   this.backgroundLoader.once('complete', jQuery.proxy(this.onBackgroundLoadComplete, this));
   this.backgroundLoader.load();
 
-  this.$slider = jQuery('<input class="debug" type="range" min="0" max="1000" value="0"/>');
-  this.$slider.css({'position':'fixed', 'top':'50px', 'left':'50px'});
-  this.$tag.append(this.$slider);
-  this.bind(this.$slider, 'change mousemouve', this.onSliderChange);
+//  this.$slider = jQuery('<input class="debug" type="range" min="0" max="1000" value="0"/>');
+//  this.$slider.css({'position':'fixed', 'top':'50px', 'left':'50px'});
+//  this.$tag.append(this.$slider);
+//  this.bind(this.$slider, 'change mousemouve', this.onSliderChange);
 };
 
-PrehomeCupView.prototype.onSliderChange = function(e){
-  console.log(this.$slider.val());
-  this.processBackground(this.$slider.val()/1000);
-};
+//PrehomeCupView.prototype.onSliderChange = function(e){
+//  this.processBackground(this.$slider.val()/1000);
+//};
 
 PrehomeCupView.prototype.onBackgroundLoadComplete = function() {
   jQuery('html').css({'opacity':1});
@@ -68,7 +67,14 @@ PrehomeCupView.prototype.onLoadComplete = function() {
   this.render();
   this.$smoke.velocity({opacity:1});
 
-  setTimeout(jQuery.proxy(this.hide, this), 1000);
+  this.hideTimeout = setTimeout(jQuery.proxy(this.hide, this), 3000);
+
+  this.bind(this.$tag, 'mousemove', jQuery.proxy(this.onMouseMove, this));
+};
+
+PrehomeCupView.prototype.onMouseMove = function() {
+  clearTimeout(this.hideTimeout);
+  this.hide();
 };
 
 PrehomeCupView.prototype.getAlpha = function(img, reverse, globalAlpha) {
