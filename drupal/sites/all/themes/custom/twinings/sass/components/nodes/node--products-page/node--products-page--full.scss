@@ -137,6 +137,10 @@
     .view {
       text-align: center;
 
+      .views-row {
+        margin-bottom: 12px;
+      }
+
       .view-filters {
         background-color: $yellowBck;
 
