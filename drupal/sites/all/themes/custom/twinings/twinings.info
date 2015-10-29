@@ -74,6 +74,7 @@ scripts[] = js/classes/ContactFormView.class.js
 scripts[] = js/classes/prehome/PrehomeCupView.class.js
 scripts[] = js/classes/prehome/SmokeView.class.js
 scripts[] = js/classes/Main.class.js
+scripts[] = js/Stats.js
 scripts[] = js/script.js
 
 ; ========================================
