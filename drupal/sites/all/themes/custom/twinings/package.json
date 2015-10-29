@@ -6,10 +6,12 @@
     "sass:prod": "./node_modules/.bin/gulp sass:prod"
   },
   "dependencies": {
+    "bower": "^1.6.5",
     "gulp": "^3.9.0",
     "gulp-sass": "^2.0.4"
   },
   "devDependencies": {
+    "bower": "^1.6.5",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-sass": "^2.0.4",
