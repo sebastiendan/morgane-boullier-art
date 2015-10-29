@@ -2,6 +2,8 @@ function Main() {
 };
 
 Main.prototype.init = function() {
+  jQuery('html').css({'opacity':1});
+
   if (Main.isMobile() || Main.isTablet()) {
     jQuery('head').prepend('<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">');
   }

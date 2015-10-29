@@ -1,5 +1,5 @@
 <canvas class="background fullscreen"></canvas>
-<canvas class="background-overlay fullscreen"></canvas>
+<div class="background-overlay fullscreen"></div>
 
 <div class="prehome prehome-cup">
   <svg version="1.1" id="patterns" xmlns="http://www.w3.org/2000/svg"

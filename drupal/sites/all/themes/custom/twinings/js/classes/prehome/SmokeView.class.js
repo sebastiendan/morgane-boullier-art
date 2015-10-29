@@ -45,7 +45,7 @@ SmokeView.prototype.start = function() {
   var d = new Date();
   this.t0 = d.getTime();
   this.globalAlpha = 0;
-  jQuery(this).velocity({globalAlpha:1}, {duration:1000});
+  TweenLite.to(this, 1, {globalAlpha:1});
 };
 
 SmokeView.prototype.onRender = function() {
@@ -53,12 +53,12 @@ SmokeView.prototype.onRender = function() {
   var dt = ((d.getTime() - this.t0)/1000);
   var frame = dt * this.fps;
   this.data[0]['frame'] = Math.round(frame)%this.frameCount;
-  var sin = Math.sin(frame * Math.PI/(2 * this.frameCount));
+  var sin = Math.sin(frame * Math.PI/this.frameCount);
   this.data[0]['alpha'] = this.globalAlpha * sin * sin;
 
   frame = frame+this.frameCount/2;
   this.data[1]['frame'] = Math.round(frame)%this.frameCount;
-  var sin = Math.sin(frame * Math.PI/(2 * this.frameCount));
+  var sin = Math.sin(frame * Math.PI/this.frameCount);
   this.data[1]['alpha'] = this.globalAlpha * sin * sin;
 
 //    this.mcs[0].gotoAndStop((this.mcs[0].currentFrame+1)%this.frameCount);
