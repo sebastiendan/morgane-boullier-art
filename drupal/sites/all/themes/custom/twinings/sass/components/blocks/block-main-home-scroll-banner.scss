@@ -29,6 +29,8 @@
     position: absolute;
     top: 45%;
     left: 50%;
+    width: 80%;
+    text-align: center;
     @include transform(translateX(-50%) translateY(-50%));
     font-family: Dancing;
     font-size: 45px;
