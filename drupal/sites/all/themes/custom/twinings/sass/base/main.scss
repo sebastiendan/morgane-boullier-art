@@ -87,6 +87,10 @@ button {
   background-color: rgba(0,0,0,0.5);
 }
 
+.field--name-body a {
+  color: $yellowFont;
+}
+
 #sliding-popup.sliding-popup-top {
   background-image: url(../../images/motif_popup_orange.png);
   background-color: $yellowBck;

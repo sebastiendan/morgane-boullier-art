@@ -81,7 +81,9 @@ function main_block_view($delta) {
       $block['content'] = theme('home_scroll_banner', array('url' => drupal_get_path_alias('node/5', $language->language)));
       break;
     case 'footer_legals':
-      $block['content'] = theme('footer_legals');
+      $link1 = l(t('Legals'), drupal_get_path_alias('node/17', $language->language));
+      $link2 = l(t('Cookies'), drupal_get_path_alias('node/51', $language->language));
+      $block['content'] = theme('footer_legals', array('link1' => $link1, 'link2' => $link2));
       break;
     case 'prehome_cup':
       $items = array(
@@ -131,6 +133,8 @@ function main_theme($existing, $type, $theme, $path) {
     'footer_legals' => array(
       'path' => drupal_get_path('module', 'main') . '/templates',
       'template' => 'footer_legals',
+      'link1' => '',
+      'link2' => '',
     ),
     'close_button' => array(
       'path' => drupal_get_path('module', 'main') . '/templates',
