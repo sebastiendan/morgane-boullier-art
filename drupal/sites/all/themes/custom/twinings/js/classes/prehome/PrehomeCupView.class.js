@@ -21,13 +21,12 @@ PrehomeCupView.prototype.init = function(tag, parent){
 
   this.tempCanvas = jQuery('<canvas width="' + this.canvasWidth + '" height="' + this.canvasHeight + '"></canvas>')[0];
   this.tempCtx = this.tempCanvas.getContext('2d');
-  this.smokeFrameCount = 100;
 
-  var smokeView = new SmokeView()
-  smokeView.init(this.$smoke, this);
+  this.smokeView = new SmokeView();
+  this.smokeView.init(this.$smoke, this);
 
   jQuery('html').css({'overflow': 'hidden'});
-  this.$smoke.css({'opacity': 0});
+//  this.$smoke.css({'opacity': 0});
 
   this.bind(StageSizeController.getInstance().model, StageSizeEvent.STAGE_RESIZE, this.onStageResize);
   this.onStageResize();
@@ -36,21 +35,6 @@ PrehomeCupView.prototype.init = function(tag, parent){
   this.backgroundLoader.add('background', this.$container.css('background-image').replace('url(','').replace(')',''));
   this.backgroundLoader.once('complete', jQuery.proxy(this.onBackgroundLoadComplete, this));
   this.backgroundLoader.load();
-
-
-  var path_media = 'sites/all/themes/custom/twinings/images/';
-  this.loader = new PIXI.loaders.Loader();
-  var num;
-  var i=0;
-  for(i=0;i<100;i++){
-    num = ''+i;
-    while(num.length < 3){
-      num = '0'+num;
-    }
-    this.loader.add('smoke'+i, path_media + 'prehome-cup/smoke/' + num + '.jpg');
-  }
-  this.loader.once('complete', jQuery.proxy(this.onLoadComplete, this));
-  this.loader.load();
 };
 
 PrehomeCupView.prototype.onBackgroundLoadComplete = function() {
@@ -59,34 +43,40 @@ PrehomeCupView.prototype.onBackgroundLoadComplete = function() {
   this.backgroundCtx.fillStyle = this.backgroundPattern;
   this.backgroundCtx.fillRect(0, 0, this.$backgroundCanvas.width(), this.$backgroundCanvas.height());
   this.$container.css('background', 'none');
+
+  this.smokeView.loadImages(jQuery.proxy(this.onLoadComplete, this));
 };
 
 PrehomeCupView.prototype.onLoadComplete = function() {
-  var textures = [];
-
-  var ctx = this.$smoke[0].getContext('2d');
-  var w = this.$smoke.width();
-  var h = this.$smoke.height();
-  for(var i=0;i<this.smokeFrameCount;i++){
-    textures.push(this.loader.resources['smoke'+i].texture);
-  }
-
-  this.stage = new PIXI.Container();
-  this.renderer = PIXI.autoDetectRenderer(this.$smoke.width(), this.$smoke.height(), {
-    transparent: true,
-    view: this.$smoke[0]
-  },true);
-
-  this.mc = new PIXI.extras.MovieClip(textures);
-  this.stage.addChild(this.mc);
-  this.mc.gotoAndPlay(1);
-
+//  return;
+//  var textures = [];
+//
+//  var ctx = this.$smoke[0].getContext('2d');
+//  var w = this.$smoke.width();
+//  var h = this.$smoke.height();
+//  for(var i=0;i<this.smokeFrameCount;i++){
+//    textures.push(this.loader.resources['smoke'+i].texture);
+//  }
+//
+//  this.stage = new PIXI.Container();
+//  this.renderer = PIXI.autoDetectRenderer(this.$smoke.width(), this.$smoke.height(), {
+//    transparent: true,
+//    view: this.$smoke[0]
+//  },true);
+//
+//  this.mc = new PIXI.extras.MovieClip(textures);
+//  this.stage.addChild(this.mc);
+//  this.mc.gotoAndPlay(1);
+//
   this.renderProxy = jQuery.proxy(this.render, this);
-  var d = new Date();
-  this.dt = d.getTime();
+//  var d = new Date();
+//  this.dt = d.getTime();
+  this.smokeView.start();
   this.render();
 
-  this.$smoke.velocity({opacity:1});
+//  this.$smoke.velocity({opacity:1});
+
+  setTimeout(jQuery.proxy(this.hide, this), 3000);
 };
 
 PrehomeCupView.prototype.getAlpha = function(img, reverse) {
@@ -104,11 +94,16 @@ PrehomeCupView.prototype.getAlpha = function(img, reverse) {
 };
 
 PrehomeCupView.prototype.render = function() {
-  if(this.smokeFrameCount - 25 <= this.mc.currentFrame && !this.hiding){
-    this.hide();
-  }
+//  if(this.smokeView.frameCount - 25 <= this.mc.currentFrame && !this.hiding){
+//    this.hide();
+//  }
+
+  this.smokeView.onRender();
+
   this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
-  this.ctx.putImageData(this.getAlpha(this.mc.texture.baseTexture.source), 0, 0);
+  this.ctx.globalAlpha = this.smokeView.data[0]['alpha'];
+  var texture = this.smokeView.textures[this.smokeView.data[0]['frame']];
+  this.ctx.putImageData(this.getAlpha(texture.baseTexture.source), 0, 0);
 //  this.renderer.render(this.stage);
   requestAnimationFrame(this.renderProxy);
 };
