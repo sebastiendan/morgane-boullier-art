@@ -531,6 +531,7 @@ function main_contact_form($form, $form_state) {
     '#type' => 'date_popup',
     '#date_format' => 'd/m/Y',
     '#attributes' => array('placeholder' => t('Birthday')),
+    '#date_year_range' => '-100:0',
   );
 
   $form['top_block']['message'] = array(
