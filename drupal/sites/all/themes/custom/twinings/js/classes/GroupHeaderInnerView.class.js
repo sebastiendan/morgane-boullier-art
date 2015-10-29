@@ -14,7 +14,7 @@ GroupHeaderInnerView.prototype.init = function (tag, parent) {
 
 GroupHeaderInnerView.prototype.onStageScroll = function () {
   var scroll = jQuery(document).scrollTop();
-  var height = this.$header.height() + this.$cookies.height();
+  var height = this.$header.height() + jQuery('#sliding-popup').height();
 
   this.$tag.css({'top':scroll/2});
   if (scroll/2 < height/2) {

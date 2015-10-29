@@ -2,7 +2,7 @@ function Main() {
 };
 
 Main.prototype.init = function() {
-  if (Main.isMobile()) {
+  if (Main.isMobile() || Main.isTablet()) {
     jQuery('head').prepend('<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">');
   }
 
@@ -73,7 +73,7 @@ Main.prototype.init = function() {
   }
 
   if (jQuery('#map-countries-wrapper').length > 0) {
-    if (Main.isMobile()) {
+    if (Main.isMobile() || Main.isTablet()) {
       var mapCountriesView = new MapCountriesMobileView();
       mapCountriesView.init('#map-countries-wrapper');
     } else {
@@ -93,4 +93,8 @@ Main.prototype.init = function() {
 
 Main.isMobile = function() {
   return (screen.width <= 640 || jQuery(window).width() <= 640);
+};
+
+Main.isTablet = function() {
+  return ((640 <= screen.width || 640 <= jQuery(window).width()) && (screen.width <= 1024 || jQuery(window).width() <= 1024));
 };

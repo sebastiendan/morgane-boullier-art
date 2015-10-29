@@ -238,3 +238,24 @@
     }
   }
 }
+
+@media only screen and (min-width: $tabletBreakpoint) and (max-width: $desktopBreakpoint) {
+  .l-header {
+    .menu-name-main-menu {
+      > ul.menu {
+        width: 100%;
+        text-align: center;
+
+        > li {
+          > a {
+            font-size: 1.5vw;
+          }
+
+          ul.menu li a {
+            font-size: 1.5vw;
+          }
+        }
+      }
+    }
+  }
+}

@@ -101,3 +101,23 @@
     }
   }
 }
+
+@media only screen and (min-width: $tabletBreakpoint) and (max-width: $desktopBreakpoint) {
+  .l-footer {
+    #block-main-footer-legals {
+      width: 100%;
+    }
+
+    #footer-legals {
+      font-size: 2vw;
+    }
+
+    .menu-name-main-menu {
+      > ul.menu {
+        > li {
+          padding: 35px 15px;
+        }
+      }
+    }
+  }
+}

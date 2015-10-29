@@ -65,3 +65,12 @@
     }
   }
 }
+
+@media only screen and (min-width: $tabletBreakpoint) and (max-width: $desktopBreakpoint) {
+  .node--content-page.node--full.category-the-comme-twinings {
+    .group-title:before {
+      width: 90%;
+      z-index: 2;
+    }
+  }
+}

@@ -68,3 +68,20 @@
     }
   }
 }
+
+@media only screen and (min-width: $tabletBreakpoint) and (max-width: $desktopBreakpoint) {
+  .group-content-links {
+    .field--name-field-content-links {
+      width: 640px;
+
+      .field__item:nth-of-type(2n+1) .node {
+        left: 0;
+      }
+
+      .field__item:nth-of-type(2n) .node {
+        left: initial;
+        right: 0;
+      }
+    }
+  }
+}

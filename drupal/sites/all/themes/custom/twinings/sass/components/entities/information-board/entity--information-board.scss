@@ -182,3 +182,36 @@
     }
   }
 }
+
+@media only screen and (min-width: $tabletBreakpoint) and (max-width: $desktopBreakpoint) {
+  .entity-information-board {
+    .field--name-title-field {
+      top: 0;
+      width: 70%;
+      height: 50px;
+
+      .field__item {
+        position: absolute;
+        top: 50%;
+        @include transform(translateY(-50%));
+      }
+
+      .field__item {
+        line-height: 18px;
+      }
+    }
+
+    .form-wrapper.collapsible {
+      > .fieldset-wrapper {
+        .field--name-field-text {
+          width: 40%;
+        }
+
+        .group-media {
+          width: 35%;
+          margin-left: 60px;
+        }
+      }
+    }
+  }
+}
