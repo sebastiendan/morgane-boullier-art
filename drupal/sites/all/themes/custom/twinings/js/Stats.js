@@ -5,8 +5,16 @@ Stats.init = function(){
     Stats.sendEvent('clic_logo');
   });
 
-  jQuery('block-main-main-menu-button').click(function(){
+  jQuery('#block-main-main-menu-button').click(function(){
     Stats.sendEvent('clic_menu');
+  });
+
+  jQuery('.video-play-button').click(function(){
+    Stats.sendEvent('clic_home_video');
+  });
+
+  jQuery('.video-play-button').click(function(){
+    Stats.sendEvent('clic_home_video');
   });
 };
 

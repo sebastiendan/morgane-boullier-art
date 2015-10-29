@@ -94,7 +94,7 @@
 
         .group-headline {
           position: absolute;
-          top: 50%;
+          bottom: 17%;
           left: 50%;
           @include transform(translateY(-50%));
           width: 415px;
