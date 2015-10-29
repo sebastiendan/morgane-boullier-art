@@ -48,3 +48,25 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+ul.tabs--primary{
+  position: fixed;
+  z-index: 10;
+  bottom: -17px;
+  left: 10px;
+  font-family: Didot;
+
+  li {
+    a {
+      background-color: #ddd;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      color: black;
+    }
+    &.active {
+      a {
+        background-color: #fff;
+      }
+    }
+  }
+}
