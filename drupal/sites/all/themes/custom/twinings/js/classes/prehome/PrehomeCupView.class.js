@@ -67,8 +67,7 @@ PrehomeCupView.prototype.onLoadComplete = function() {
   this.render();
   this.$smoke.velocity({opacity:1});
 
-  this.hideTimeout = setTimeout(jQuery.proxy(this.hide, this), 3000);
-
+  this.hideTimeout = setTimeout(jQuery.proxy(this.hide, this), 5000);
   this.bind(this.$tag, 'mousemove', jQuery.proxy(this.onMouseMove, this));
 };
 

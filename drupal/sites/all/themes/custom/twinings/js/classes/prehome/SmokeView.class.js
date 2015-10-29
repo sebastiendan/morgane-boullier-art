@@ -59,7 +59,7 @@ SmokeView.prototype.onRender = function() {
   frame = frame+this.frameCount/2;
   this.data[1]['frame'] = Math.round(frame)%this.frameCount;
   var sin = Math.sin(frame * Math.PI/this.frameCount);
-  this.data[1]['alpha'] = this.globalAlpha * sin * sin;
+  this.data[1]['alpha'] = dt * this.fps < this.frameCount/2 ? 0: this.globalAlpha * sin * sin;
 
 //    this.mcs[0].gotoAndStop((this.mcs[0].currentFrame+1)%this.frameCount);
 //  this.mcs[1].gotoAndStop((this.mcs[0].currentFrame+this.frameCount/2)%this.frameCount);
