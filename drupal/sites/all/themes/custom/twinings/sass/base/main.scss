@@ -94,7 +94,14 @@ button {
 #sliding-popup.sliding-popup-top {
   background-image: url(../../images/motif_popup_orange.png);
   background-color: $yellowBck;
-  display: none;
+  margin-top: 50px;
+  padding-bottom: 8px;
+  padding-top: 38px;
+  height: 106px;
+  box-sizing: border-box;
+  z-index: 1;
+  position: fixed !important;
+  @include box-shadow(0px 0px 10px 0px black);
 
   .popup-content {
     overflow: hidden;
@@ -118,7 +125,7 @@ button {
       float: none;
       position: absolute;
       right: 10px;
-      top: 50%;
+      top: 65%;
       padding-right: 20px;
       @include transform(translateY(-50%));
 
