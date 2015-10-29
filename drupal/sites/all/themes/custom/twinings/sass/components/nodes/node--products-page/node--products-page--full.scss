@@ -393,3 +393,71 @@
     }
   }
 }
+
+@media only screen and (min-width: $tabletBreakpoint) and (max-width: $desktopBreakpoint) {
+  .node--products-page.node--full {
+    .group-header {
+      height: 60vw;
+
+      .group-header-inner {
+        .field--name-field-header-image {
+          .field__item {
+            position: relative;
+            height: 100vw;
+
+            img {
+              position: absolute;
+              top: 0;
+              left: 50%;
+              height: 100vw;
+              width: auto;
+              @include transform(translateX(-50%));
+            }
+          }
+        }
+      }
+
+      .group-title {
+        width: 60vw;
+
+        &:before {
+          width: 110%;
+          z-index: 2;
+        }
+
+        .group-title-inner {
+          .field--name-title-field {
+            font-size: 7vw;
+          }
+
+          .field--name-field-subtitle {
+            font-size: 3vw;
+            line-height: 4vw;
+          }
+        }
+      }
+    }
+
+    .field--name-field-products {
+      .view {
+        .view-filters {
+          form {
+            width: 100%;
+
+            #edit-field-category-tid-wrapper #edit-field-category-tid {
+              text-align: center;
+
+              .form-type-radio label {
+                font-size: 1.3vw;
+              }
+            }
+          }
+        }
+
+        .view-content {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

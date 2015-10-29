@@ -449,3 +449,65 @@
     }
   }
 }
+
+@media only screen and (min-width: $tabletBreakpoint) and (max-width: $desktopBreakpoint) {
+  .node--content-page.node--full.category-la-decouverte {
+    .group-title:before {
+      width: 90%;
+      z-index: 2;
+    }
+
+    #tea-types-wrapper {
+      width: 100%;
+    }
+
+    #map-countries-wrapper {
+      width: 100%;
+      height: auto;
+      background-size: 100%;
+      background-position: top 150px left;
+
+      .node--map-country {
+        .field--name-title-field {
+          position: static;
+        }
+
+        .group-map-popup {
+          margin: 50px auto;
+          position: static;
+          opacity: initial;
+          width: 80%;
+
+          #popup-title {
+            opacity: initial;
+          }
+
+          .field--name-field-text {
+            opacity: initial;
+          }
+        }
+      }
+
+      #title-wrapper {
+        margin-top: 70vw;
+
+        .field--name-title-field {
+          display: inline-block;
+          vertical-align: middle;
+          text-transform: uppercase;
+          border: 1px solid white;
+          border-radius: 5px;
+          padding: 5px;
+          margin-right: 5px;
+          margin-bottom: 5px;
+          font-size: 2vw;
+
+          &.current {
+            color: $lightYellowFont;
+            border: 1px solid $lightYellowFont;
+          }
+        }
+      }
+    }
+  }
+}

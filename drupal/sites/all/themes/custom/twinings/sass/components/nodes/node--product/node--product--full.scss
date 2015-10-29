@@ -234,3 +234,17 @@
     }
   }
 }
+
+@media only screen and (min-width: $tabletBreakpoint) and (max-width: $desktopBreakpoint) {
+  .node--product.node--full {
+    .group-information {
+      .group-features .group-features-inner {
+        width: 100%;
+      }
+
+      > div {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -158,3 +158,48 @@
     }
   }
 }
+
+@media only screen and (min-width: $tabletBreakpoint) and (max-width: $desktopBreakpoint) {
+  .entity-frieze {
+    width: 100%;
+
+    > .content {
+      > .field--name-title-field {
+        width: 70%;
+        margin: 25px auto;
+      }
+    }
+
+    .field--name-field-frieze-elements {
+      .field__item:first-of-type {
+        .entity-frieze-element.text-on-the-left {
+          .group-text:after {
+            right: -4vw !important;
+          }
+        }
+      }
+
+      .field__item:last-of-type {
+        .entity-frieze-element.text-on-the-right {
+          .group-text:after {
+            left: -4vw !important;
+          }
+        }
+      }
+    }
+
+    .field__item:not(:last-of-type):not(:first-of-type) {
+      .entity-frieze-element.text-on-the-right {
+        .field--name-field-subtitle:after {
+          left: -4vw !important;
+        }
+      }
+
+      .entity-frieze-element.text-on-the-left {
+        .field--name-field-subtitle:after {
+          right: -4vw !important;
+        }
+      }
+    }
+  }
+}

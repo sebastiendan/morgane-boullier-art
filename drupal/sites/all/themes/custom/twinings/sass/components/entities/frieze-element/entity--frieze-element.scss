@@ -61,3 +61,23 @@
     }
   }
 }
+
+@media only screen and (min-width: $tabletBreakpoint) and (max-width: $desktopBreakpoint) {
+  .entity-frieze-element {
+    &.text-on-the-left {
+      .group-text {
+        .field--name-field-text-element {
+          padding-left: 8px;
+        }
+      }
+    }
+
+    &.text-on-the-right {
+      .group-text {
+        .field--name-field-text-element {
+          padding-right: 8px;
+        }
+      }
+    }
+  }
+}
