@@ -70,7 +70,8 @@ scripts[] = js/classes/HomeView.class.js
 scripts[] = js/classes/ProductsPageView.class.js
 scripts[] = js/classes/ProductView.class.js
 scripts[] = js/classes/InformationBoardView.class.js
-scripts[] = js/classes/PrehomeCupView.class.js
+scripts[] = js/classes/prehome/PrehomeCupView.class.js
+scripts[] = js/classes/prehome/SmokeView.class.js
 scripts[] = js/classes/Main.class.js
 scripts[] = js/script.js
 
