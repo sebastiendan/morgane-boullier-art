@@ -1,6 +1,10 @@
 @import '../../variables/mixins';
 
 form.main-contact-form {
+  label {
+    display: none;
+  }
+
   #edit-top-block {
     position: relative;
     left: 45px;

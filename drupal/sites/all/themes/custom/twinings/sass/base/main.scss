@@ -43,6 +43,10 @@ button {
   }
 }
 
+.l-page {
+  overflow: hidden;
+}
+
 .ajax-progress, .throbber {
   display: none;
 }
@@ -81,6 +85,73 @@ button {
   width: 100%;
   height: 100%;
   background-color: rgba(0,0,0,0.5);
+}
+
+.field--name-body a {
+  color: $yellowFont;
+}
+
+#sliding-popup.sliding-popup-top {
+  background-image: url(../../images/motif_popup_orange.png);
+  background-color: $yellowBck;
+  display: none;
+
+  .popup-content {
+    overflow: hidden;
+
+    #popup-text {
+      float: none;
+      margin: 0;
+      max-width: 500px;
+      margin: 10px auto;
+      text-align: center;
+
+      a, p {
+        color: black !important;
+        font-family: Didot;
+        font-size: 15px;
+        line-height: 20px;
+      }
+    }
+
+    #popup-buttons {
+      float: none;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      padding-right: 20px;
+      @include transform(translateY(-50%));
+
+      &:before {
+        content: '×';
+        position: absolute;
+        z-index: -1;
+        right: 0;
+        top: 45%;
+        @include transform(translateY(-50%));
+        font-size: 50px;
+        font-family: Didot;
+        color: black;
+      }
+
+      .find-more-button {
+        display: none;
+      }
+
+      .agree-button {
+        margin: 0;
+        padding: 10px 0;
+        padding-right: 40px;
+        margin-right: -27px;
+        background: none;
+        border: none;
+        box-shadow: none;
+        text-shadow: none;
+        font-family: Didot;
+        font-size: 15px;
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: $tabletBreakpoint) {

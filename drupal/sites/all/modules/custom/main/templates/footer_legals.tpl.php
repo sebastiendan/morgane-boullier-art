@@ -1,1 +1,1 @@
-<div id="footer-legals">© 2015 <?= t('Twinings all right reserved')?> </div>
+<div id="footer-legals">© 2015 <?= t('Twinings all right reserved')?> - <?= $link1 ?> - <?= $link2 ?></div>
