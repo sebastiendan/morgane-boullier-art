@@ -480,52 +480,61 @@ function main_contact_form($form, $form_state) {
   );
 
   $form['top_block']['last_name'] = array(
+    '#title' => t('Last name'),
     '#type' => 'textfield',
     '#required' => TRUE,
     '#attributes' => array('placeholder' => t('Last name') . '*'),
   );
 
   $form['top_block']['first_name'] = array(
+    '#title' => t('First name'),
     '#type' => 'textfield',
     '#required' => TRUE,
     '#attributes' => array('placeholder' => t('First name') . '*'),
   );
 
   $form['top_block']['email'] = array(
+    '#title' => t('Email'),
     '#type' => 'textfield',
     '#required' => TRUE,
     '#attributes' => array('placeholder' => t('Email') . '*'),
   );
 
   $form['top_block']['phone'] = array(
+    '#title' => t('Phone'),
     '#type' => 'textfield',
     '#required' => TRUE,
     '#attributes' => array('placeholder' => t('Phone') . '*'),
   );
 
   $form['top_block']['address'] = array(
+    '#title' => t('Address'),
     '#type' => 'textfield',
     '#attributes' => array('placeholder' => t('Address')),
   );
 
   $form['top_block']['city'] = array(
+    '#title' => t('City'),
     '#type' => 'textfield',
     '#attributes' => array('placeholder' => t('City')),
   );
 
   $form['top_block']['post_code'] = array(
+    '#title' => t('Post code'),
     '#type' => 'textfield',
     '#required' => TRUE,
     '#attributes' => array('placeholder' => t('Post code') . '*'),
   );
 
   $form['top_block']['birthday'] = array(
+    '#title' => t('Birthday'),
     '#type' => 'date_popup',
     '#date_format' => 'd/m/Y',
     '#attributes' => array('placeholder' => t('Birthday')),
   );
 
   $form['top_block']['message'] = array(
+    '#title' => t('Message'),
     '#type' => 'textarea',
     '#required' => TRUE,
     '#attributes' => array('placeholder' => t('Message') . '*'),
@@ -556,8 +565,7 @@ function main_contact_form($form, $form_state) {
 
 function main_contact_form_submit($form, $form_state) {
   drupal_set_message(t('Your message has been taken into account. We will get back to you via email shortly.'));
-//  $mail_to = variable_get('site_mail', '');
-  $mail_to = 'sebastien@lumini.fr';
+  $mail_to = variable_get('site_mail', '');
   drupal_mail(
     'main',
     'contact',
