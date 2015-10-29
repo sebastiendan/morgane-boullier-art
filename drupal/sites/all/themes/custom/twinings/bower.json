@@ -19,6 +19,6 @@
   "dependencies": {
     "pixi.js": "^3.0.6",
     "tweenlite": "~1.11.5",
-    "velocity": "~1.2.3",
+    "velocity": "~1.2.3"
   }
 }
