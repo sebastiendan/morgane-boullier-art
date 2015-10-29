@@ -12,6 +12,8 @@ HomeView.prototype.init = function (tag, parent) {
   this.$groupHeaderInner = this.$tag.find('.group-header-inner');
   this.usedHeight = jQuery('.l-page').children('header').height() + this.visibleBannerHeight;
 
+  this.autoPlay = location.search == '?video';
+
   if (this.$videoContainer.length > 0) {
     this.initHomeEvent();
   } else {
@@ -57,6 +59,10 @@ HomeView.prototype.onPlayerReady = function() {
   this.player.on('ended', jQuery.proxy(this.onVideoEnd, this));
   this.bind(jQuery(window), 'scroll', this.onStageScrollEvent);
   this.bind(jQuery(window), 'resize', this.onStageResizeEvent);
+
+  if(this.autoPlay){
+    this.player.play();
+  }
 
   this.onStageResizeEvent();
 };
