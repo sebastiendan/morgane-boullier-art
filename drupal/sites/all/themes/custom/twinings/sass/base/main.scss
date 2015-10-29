@@ -90,7 +90,7 @@ button {
 #sliding-popup.sliding-popup-top {
   background-image: url(../../images/motif_popup_orange.png);
   background-color: $yellowBck;
-  top: 0 !important;
+  display: none;
 
   .popup-content {
     overflow: hidden;
@@ -98,7 +98,7 @@ button {
     #popup-text {
       float: none;
       margin: 0;
-      width: 500px;
+      max-width: 500px;
       margin: 10px auto;
       text-align: center;
 
