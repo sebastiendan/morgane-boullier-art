@@ -10,6 +10,7 @@ HomeView.prototype.init = function (tag, parent) {
   this.$videoContainer = this.$tag.find('.field--name-field-home-video');
   this.$groupHeadline = this.$tag.find('.group-headline');
   this.$groupHeaderInner = this.$tag.find('.group-header-inner');
+  this.$banner = this.$tag.find('#block-main-home-scroll-banner');
   this.usedHeight = jQuery('.l-page').children('header').height() + this.visibleBannerHeight;
 
   if (this.$videoContainer.length > 0) {
@@ -94,14 +95,22 @@ HomeView.prototype.onStageResizeNotEvent = function() {
 };
 
 HomeView.prototype.onStageScrollEvent = function() {
+  var $window = jQuery(window);
+  var ww = $window.width();
+  var wh = $window.height();
   var headlineTop = this.$groupHeadline[0].getBoundingClientRect().top;
+
   if (Main.isMobile()) {
     var limit = jQuery(window).height()/5;
   } else {
-    var limit = jQuery(window).height()/3;
+    if (wh < 700) {
+      var limit = this.$banner[0].getBoundingClientRect().top - 1.8*this.$groupHeadline.height();
+    } else {
+      var limit = this.$banner[0].getBoundingClientRect().top - 2*this.$groupHeadline.height();
+    }
   }
 
-  if (headlineTop !== 0 && headlineTop < limit) {
+  if (headlineTop !== 0 && limit < headlineTop) {
     if (this.player.currentTime() > 0 && !this.isVideoEnded) {
       this.player.pause();
       this.groupHeadlineHide();

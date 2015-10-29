@@ -6,6 +6,8 @@
       .group-header {
         .group-header-inner {
           .group-headline {
+            top: 50%;
+            bottom: initial;
             padding-bottom: 50px;
 
             &:before {
@@ -95,6 +97,7 @@
         .group-headline {
           position: absolute;
           bottom: 17%;
+          top: initial;
           left: 50%;
           @include transform(translateY(-50%));
           width: 415px;
