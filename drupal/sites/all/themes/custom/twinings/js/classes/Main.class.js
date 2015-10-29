@@ -9,8 +9,12 @@ Main.prototype.init = function() {
   }
 
   if(0 < jQuery('#block-main-prehome-cup').length){
-    var prehomeCupView = new PrehomeCupView();
-    prehomeCupView.init('#block-main-prehome-cup');
+    if(location.search != '?video'){
+      var prehomeCupView = new PrehomeCupView();
+      prehomeCupView.init('#block-main-prehome-cup');
+    }else{
+      jQuery('#block-main-prehome-cup').remove();
+    }
   }
 
   if (jQuery('.l-region--navigation').length > 0) {

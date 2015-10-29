@@ -169,7 +169,7 @@ function main_node_view($node, $view_mode, $langcode) {
 
   switch($node->type) {
     case 'home_page':
-      if (!variable_get('is_home_an_event')) {
+      if (!variable_get('is_home_an_event') || (isset($_SERVER['GEOIP_COUNTRY_CODE']) && $_SERVER['GEOIP_COUNTRY_CODE'] != 'FR')) {
         $node->content['field_headline']['#suffix'] = '<div class="link-wrapper"><div class="line"></div>' . l(t('Thé comme Twinings'), 'node/5') . '<div class="line"></div></div>';
         unset($node->content['field_home_video']);
       } else {

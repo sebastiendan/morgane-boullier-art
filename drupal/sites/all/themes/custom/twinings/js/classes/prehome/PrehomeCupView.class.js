@@ -30,7 +30,7 @@ PrehomeCupView.prototype.init = function(tag, parent){
   this.smokeView.init(this.$smoke, this);
 
   jQuery('html').css({'overflow': 'hidden', 'opacity':0});
-  this.$smoke.css({'opacity': 0});
+//  this.$smoke.css({'opacity': 0});
 
   this.bind(StageSizeController.getInstance().model, StageSizeEvent.STAGE_RESIZE, this.onStageResize);
   this.onStageResize();
@@ -65,10 +65,9 @@ PrehomeCupView.prototype.onLoadComplete = function() {
   this.renderProxy = jQuery.proxy(this.render, this);
   this.smokeView.start();
   this.render();
-  this.$smoke.velocity({opacity:1});
+//  this.$smoke.velocity({opacity:1});
 
-  this.hideTimeout = setTimeout(jQuery.proxy(this.hide, this), 3000);
-
+  this.hideTimeout = setTimeout(jQuery.proxy(this.hide, this), 5000);
   this.bind(this.$tag, 'mousemove', jQuery.proxy(this.onMouseMove, this));
 };
 
