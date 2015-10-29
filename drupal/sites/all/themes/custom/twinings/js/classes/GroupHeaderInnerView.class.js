@@ -18,8 +18,8 @@ GroupHeaderInnerView.prototype.onStageScroll = function () {
 
   this.$tag.css({'top':scroll/2});
   if (scroll/2 < height/2) {
-    this.$header.css({'top':scroll});
-    this.$cookies.css({'top':scroll});
+    //this.$header.css({'top':scroll});
+    //this.$cookies.css({'top':scroll});
   }
 };
 

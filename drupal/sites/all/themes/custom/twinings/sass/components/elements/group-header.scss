@@ -10,3 +10,9 @@
     height: 100%;
   }
 }
+
+@media only screen and (min-width: $tabletBreakpoint) and (max-width: $desktopBreakpoint) {
+  .group-header-inner {
+    @include transition(top .1s linear);
+  }
+}

@@ -21,6 +21,24 @@
       background-repeat: no-repeat;
     }
   }
+
+  .messages {
+    width: 530px;
+    background: none;
+    width: 530px;
+    background: none;
+    box-sizing: border-box;
+    color: white;
+    padding: 15px 0px;
+    overflow: hidden;
+    border-color: $gold;
+
+    li {
+      font-family: Didot;
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+  }
 }
 
 @media only screen and (max-width: $tabletBreakpoint) {

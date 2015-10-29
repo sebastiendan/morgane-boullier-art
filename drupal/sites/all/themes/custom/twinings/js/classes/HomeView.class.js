@@ -10,7 +10,7 @@ HomeView.prototype.init = function (tag, parent) {
   this.$videoContainer = this.$tag.find('.field--name-field-home-video');
   this.$groupHeadline = this.$tag.find('.group-headline');
   this.$groupHeaderInner = this.$tag.find('.group-header-inner');
-  this.usedHeight = jQuery('.l-page').children('header').height() + this.visibleBannerHeight;
+  this.usedHeight = this.visibleBannerHeight;
 
   if (this.$videoContainer.length > 0) {
     this.initHomeEvent();
@@ -28,6 +28,9 @@ HomeView.prototype.initHomeEvent = function() {
 
 HomeView.prototype.initHomeNotEvent = function() {
   this.$image = this.$groupHeaderInner.find('.field--name-field-image img');
+  this.image = new Image();
+  this.image.src = this.$image.attr('src');
+
   this.$lines = this.$groupHeadline.find('.line');
   this.$link = this.$groupHeadline.find('.link-wrapper a');
 
@@ -37,7 +40,7 @@ HomeView.prototype.initHomeNotEvent = function() {
   this.bind(jQuery(window), 'scroll', this.onStageScrollNotEvent);
   this.bind(jQuery(window), 'resize', this.onStageResizeNotEvent);
 
-  this.$image.load(jQuery.proxy(this.onImageLoaded, this));
+  jQuery(this.image).load(jQuery.proxy(this.onImageLoaded, this));
 };
 
 HomeView.prototype.onPlayerReady = function() {
