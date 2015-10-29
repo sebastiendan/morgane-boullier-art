@@ -335,6 +335,8 @@
       height: auto;
 
       #tea-types {
+        margin-top: 40px;
+
         .node {
           .field--name-field-tea-image {
             position: absolute;
@@ -412,6 +414,7 @@
           margin: 50px auto;
           position: static;
           opacity: initial;
+          width: 80%;
 
           #popup-title {
             opacity: initial;
