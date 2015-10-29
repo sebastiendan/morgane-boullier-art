@@ -10,7 +10,7 @@ HomeView.prototype.init = function (tag, parent) {
   this.$videoContainer = this.$tag.find('.field--name-field-home-video');
   this.$groupHeadline = this.$tag.find('.group-headline');
   this.$groupHeaderInner = this.$tag.find('.group-header-inner');
-  this.usedHeight = this.visibleBannerHeight;
+  this.usedHeight = jQuery('.l-page').children('header').height() + this.visibleBannerHeight;
 
   if (this.$videoContainer.length > 0) {
     this.initHomeEvent();
