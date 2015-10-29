@@ -6,9 +6,9 @@ ContactFormView._extends(AbstractView);
 ContactFormView.prototype.init = function (tag, parent) {
   ContactFormView._super.init.call(this, tag, parent);
 
-  this.$errors = this.$tag.find('.messages--error');
+  this.$message = this.$tag.find('.messages');
 
-  if (this.$errors.length > 0) {
-    this.$errors.appendTo('#edit-top-block');
+  if (this.$message.length > 0) {
+    this.$message.appendTo('#edit-top-block');
   }
 };

@@ -38,7 +38,6 @@
       &:after {
         content: '';
         position: absolute;
-        z-index: -1;
         top: 50%;
         right: 35px;
         width: 24px;
@@ -50,6 +49,11 @@
 
       span {
         background: none !important;
+
+        a {
+          position: relative;
+          z-index: 1;
+        }
       }
     }
 
