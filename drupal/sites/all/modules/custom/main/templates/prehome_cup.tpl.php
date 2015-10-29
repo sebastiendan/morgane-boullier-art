@@ -1,4 +1,7 @@
-<div class="prehome prehome-cup fullscreen">
+<canvas class="background fullscreen"></canvas>
+<canvas class="background-overlay fullscreen"></canvas>
+
+<div class="prehome prehome-cup">
   <svg version="1.1" id="patterns" xmlns="http://www.w3.org/2000/svg"
        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
        viewBox="0 0 495 132" style="enable-background:new 0 0 495 132;"
@@ -147,7 +150,7 @@
 	C377.8,74.3,378.4,72.2,378.4,72.2z"/>
 </svg>
 
-
+  <canvas class="smoke" width="526" height="369"></canvas>
   <div class="cup"></div>
   <div class="texts">
     <?= $texts; ?>

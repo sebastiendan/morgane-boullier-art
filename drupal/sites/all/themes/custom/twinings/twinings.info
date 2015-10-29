@@ -52,6 +52,10 @@ stylesheets[all][] = css/pages/nous-trouver.css
 ; ========================================
 ; Scripts
 ; ========================================
+scripts[] = libraries/pixi.js/bin/pixi.js
+scripts[] = libraries/tweenlite/Tweenlite.min.js
+scripts[] = libraries/velocity/velocity.min.js
+
 scripts[] = js/twinings.behaviors.js
 scripts[] = js/classes/ContentLinkView.class.js
 scripts[] = js/classes/NavigationView.class.js
@@ -66,6 +70,7 @@ scripts[] = js/classes/HomeView.class.js
 scripts[] = js/classes/ProductsPageView.class.js
 scripts[] = js/classes/ProductView.class.js
 scripts[] = js/classes/InformationBoardView.class.js
+scripts[] = js/classes/PrehomeCupView.class.js
 scripts[] = js/classes/Main.class.js
 scripts[] = js/script.js
 
