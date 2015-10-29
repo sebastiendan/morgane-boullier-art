@@ -48,6 +48,7 @@ HomeView.prototype.onPlayerReady = function() {
 
   this.bind(this.$playButton, 'click', this.onPlayButtonClick);
   this.bind(this.$player.find('video'), 'click', this.onVideoClick);
+  this.bind(this.$player.find('video'), 'touch', this.onVideoClick);
   this.player.on('play', jQuery.proxy(this.onVideoPlay, this));
   this.player.on('pause', jQuery.proxy(this.onVideoPause, this));
   this.player.on('ended', jQuery.proxy(this.onVideoEnd, this));
