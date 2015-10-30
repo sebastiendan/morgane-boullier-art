@@ -64,6 +64,23 @@
     color: $yellowFont;
     font-family: Dancing;
     font-size: 35px;
+
+    ul {
+      li {
+        color: $yellowFont;
+        background-image: -webkit-gradient(
+                        linear,
+                        left top,
+                        right top,
+                        color-stop(0.43, #f6bf08),
+                        color-stop(0.68, white),
+                        color-stop(0.96, #f6bf08)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 40px;
+      }
+    }
   }
 
   .call {
