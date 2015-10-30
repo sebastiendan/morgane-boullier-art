@@ -33,6 +33,7 @@ BulletPopupView.prototype.onCloseButtonClick = function() {
 };
 
 BulletPopupView.prototype.onBulletButtonClick = function() {
+  this.onStageResize();
   this.show();
 };
 
