@@ -51,7 +51,7 @@ function link_icons($d) {
  */
 function _updatedb($d) {
   drush_log('-- _updatedb --');
-  $d->run('cd %s/drupal && drush updatedb', $d->latest_release());
+  $d->run('cd %s/drupal && drush updatedb -y', $d->latest_release());
 }
 
 $options['before']['deploy-symlink'][] = '_updatedb';

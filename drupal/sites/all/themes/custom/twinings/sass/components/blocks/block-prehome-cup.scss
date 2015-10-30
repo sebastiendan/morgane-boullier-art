@@ -17,7 +17,7 @@
   }
 
   .block__content {
-    background: url(../../../images/prehome-cup/background.png);
+    background: url("../../../images/prehome-cup/background.png");
     background-position: 50% 50%;
     position: absolute;
     top: 0px;
@@ -54,7 +54,7 @@
   .cup {
     width: 339px;
     height: 138px;
-    background: url(../../../images/prehome-cup/cup.png);
+    background: url("../../../images/prehome-cup/cup.png");
     margin: auto;
     position: relative;
     left: 15px;
