@@ -58,11 +58,11 @@ $options['before']['deploy-symlink'][] = '_updatedb';
 
 /**
  * @task
- */
+    */
 function gulp($d) {
   global $options;
   drush_log('-- gulp --');
-  $d->run('cd %s/drupal/sites/all/themes/custom/twinings && npm install && gulp sass:prod', $d->latest_release(), $options['application']);
+  $d->run('cd %s/drupal/sites/all/themes/custom/twinings && npm install && gulp sass:prod && bower install --allow-root -n', $d->latest_release(), $options['application']);
 }
 
 $options['before']['deploy-symlink'][] = 'gulp';
