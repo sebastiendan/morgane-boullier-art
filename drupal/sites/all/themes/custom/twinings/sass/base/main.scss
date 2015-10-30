@@ -62,6 +62,10 @@ button {
   background-repeat: repeat-y, repeat-y;
   background-position: left 10px top 550px, right 10px top 150px;
   background-size: 200px, 200px;
+
+  img {
+    width: 100%;
+  }
 }
 
 #section-title {

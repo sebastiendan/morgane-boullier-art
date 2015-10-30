@@ -95,7 +95,11 @@ Main.prototype.init = function() {
 
   //Histoire todo
   if (jQuery('body.page-node-10').length > 0) {
-    jQuery('#banner-wrapper').after('<div id="todo-wrapper"><img id="todo" src="/sites/all/themes/custom/twinings/images/histoire.png"/></div>');
+    if (Main.isMobile()) {
+      jQuery('#banner-wrapper').after('<div id="todo-wrapper"><img id="todo" src="/sites/all/themes/custom/twinings/images/histoire_mobile.png"/></div>');
+    } else {
+      jQuery('#banner-wrapper').after('<div id="todo-wrapper"><img id="todo" src="/sites/all/themes/custom/twinings/images/histoire.png"/></div>');
+    }
   }
 
   var $body = jQuery('body');
