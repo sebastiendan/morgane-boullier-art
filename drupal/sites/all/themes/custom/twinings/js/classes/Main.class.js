@@ -113,5 +113,5 @@ Main.isMobile = function() {
 };
 
 Main.isTablet = function() {
-  return ((640 <= screen.width || 640 <= jQuery(window).width()) && (screen.width <= 1024 || jQuery(window).width() <= 1024));
+  return ((640 <= screen.width) && (screen.width <= 1023));
 };
