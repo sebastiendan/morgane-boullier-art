@@ -36,7 +36,7 @@ PrehomeCupView.prototype.init = function(tag, parent){
   this.onStageResize();
 
   this.backgroundLoader = new PIXI.loaders.Loader();
-  this.backgroundLoader.add('background', this.$container.css('background-image').replace('url(','').replace(')',''));
+  this.backgroundLoader.add('background', this.$container.css('background-image').replace('url("','').replace('")',''));
   this.backgroundLoader.once('complete', jQuery.proxy(this.onBackgroundLoadComplete, this));
   this.backgroundLoader.load();
 
