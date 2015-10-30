@@ -59,5 +59,6 @@ Stats.init = function(){
 };
 
 Stats.sendEvent = function(eventType, label) {
-  ga('send', 'event', 'Click', 'click', label);
+  ga('send', 'event', label, 'click', label);
+  ga('lumini.send', 'event', label, 'click', label);
 };
