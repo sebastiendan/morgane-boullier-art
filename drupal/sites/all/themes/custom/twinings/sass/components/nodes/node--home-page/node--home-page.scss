@@ -141,7 +141,9 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             border-right: 1px solid transparent;
-            box-sizing: border-box
+            box-sizing: border-box;
+            transform: translate3d(0, 0, 0);
+            line-height: 120%;
           }
 
           .field--name-field-headline {
