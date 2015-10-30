@@ -586,11 +586,18 @@ function main_mail($key, &$message, $params) {
   switch ($key) {
     case 'contact':
       $message['subject'] = variable_get('site_name') . ' : ' . t('Contact message');
-      $message['body'][] = t('@first_name @last_name (@email) sent a message: ', array(
-        '@first_name' => $params['values']['first_name'],
-        '@last_name' => $params['values']['last_name'],
-        '@email' => $params['values']['email']
-      ));
+      $message['body'][] = t('You have just received a message from: ');
+      $message['body'][] = '';
+      $message['body'][] = t('First name: @firstname', array('@firstname' => $params['values']['first_name']));
+      $message['body'][] = t('Last name: @lastname', array('@lastname' => $params['values']['last_name']));
+      $message['body'][] = t('Email: @email', array('@email' => $params['values']['email']));
+      $message['body'][] = t('Phone: @phone', array('@phone' => $params['values']['phone']));
+      $message['body'][] = t('Address: @address', array('@address' => $params['values']['address']));
+      $message['body'][] = t('City: @city', array('@city' => $params['values']['city']));
+      $message['body'][] = t('Post code: @postcode', array('@postcode' => $params['values']['post_code']));
+      $message['body'][] = t('Birthday: @birthday', array('@birthday' => $params['values']['birthday']));
+      $message['body'][] = '';
+      $message['body'][] = t('Here is the message: ');
       $message['body'][] = $params['values']['message'];
       break;
   }
