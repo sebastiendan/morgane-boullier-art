@@ -54,11 +54,12 @@ HomeView.prototype.onPlayerReady = function() {
 
   this.bind(this.$playButton, 'click', this.onPlayButtonClick);
   this.bind(this.$player.find('video'), 'click', this.onVideoClick);
-  this.bind(this.$player.find('video'), 'touch', this.onVideoClick);
   this.player.on('play', jQuery.proxy(this.onVideoPlay, this));
   this.player.on('pause', jQuery.proxy(this.onVideoPause, this));
   this.player.on('ended', jQuery.proxy(this.onVideoEnd, this));
-  this.bind(jQuery(window), 'scroll', this.onStageScrollEvent);
+  if (!Main.isMobile()) {
+    this.bind(jQuery(window), 'scroll', this.onStageScrollEvent);
+  }
   this.bind(jQuery(window), 'resize', this.onStageResizeEvent);
 
   if(this.autoPlay){
@@ -106,14 +107,10 @@ HomeView.prototype.onStageScrollEvent = function() {
   var wh = $window.height();
   var headlineTop = this.$groupHeadline[0].getBoundingClientRect().top;
 
-  if (Main.isMobile()) {
-    var limit = jQuery(window).height()/5;
+  if (wh < 700) {
+    var limit = this.$banner[0].getBoundingClientRect().top - 1.8*this.$groupHeadline.height();
   } else {
-    if (wh < 700) {
-      var limit = this.$banner[0].getBoundingClientRect().top - 1.8*this.$groupHeadline.height();
-    } else {
-      var limit = this.$banner[0].getBoundingClientRect().top - 2*this.$groupHeadline.height();
-    }
+    var limit = this.$banner[0].getBoundingClientRect().top - 2*this.$groupHeadline.height();
   }
 
   if (headlineTop !== 0 && limit < headlineTop) {

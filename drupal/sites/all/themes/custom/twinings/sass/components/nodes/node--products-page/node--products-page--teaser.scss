@@ -100,6 +100,7 @@
     left: 0 !important;
     right: 0 !important;
     background-size: 67vw;
+    @include transform(none !important);
 
     .field--name-title-field {
       width: 62vw;
@@ -110,14 +111,15 @@
     }
 
     #button {
-      width: 14vw;
-      height: 14vw;
+      width: 14.5vw;
+      height: 14.5vw;
       bottom: 4vw;
-      line-height: 13vw;
+      font-size: 10vw;
+      line-height: 14vw;
 
       &:after {
-        top: -12vw;
-        left: -12vw;
+        top: -11.5vw;
+        left: -11.6vw;
         width: 30vw;
         height: 30vw;
         background-size: 38vw;

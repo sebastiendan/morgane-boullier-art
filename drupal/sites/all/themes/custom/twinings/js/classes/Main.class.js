@@ -8,7 +8,7 @@ Main.prototype.init = function() {
     jQuery('head').prepend('<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">');
   }
 
-  if(0 < jQuery('#block-main-prehome-cup').length){
+  if(0 < jQuery('#block-main-prehome-cup').length && !Main.isMobile()){
     if(location.search != '?video'){
       var prehomeCupView = new PrehomeCupView();
       prehomeCupView.init('#block-main-prehome-cup');
