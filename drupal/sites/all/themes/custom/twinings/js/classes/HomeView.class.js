@@ -51,9 +51,12 @@ HomeView.prototype.onPlayerReady = function() {
   this.$poster = this.$player.find('.vjs-poster');
   this.initWidth = this.player.width();
   this.initHeight = this.player.height();
+  this.$player.after('<div id="click-overlay" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0;"></div>');
+  this.$overlay = this.$tag.find('#click-overlay');
 
   this.bind(this.$playButton, 'click', this.onPlayButtonClick);
-  this.bind(this.$player.find('video'), 'click', this.onVideoClick);
+  this.$overlay.click(jQuery.proxy(this.onVideoClick, this));
+
   this.player.on('play', jQuery.proxy(this.onVideoPlay, this));
   this.player.on('pause', jQuery.proxy(this.onVideoPause, this));
   this.player.on('ended', jQuery.proxy(this.onVideoEnd, this));
@@ -85,6 +88,10 @@ HomeView.prototype.onStageResizeEvent = function() {
   this.player.height(this.initHeight*scale);
   this.$videoContainer.css({'width':ww});
   this.$player.css({'top':(wh - this.usedHeight - this.player.height())/4, 'left':(ww - this.player.width())/2});
+
+  this.$overlay.width(this.initWidth*scale);
+  this.$overlay.height(this.initHeight*scale);
+  this.$overlay.css({'top':(wh - this.usedHeight - this.player.height())/4, 'left':(ww - this.player.width())/2});
 
   this.$groupHeaderInner.css({'height':wh - this.usedHeight});
 };

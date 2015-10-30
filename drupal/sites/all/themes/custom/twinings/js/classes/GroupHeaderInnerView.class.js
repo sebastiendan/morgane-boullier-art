@@ -13,14 +13,8 @@ GroupHeaderInnerView.prototype.init = function (tag, parent) {
 };
 
 GroupHeaderInnerView.prototype.onStageScroll = function () {
-  var scroll = jQuery(document).scrollTop();
-  var height = this.$header.height() + jQuery('#sliding-popup').height();
-
+  var scroll = jQuery(document).scrollTop()/2;
   this.$tag.css({'top':scroll/2});
-  if (scroll/2 < height/2) {
-    //this.$header.css({'top':scroll});
-    //this.$cookies.css({'top':scroll});
-  }
 };
 
 GroupHeaderInnerView.prototype.getCookiesBar = function () {

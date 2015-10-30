@@ -31,7 +31,10 @@ MapCountriesMobileView.prototype.onNodeClick = function (e) {
   this.$currentNode.addClass('current');
   this.$currentTitle.addClass('current');
 
-  this.$currentNode.find(this.mobileElements).fadeIn(400);
+  var me = this;
+  setTimeout(function(){
+    me.$currentNode.find(me.mobileElements).fadeIn(400);
+  }, 400);
 
   var me = this;
   this.$nodes.each(function(index, element){
