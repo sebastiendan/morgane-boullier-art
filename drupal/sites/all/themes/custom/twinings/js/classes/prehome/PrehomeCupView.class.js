@@ -6,7 +6,7 @@ PrehomeCupView._extends(AbstractView);
 PrehomeCupView.prototype.destroy = function() {
   this.unbind(StageSizeController.getInstance().model, StageSizeEvent.STAGE_RESIZE, this.onStageResize);
 
-  jQuery('html').css({'overflow': 'auto'});
+  jQuery('html').css({'height':'auto', 'overflow': 'auto'});
   this.$tag.remove();
   this.destroyed = true;
 };
@@ -29,7 +29,8 @@ PrehomeCupView.prototype.init = function(tag, parent){
   this.smokeView = new SmokeView();
   this.smokeView.init(this.$smoke, this);
 
-  jQuery('html').css({'overflow': 'hidden', 'opacity':0});
+  jQuery('.node--home-page').css({'display': 'none'});
+  jQuery('html').css({'height':'auto', 'overflow': 'hidden', 'opacity':0});
 //  this.$smoke.css({'opacity': 0});
 
   this.bind(StageSizeController.getInstance().model, StageSizeEvent.STAGE_RESIZE, this.onStageResize);
@@ -70,10 +71,20 @@ PrehomeCupView.prototype.onLoadComplete = function() {
 //  this.$smoke.velocity({opacity:1});
 
   this.hideTimeout = setTimeout(jQuery.proxy(this.hide, this), 5000);
+  this.bind(this.$tag, 'touchmove', jQuery.proxy(this.onTouchMove, this));
   this.bind(this.$tag, 'mousemove', jQuery.proxy(this.onMouseMove, this));
 };
 
+PrehomeCupView.prototype.onTouchMove = function() {
+  this.unbind(this.$tag, 'touchmove', jQuery.proxy(this.onTouchMove, this));
+  this.unbind(this.$tag, 'mousemove', jQuery.proxy(this.onMouseMove, this));
+  clearTimeout(this.hideTimeout);
+  this.hide();
+};
+
 PrehomeCupView.prototype.onMouseMove = function() {
+  this.unbind(this.$tag, 'touchmove', jQuery.proxy(this.onTouchMove, this));
+  this.unbind(this.$tag, 'mousemove', jQuery.proxy(this.onMouseMove, this));
   clearTimeout(this.hideTimeout);
   this.hide();
 };
@@ -107,14 +118,19 @@ PrehomeCupView.prototype.render = function() {
 };
 
 PrehomeCupView.prototype.hide = function() {
+  jQuery('.node--home-page').css({'display': 'block'});
   this.hiding = true;
-  this.hidingCoef = 0;
-  TweenLite.to(this, 2, {'hidingCoef':1, onUpdate:jQuery.proxy(this.onHideProgress, this), onComplete:jQuery.proxy(this.destroy, this)});
+  this.$content.velocity({
+    'opacity':0
+  },{
+    duration: 2000,
+    progress: jQuery.proxy(this.onHideProgress, this),
+    complete: jQuery.proxy(this.destroy, this),
+  });
 };
 
-PrehomeCupView.prototype.onHideProgress = function() {
-  this.$content.css({'opacity': 1 - this.hidingCoef});
-  var frame = Math.floor(this.hidingCoef*this.smokeView.frameCount);
+PrehomeCupView.prototype.onHideProgress = function(elements, complete, remaining, start, tweenValue) {
+  var frame = Math.floor(complete*this.smokeView.frameCount);
   if(frame < this.smokeView.frameCount){
     this.processBackground(frame / this.smokeView.frameCount);
   }
