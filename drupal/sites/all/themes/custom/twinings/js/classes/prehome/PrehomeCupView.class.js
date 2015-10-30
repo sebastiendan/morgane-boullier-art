@@ -108,17 +108,13 @@ PrehomeCupView.prototype.render = function() {
 
 PrehomeCupView.prototype.hide = function() {
   this.hiding = true;
-  this.$content.velocity({
-    'opacity':0
-  },{
-    duration: 2000,
-    progress: jQuery.proxy(this.onHideProgress, this),
-    complete: jQuery.proxy(this.destroy, this),
-  });
+  this.hidingCoef = 0;
+  TweenLite.to(this, 2, {'hidingCoef':1, onUpdate:jQuery.proxy(this.onHideProgress, this), onComplete:jQuery.proxy(this.destroy, this)});
 };
 
-PrehomeCupView.prototype.onHideProgress = function(elements, complete, remaining, start, tweenValue) {
-  var frame = Math.floor(complete*this.smokeView.frameCount);
+PrehomeCupView.prototype.onHideProgress = function() {
+  this.$content.css({'opacity': 1 - this.hidingCoef});
+  var frame = Math.floor(this.hidingCoef*this.smokeView.frameCount);
   if(frame < this.smokeView.frameCount){
     this.processBackground(frame / this.smokeView.frameCount);
   }
