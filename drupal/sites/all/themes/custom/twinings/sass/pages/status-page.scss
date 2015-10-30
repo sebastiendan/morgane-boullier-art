@@ -1,0 +1,16 @@
+@import '../variables/mixins';
+
+body.status-page, body.maintenance-page {
+  .l-content {
+    padding: 20%;
+    text-align: center;
+    font-family: Didot;
+
+    h1 {
+      font-family: Dancing;
+      color: $yellowFont;
+      font-size: 50px;
+      margin-bottom: 50px;
+    }
+  }
+}

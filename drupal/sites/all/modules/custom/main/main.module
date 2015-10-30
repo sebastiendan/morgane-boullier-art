@@ -606,3 +606,17 @@ function main_preprocess_page(&$variables) {
     }
   }
 }
+
+function main_preprocess_html(&$variables) {
+  $status = drupal_get_http_header("status");
+  if ($status == '404 Not Found') {
+    $variables['classes_array'][] = 'status-page';
+    $variables['classes_array'][] = '404';
+  }
+  else {
+    if ($status == '403 Forbidden') {
+      $variables['classes_array'][] = 'status-page';
+      $variables['classes_array'][] = '403';
+    }
+  }
+}

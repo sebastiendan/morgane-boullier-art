@@ -48,6 +48,7 @@ stylesheets[all][] = css/pages/the-comme-twinings.css
 stylesheets[all][] = css/pages/confection.css
 stylesheets[all][] = css/pages/contact.css
 stylesheets[all][] = css/pages/nous-trouver.css
+stylesheets[all][] = css/pages/status-page.css
 
 ; ========================================
 ; Scripts
