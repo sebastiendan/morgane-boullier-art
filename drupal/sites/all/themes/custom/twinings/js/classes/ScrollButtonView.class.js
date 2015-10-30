@@ -12,5 +12,5 @@ ScrollButtonView.prototype.init = function (tag, parent) {
 
 ScrollButtonView.prototype.onScrollButtonClick = function () {
   var top = this.$banner.offset().top;
-  jQuery('body').animate({'scrollTop': top}, 400);
+  jQuery('html').animate({'scrollTop': top}, 400);
 };
