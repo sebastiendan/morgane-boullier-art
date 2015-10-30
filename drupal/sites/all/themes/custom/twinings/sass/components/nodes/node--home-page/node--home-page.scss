@@ -294,8 +294,9 @@
         .group-header {
           .group-header-inner {
             .group-headline {
-              top: 35%;
+              top: 50%;
               width: 85%;
+              @include transform(translateX(-50%) translateY(-50%));
 
               &:before {
                 width: 135%;
