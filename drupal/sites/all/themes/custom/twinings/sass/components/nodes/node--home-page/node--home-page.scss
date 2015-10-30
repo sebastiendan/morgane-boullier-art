@@ -258,9 +258,11 @@
       .group-header {
         .group-header-inner {
           .group-headline {
-            top: 35%;
+            top: 50%;
+            bottom: initial;
             width: 85%;
             padding-bottom: 45px;
+            @include transform(translateX(-50%) translateY(-50%));
 
             &:before {
               width: 135%;
@@ -273,6 +275,10 @@
               &:before, &:after {
                 width: 32vw;
               }
+            }
+
+            .field--name-field-headline {
+              font-size: 4vw;
             }
           }
         }

@@ -183,6 +183,10 @@ button {
     margin: auto;
   }
 
+  video::-webkit-media-controls {
+    display:none !important;
+  }
+
   .l-page {
     padding-top: 0;
   }
@@ -196,6 +200,7 @@ button {
   }
 
   #sliding-popup.sliding-popup-top {
+    position: absolute !important;
     margin-top: 8vw;
 
     .popup-content {
