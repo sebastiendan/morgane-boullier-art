@@ -36,7 +36,9 @@ PrehomeCupView.prototype.init = function(tag, parent){
   this.onStageResize();
 
   this.backgroundLoader = new PIXI.loaders.Loader();
-  this.backgroundLoader.add('background', this.$container.css('background-image').replace('url(','').replace(')',''));
+  var url = this.$container.css('background-image');
+  url = url.replace('url("','').replace('")','').replace('url(','').replace(')','');
+  this.backgroundLoader.add('background', url);
   this.backgroundLoader.once('complete', jQuery.proxy(this.onBackgroundLoadComplete, this));
   this.backgroundLoader.load();
 
@@ -106,17 +108,13 @@ PrehomeCupView.prototype.render = function() {
 
 PrehomeCupView.prototype.hide = function() {
   this.hiding = true;
-  this.$content.velocity({
-    'opacity':0
-  },{
-    duration: 2000,
-    progress: jQuery.proxy(this.onHideProgress, this),
-    complete: jQuery.proxy(this.destroy, this),
-  });
+  this.hidingCoef = 0;
+  TweenLite.to(this, 2, {'hidingCoef':1, onUpdate:jQuery.proxy(this.onHideProgress, this), onComplete:jQuery.proxy(this.destroy, this)});
 };
 
-PrehomeCupView.prototype.onHideProgress = function(elements, complete, remaining, start, tweenValue) {
-  var frame = Math.floor(complete*this.smokeView.frameCount);
+PrehomeCupView.prototype.onHideProgress = function() {
+  this.$content.css({'opacity': 1 - this.hidingCoef});
+  var frame = Math.floor(this.hidingCoef*this.smokeView.frameCount);
   if(frame < this.smokeView.frameCount){
     this.processBackground(frame / this.smokeView.frameCount);
   }
