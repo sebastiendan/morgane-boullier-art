@@ -132,6 +132,8 @@ projects:
     version: '2.x-dev'
   youtube:
     version: '1.6'
+  xmlsitemap:
+    version: '2.2'
   luminijs:
     type: module
     download:
