@@ -6,8 +6,14 @@ HomeView._extends(AbstractView);
 HomeView.prototype.init = function (tag, parent) {
   HomeView._super.init.call(this, tag, parent);
 
+  if(Main.isMobile()){
+    this.$tag.find('.field--name-field-home-video').remove();
+  }else{
+    this.$tag.find('.field--name-field-home-video-mobile').remove();
+  }
+
   this.$playButton = this.$tag.find('.video-play-button');
-  this.$videoContainer = this.$tag.find('.field--name-field-home-video');
+  this.$videoContainer = Main.isMobile()? this.$tag.find('.field--name-field-home-video-mobile'): this.$tag.find('.field--name-field-home-video');
   this.$groupHeadline = this.$tag.find('.group-headline');
   this.$groupHeaderInner = this.$tag.find('.group-header-inner');
   this.$banner = this.$tag.find('#block-main-home-scroll-banner');
