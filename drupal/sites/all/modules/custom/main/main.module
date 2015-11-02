@@ -86,11 +86,15 @@ function main_block_view($delta) {
       $block['content'] = theme('footer_legals', array('link1' => $link1, 'link2' => $link2));
       break;
     case 'prehome_cup':
-      $items = array(
-        t('Discover all the secrets of tea.'),
-      );
-      $texts = theme('item_list', array('items' => $items));
-      $block['content'] = theme('prehome_cup', array('texts' => $texts, 'call' => t('Shake your curiosity')));
+      $referer = $_SERVER['HTTP_REFERER'];
+      $front = url(NULL, array('absolute' => TRUE));
+      if($referer == '' || strpos($referer, $front) !== 0){
+        $items = array(
+          t('Discover all the secrets of tea.'),
+        );
+        $texts = theme('item_list', array('items' => $items));
+        $block['content'] = theme('prehome_cup', array('texts' => $texts, 'call' => t('Shake your curiosity')));
+      }
       break;
   }
   return $block;
