@@ -2,16 +2,16 @@
 
 $options = array(
 	'parent' => '@self',
-	'uri' => 'twinings.local.lumini.fr',
+	'uri' => 'morgane_boullier_art.local.lumini.fr',
 	'path-aliases' => array(
 		'%files' => 'sites/default/files'
 	),
 	'databases' => array(
 		'default' => array(
 			'default' => array(
-				'database' => 'twinings',
-				'username' => 'twinings',
-				'password' => 'BRNjGVeoIQE3YEA1',
+				'database' => 'morganeboullier',
+				'username' => 'morganeboullier',
+				'password' => 'MLtqAnfP8PpqqP8N',
 				'host' => 'localhost',
 				'port' => '',
 				'driver' => 'mysql',

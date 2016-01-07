@@ -1,10 +1,12 @@
 <?php
 
 function main_admin_settings_form(){
-  $form['is_home_an_event'] = array(
-    '#title' => t('Home is an event'),
-    '#type' => 'checkbox',
-    '#default_value' => variable_get('is_home_an_event'),
+  $form['my_photo'] = array(
+      '#type' => 'managed_file',
+      '#title' => t('My photo'),
+      '#size' => 40,
+      '#upload_location' => 'public://',
+      '#default_value' => variable_get('my_photo'),
   );
   $form['contact_mail'] = array(
     '#title' => t('Contact mail'),

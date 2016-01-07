@@ -1,0 +1,211 @@
+@keyframes swipeDown {
+  from {
+    -ms-transform: translateY(-100%); }
+  to {
+    -ms-transform: translateY(0); } }
+
+@keyframes swipeDown {
+  from {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%); }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@-webkit-keyframes swipeDown {
+  from {
+    -webkit-transform: translateY(-100%); }
+  to {
+    -webkit-transform: translateY(0); } }
+
+@keyframes swipeDownBack {
+  from {
+    -ms-transform: translateY(0); }
+  to {
+    -ms-transform: translateY(-100%); } }
+
+@keyframes swipeDownBack {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  to {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%); } }
+
+@-webkit-keyframes swipeDownBack {
+  from {
+    -webkit-transform: translateY(0); }
+  to {
+    -webkit-transform: translateY(-100%); } }
+
+@keyframes swipeUp {
+  from {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%); }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@-webkit-keyframes swipeUp {
+  from {
+    -webkit-transform: translateY(100%); }
+  to {
+    -webkit-transform: translateY(0); } }
+
+@keyframes swipeUp {
+  from {
+    -ms-transform: translateY(100%); }
+  to {
+    -ms-transform: translateY(0); } }
+
+@keyframes swipeLeft {
+  from {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%); }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@-webkit-keyframes swipeLeft {
+  from {
+    -webkit-transform: translateX(100%); }
+  to {
+    -webkit-transform: translateX(0); } }
+
+@keyframes swipeLeft {
+  from {
+    -ms-transform: translateX(100%); }
+  to {
+    -ms-transform: translateX(0); } }
+
+@keyframes swipeRight {
+  from {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%); }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@-webkit-keyframes swipeRight {
+  from {
+    -webkit-transform: translateX(-100%); }
+  to {
+    -webkit-transform: translateX(0); } }
+
+@keyframes swipeRight {
+  from {
+    -ms-transform: translateX(-100%); }
+  to {
+    -ms-transform: translateX(0); } }
+
+@keyframes spin {
+  0% {
+    -ms-transform: rotate(0deg); }
+  50% {
+    -ms-transform: rotate(180deg); }
+  100% {
+    -ms-transform: rotate(360deg); } }
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg); }
+  50% {
+    -webkit-transform: rotate(180deg); }
+  100% {
+    -webkit-transform: rotate(360deg); } }
+
+@font-face {
+  font-family: 'Didot';
+  src: url("/sites/all/themes/custom/twinings/fonts/theanodidot-regular-webfont.eot");
+  src: url("/sites/all/themes/custom/twinings/fonts/theanodidot-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/sites/all/themes/custom/twinings/fonts/theanodidot-regular-webfont.woff2") format("woff2"), url("/sites/all/themes/custom/twinings/fonts/theanodidot-regular-webfont.woff") format("woff"), url("/sites/all/themes/custom/twinings/fonts/theanodidot-regular-webfont.ttf") format("truetype"), url("/sites/all/themes/custom/twinings/fonts/theanodidot-regular-webfont.svg#theano_didotregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Dancing';
+  src: url("/sites/all/themes/custom/twinings/fonts/dancingscript-regular-webfont.eot");
+  src: url("/sites/all/themes/custom/twinings/fonts/dancingscript-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/sites/all/themes/custom/twinings/fonts/dancingscript-regular-webfont.woff2") format("woff2"), url("/sites/all/themes/custom/twinings/fonts/dancingscript-regular-webfont.woff") format("woff"), url("/sites/all/themes/custom/twinings/fonts/dancingscript-regular-webfont.ttf") format("truetype"), url("/sites/all/themes/custom/twinings/fonts/dancingscript-regular-webfont.svg#dancing_script_otregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+form {
+  text-align: left; }
+  form .form-item input[type=text], form .form-item textarea {
+    width: 100% !important;
+    height: 100%;
+    -webkit-appearance: none;
+    background: none;
+    border: 1px solid white;
+    color: white;
+    font-family: Didot;
+    font-size: 14px;
+    box-sizing: border-box;
+    padding-left: 15px;
+    outline: none; }
+    form .form-item input[type=text].error, form .form-item textarea.error {
+      border: 1px solid #cdb862; }
+  form .form-item textarea {
+    padding-top: 5px; }
+  form .form-item .grippie {
+    display: none; }
+  form .form-type-date-popup label, form .form-type-date-popup .description {
+    display: none; }
+  form .form-type-date-popup .date-padding {
+    padding: 0;
+    float: none; }
+  form input[type=submit] {
+    cursor: pointer;
+    position: relative;
+    -webkit-appearance: none;
+    background: none;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 12px 25px;
+    margin-top: 8px;
+    font-family: Didot;
+    font-size: 14px;
+    outline: none;
+    background-image: url(../../../images/contact/triangle_black_send.svg);
+    background-repeat: no-repeat;
+    background-position: left 10px top 17px;
+    background-size: 8px; }
+  form .form-item.form-type-checkbox input {
+    display: none; }
+  form .form-item.form-type-checkbox label {
+    position: relative;
+    display: inline-block;
+    width: 90%;
+    color: black;
+    font-family: Didot;
+    font-size: 14px;
+    line-height: 18px;
+    padding-left: 20px; }
+    form .form-item.form-type-checkbox label:before {
+      content: '';
+      position: absolute;
+      top: 1px;
+      left: -11px;
+      width: 11px;
+      height: 11px;
+      border: 1px solid black; }
+  form .g-recaptcha {
+    padding-left: 230px; }
+
+@media only screen and (max-width: 640px) {
+  form .g-recaptcha {
+    padding-left: 0; }
+    form .g-recaptcha div {
+      margin: auto; } }
+
+/*# sourceMappingURL=forms.css.map */

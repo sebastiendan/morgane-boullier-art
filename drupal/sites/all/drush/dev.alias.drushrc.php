@@ -1,8 +1,8 @@
 <?php
 
-$deploy_to = '/data/www/twinings.dev.lumini.fr/deploy';
+$deploy_to = '/data/www/morgane_boullier_art.dev.lumini.fr/deploy';
 $options = array(
-  'uri' => 'twinings.dev.lumini.fr',
+  'uri' => 'morgane_boullier_art.dev.lumini.fr',
   'root' => $deploy_to . '/current/drupal',
   'remote-host' => '10.200.33.247',
   'remote-user' => 'lumini',
@@ -12,8 +12,8 @@ $options = array(
   'databases' => array(
     'default' => array(
       'default' => array(
-        'database' => 'twinings',
-        'username' => 'twinings',
+        'database' => 'morgane_boullier_art',
+        'username' => 'morgane_boullier_art',
         'password' => 'BRNjGVeoIQE3YEA1',
         'host' => 'dev.lumini.fr',
         'port' => '',

@@ -1,7 +1,7 @@
 <?php
 
-$options['application'] = 'twinings';
-$options['deploy-repository'] = 'ssh://gitolite@dev.lumini.fr/twinings.git';
+$options['application'] = 'morgane_boullier_art';
+$options['deploy-repository'] = 'ssh://gitolite@dev.lumini.fr/morgane_boullier_art.git';
 $options['keep-releases'] = 3;
 $options['deploy-via'] = 'RemoteCache';
 
@@ -62,7 +62,7 @@ $options['before']['deploy-symlink'][] = '_updatedb';
 function gulp($d) {
   global $options;
   drush_log('-- gulp --');
-  $d->run('cd %s/drupal/sites/all/themes/custom/twinings && npm install && gulp sass:prod && bower install --allow-root -n', $d->latest_release(), $options['application']);
+  $d->run('cd %s/drupal/sites/all/themes/custom/morgane_boullier_art && npm install && gulp sass:prod && bower install --allow-root -n', $d->latest_release(), $options['application']);
 }
 
 $options['before']['deploy-symlink'][] = 'gulp';

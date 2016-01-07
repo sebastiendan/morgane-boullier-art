@@ -1,0 +1,254 @@
+@keyframes swipeDown {
+  from {
+    -ms-transform: translateY(-100%); }
+  to {
+    -ms-transform: translateY(0); } }
+
+@keyframes swipeDown {
+  from {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%); }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@-webkit-keyframes swipeDown {
+  from {
+    -webkit-transform: translateY(-100%); }
+  to {
+    -webkit-transform: translateY(0); } }
+
+@keyframes swipeDownBack {
+  from {
+    -ms-transform: translateY(0); }
+  to {
+    -ms-transform: translateY(-100%); } }
+
+@keyframes swipeDownBack {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  to {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%); } }
+
+@-webkit-keyframes swipeDownBack {
+  from {
+    -webkit-transform: translateY(0); }
+  to {
+    -webkit-transform: translateY(-100%); } }
+
+@keyframes swipeUp {
+  from {
+    -webkit-transform: translateY(100%);
+            transform: translateY(100%); }
+  to {
+    -webkit-transform: translateY(0);
+            transform: translateY(0); } }
+
+@-webkit-keyframes swipeUp {
+  from {
+    -webkit-transform: translateY(100%); }
+  to {
+    -webkit-transform: translateY(0); } }
+
+@keyframes swipeUp {
+  from {
+    -ms-transform: translateY(100%); }
+  to {
+    -ms-transform: translateY(0); } }
+
+@keyframes swipeLeft {
+  from {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%); }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@-webkit-keyframes swipeLeft {
+  from {
+    -webkit-transform: translateX(100%); }
+  to {
+    -webkit-transform: translateX(0); } }
+
+@keyframes swipeLeft {
+  from {
+    -ms-transform: translateX(100%); }
+  to {
+    -ms-transform: translateX(0); } }
+
+@keyframes swipeRight {
+  from {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%); }
+  to {
+    -webkit-transform: translateX(0);
+            transform: translateX(0); } }
+
+@-webkit-keyframes swipeRight {
+  from {
+    -webkit-transform: translateX(-100%); }
+  to {
+    -webkit-transform: translateX(0); } }
+
+@keyframes swipeRight {
+  from {
+    -ms-transform: translateX(-100%); }
+  to {
+    -ms-transform: translateX(0); } }
+
+@keyframes spin {
+  0% {
+    -ms-transform: rotate(0deg); }
+  50% {
+    -ms-transform: rotate(180deg); }
+  100% {
+    -ms-transform: rotate(360deg); } }
+
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg); }
+  50% {
+    -webkit-transform: rotate(180deg); }
+  100% {
+    -webkit-transform: rotate(360deg); } }
+
+@font-face {
+  font-family: 'Didot';
+  src: url("/sites/all/themes/custom/twinings/fonts/theanodidot-regular-webfont.eot");
+  src: url("/sites/all/themes/custom/twinings/fonts/theanodidot-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/sites/all/themes/custom/twinings/fonts/theanodidot-regular-webfont.woff2") format("woff2"), url("/sites/all/themes/custom/twinings/fonts/theanodidot-regular-webfont.woff") format("woff"), url("/sites/all/themes/custom/twinings/fonts/theanodidot-regular-webfont.ttf") format("truetype"), url("/sites/all/themes/custom/twinings/fonts/theanodidot-regular-webfont.svg#theano_didotregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'Dancing';
+  src: url("/sites/all/themes/custom/twinings/fonts/dancingscript-regular-webfont.eot");
+  src: url("/sites/all/themes/custom/twinings/fonts/dancingscript-regular-webfont.eot?#iefix") format("embedded-opentype"), url("/sites/all/themes/custom/twinings/fonts/dancingscript-regular-webfont.woff2") format("woff2"), url("/sites/all/themes/custom/twinings/fonts/dancingscript-regular-webfont.woff") format("woff"), url("/sites/all/themes/custom/twinings/fonts/dancingscript-regular-webfont.ttf") format("truetype"), url("/sites/all/themes/custom/twinings/fonts/dancingscript-regular-webfont.svg#dancing_script_otregular") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+
+#block-main-home-scroll-banner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 320px;
+  background-image: url(../../../images/ricepaper_light_green.png);
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 485px 485px; }
+  #block-main-home-scroll-banner:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    height: 10px;
+    width: 100%;
+    background-image: url(../../../images/triangle_light_green.png);
+    background-repeat: repeat-x;
+    background-size: 11px; }
+  #block-main-home-scroll-banner button#scroll-down {
+    background-image: url(../../../images/ricepaper_light_green.png); }
+  #block-main-home-scroll-banner #main-wrapper {
+    width: 90%;
+    height: 73%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%); }
+    #block-main-home-scroll-banner #main-wrapper #left-wrapper, #block-main-home-scroll-banner #main-wrapper #right-wrapper {
+      display: inline-block;
+      vertical-align: top; }
+    #block-main-home-scroll-banner #main-wrapper #right-wrapper {
+      padding: 20px; }
+      #block-main-home-scroll-banner #main-wrapper #right-wrapper .text {
+        text-align: left;
+        font-family: Dancing;
+        font-size: 45px; }
+        #block-main-home-scroll-banner #main-wrapper #right-wrapper .text #job {
+          font-size: 35px; }
+  #block-main-home-scroll-banner a#discover {
+    display: block;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    font-family: Didot;
+    font-size: 15px;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 13px 40px;
+    color: white;
+    text-decoration: none; }
+    #block-main-home-scroll-banner a#discover:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      transform: translateY(-50%);
+      -webkit-transform: translateY(-50%);
+      -moz-transform: translateY(-50%);
+      -o-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-left: 8px solid white;
+      border-bottom: 5px solid transparent; }
+
+@media only screen and (max-width: 640px) {
+  #block-main-home-scroll-banner {
+    height: auto;
+    text-align: center;
+    background-size: 400px, 485px 485px;
+    background-position: center; }
+    #block-main-home-scroll-banner:after {
+      left: 0;
+      background-size: 8px; }
+    #block-main-home-scroll-banner .text {
+      position: static;
+      transform: none;
+      -webkit-transform: none;
+      -moz-transform: none;
+      -o-transform: none;
+      -ms-transform: none;
+      padding: 30px 20px;
+      font-size: 7vw; }
+    #block-main-home-scroll-banner a#discover {
+      position: relative;
+      top: 0;
+      left: 0;
+      transform: none;
+      -webkit-transform: none;
+      -moz-transform: none;
+      -o-transform: none;
+      -ms-transform: none;
+      display: inline-block;
+      margin-bottom: 70px; } }
+
+@media only screen and (min-width: 640px) and (max-width: 1024px) {
+  #block-main-home-scroll-banner .text {
+    left: 50%;
+    width: 90%;
+    font-size: 5vw;
+    text-align: left; } }
+
+/*# sourceMappingURL=block-main-home-scroll-banner.css.map */

@@ -9,11 +9,11 @@ function main_init() {
 }
 
 function main_menu() {
-  $items['admin/config/twinings'] = array(
+  $items['admin/config/morgane_boullier_art'] = array(
     'title' => 'Twinings settings',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('main_admin_settings_form'),
-    'access arguments' => array('administer twinings'),
+    'access arguments' => array('administer morgane_boullier_art'),
     'file' => 'main.admin.form.inc',
     'file path' => drupal_get_path('module', 'main'),
     'type' => MENU_NORMAL_ITEM,
@@ -53,11 +53,6 @@ function main_block_info() {
     'cache' => DRUPAL_CACHE_GLOBAL,
   );
 
-  $blocks['prehome_cup'] = array(
-    'info' => t('Prehome cup'),
-    'cache' => DRUPAL_CACHE_GLOBAL,
-  );
-
   return $blocks;
 }
 
@@ -78,23 +73,19 @@ function main_block_view($delta) {
       $block['content'] = theme('social');
       break;
     case 'home_scroll_banner':
-      $block['content'] = theme('home_scroll_banner', array('url' => drupal_get_path_alias('node/5', $language->language)));
+      $photo = file_load(variable_get('my_photo'));
+      $config = array(
+          "style_name" => "home_photo",
+          "path" => $photo->uri,
+          "height" => NULL,
+          "width" => NULL,
+      );
+      $block['content'] = theme('home_scroll_banner', array('photo' => theme_image_style($config)));
       break;
     case 'footer_legals':
       $link1 = l(t('Legals'), drupal_get_path_alias('node/17', $language->language));
       $link2 = l(t('Cookies'), drupal_get_path_alias('node/51', $language->language));
       $block['content'] = theme('footer_legals', array('link1' => $link1, 'link2' => $link2));
-      break;
-    case 'prehome_cup':
-      $referer = $_SERVER['HTTP_REFERER'];
-      $front = url(NULL, array('absolute' => TRUE));
-      if($referer == '' || strpos($referer, $front) !== 0){
-        $items = array(
-          t('Discover all the secrets of tea.'),
-        );
-        $texts = theme('item_list', array('items' => $items));
-        $block['content'] = theme('prehome_cup', array('texts' => $texts, 'call' => t('Shake your curiosity')));
-      }
       break;
   }
   return $block;
@@ -128,7 +119,7 @@ function main_theme($existing, $type, $theme, $path) {
     'home_scroll_banner' => array(
       'path' => drupal_get_path('module', 'main') . '/templates',
       'template' => 'home_scroll_banner',
-      'url' => '',
+      'photo' => '',
     ),
     'content_link_button' => array(
       'path' => drupal_get_path('module', 'main') . '/templates',
@@ -309,7 +300,7 @@ function main_preprocess_node(&$variables) {
           $variables['menu_parent_title'] = t('Discovery');
           break;
         case 455:
-          $variables['classes_array'][] = 'category-the-comme-twinings';
+          $variables['classes_array'][] = 'category-the-comme-morgane_boullier_art';
           $variables['menu_parent_title'] = t('Tea like Twinings');
           break;
       }
