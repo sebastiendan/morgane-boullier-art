@@ -105,7 +105,6 @@ Main.prototype.init = function() {
   var $body = jQuery('body');
   jQuery('#popup-bck').css({'width':$body.width(), 'height':$body.height()});
 
-  Stats.init();
 };
 
 Main.isMobile = function() {

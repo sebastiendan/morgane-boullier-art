@@ -107,20 +107,6 @@
           background-color: rgba(0, 0, 0, 0.3);
           @include transition(opacity .4s linear);
 
-          &:before {
-            content: '';
-            width: 150%;
-            height: 150%;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            @include transform(translateX(-50%) translateY(-50%));
-            background-image: url(../../../../images/home/feuilles_evenmentiel.svg), url(../../../../images/home/papillon_evenementiel.svg), url(../../../../images/home/papillon_evenementiel2.svg);
-            background-repeat: no-repeat;
-            background-size: 68px, 55px, 45px;
-            background-position: right 56px bottom 16px, right 45px top 0px, left 49px bottom 20px;
-          }
-
           .field--name-title-field .field__item {
             font-size: 45px;
             font-family: Dancing;
