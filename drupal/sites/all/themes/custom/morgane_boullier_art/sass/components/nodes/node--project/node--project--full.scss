@@ -1,6 +1,6 @@
 @import '../../../variables/mixins';
 
-.node--content-page.node--full {
+.node--project.node--full {
   .group-header {
     position: relative;
     height: 32vw;
@@ -100,7 +100,7 @@
 
     .field--name-field-banner {
       padding: 50px 0;
-      color: black;
+      color: white;
       font-family: Didot;
       font-size: 16px;
       line-height: 20px;
@@ -122,6 +122,26 @@
     }
   }
 
+  .group-medias {
+    background-image: url(../../../../images/pattern_background.png);
+    background-color: white;
+    padding: 40px 0;
+
+    >.field {
+      width: 100vw;
+      max-width: 960px;
+      margin: auto;
+
+      &:not(:last-of-type) {
+        margin-bottom: 40px;
+      }
+
+      &.field--name-field-project-video {
+        text-align: center;
+      }
+    }
+  }
+
   .group-specific-content {
     background-image: url(../../../../images/feuilles_filigrane_left.svg), url(../../../../images/feuilles_filigrane_right.svg);
     background-repeat: repeat-y;
@@ -139,7 +159,7 @@
 }
 
 @media only screen and (max-width: $tabletBreakpoint) {
-  .node--content-page.node--full {
+  .node--project.node--full {
     .group-header {
       height: 100vw;
 
@@ -209,7 +229,7 @@
 }
 
 @media only screen and (min-width: $tabletBreakpoint) and (max-width: $desktopBreakpoint) {
-  .node--content-page.node--full {
+  .node--project.node--full {
     .group-specific-content {
       .field--name-field-information-boards {
         > .field__items {

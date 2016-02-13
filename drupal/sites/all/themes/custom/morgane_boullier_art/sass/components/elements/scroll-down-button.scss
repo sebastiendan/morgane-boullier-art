@@ -8,6 +8,7 @@ button#scroll-down {
   height: 55px;
   width: 100px;
   border-radius: 90px 90px 0 0;
+  background-image: url(../../../images/banner_background.png);
 
   &:before, &:after {
     content: '';

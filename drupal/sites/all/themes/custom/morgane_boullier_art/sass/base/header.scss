@@ -10,8 +10,9 @@
     position: relative;
     z-index: 2;
     height: 50px;
-    background-color: $darkGrey;
-    border-bottom: 2px solid $green;
+    background: url(../../images/header_background.png);
+//    background-color: $darkGrey;
+//    border-bottom: 2px solid $green;
 
     a.site-logo {
       position: absolute;
@@ -21,6 +22,8 @@
 
       img {
         width: 100px;
+        border-radius: 50%;
+        @include box-shadow(0px 0px 12px 0px black);
       }
     }
 
@@ -53,7 +56,7 @@
         #container {
           position: absolute;
           bottom: 5px;
-          height: 37px;
+          height: 35px;
           width: 115px;
           overflow: hidden;
           box-sizing: border-box;
@@ -62,10 +65,12 @@
             width: 115px;
             height: 115px;
             border-radius: 50%;
-            background-color: $darkGrey;
-            border: 2px solid $green;
+            @include box-shadow(0px 0px 12px 0px black);
+            background: url(../../images/header_background.png);
+//            background-color: $darkGrey;
+//            border: 2px solid $green;
             position: absolute;
-            bottom: 0;
+            bottom: 6px;
             box-sizing: border-box;
           }
         }

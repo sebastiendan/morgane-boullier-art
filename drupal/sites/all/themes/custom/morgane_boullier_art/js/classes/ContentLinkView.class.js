@@ -43,8 +43,8 @@ ContentLinkView.prototype.onLoaded = function () {
 
 ContentLinkView.prototype.createCanvases = function () {
   this.canvas = document.createElement('canvas');
-  this.canvas.width = 270;
-  this.canvas.height = 350;
+  this.canvas.width = 220;
+  this.canvas.height = 200;
   this.ctx = this.canvas.getContext('2d');
 
   this.photoCanvas = document.createElement('canvas');

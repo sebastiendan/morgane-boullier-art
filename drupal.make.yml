@@ -82,6 +82,8 @@ projects:
     version: '4.0'
   libraries:
     version: '2.2'
+  lightbox2:
+    version: '1.0-beta1'
   link:
     version: '1.3'
   mailcontrol:
