@@ -255,6 +255,9 @@ function main_node_view($node, $view_mode, $langcode) {
           $node->content['contact_link']['#weight'] = 10;
         }
       }
+      if ($view_mode == 'teaser') {
+        $node->content['links']['node']['#links']['node-readmore']['title'] = '';
+      }
       break;
     case 'map_country':
       if ($view_mode == 'full') {
@@ -291,6 +294,10 @@ function main_preprocess_node(&$variables) {
       }
       break;
     case 'project':
+      $variables['page'] = TRUE;
+      $variables['display_submitted'] = FALSE;
+      break;
+    case 'page':
       $variables['page'] = TRUE;
       $variables['display_submitted'] = FALSE;
       break;
@@ -468,35 +475,7 @@ function main_contact_form($form, $form_state) {
   $form['top_block']['phone'] = array(
     '#title' => t('Phone'),
     '#type' => 'textfield',
-    '#required' => TRUE,
-    '#attributes' => array('placeholder' => t('Phone') . '*'),
-  );
-
-  $form['top_block']['address'] = array(
-    '#title' => t('Address'),
-    '#type' => 'textfield',
-    '#attributes' => array('placeholder' => t('Address')),
-  );
-
-  $form['top_block']['city'] = array(
-    '#title' => t('City'),
-    '#type' => 'textfield',
-    '#attributes' => array('placeholder' => t('City')),
-  );
-
-  $form['top_block']['post_code'] = array(
-    '#title' => t('Post code'),
-    '#type' => 'textfield',
-    '#required' => TRUE,
-    '#attributes' => array('placeholder' => t('Post code') . '*'),
-  );
-
-  $form['top_block']['birthday'] = array(
-    '#title' => t('Birthday'),
-    '#type' => 'date_popup',
-    '#date_format' => 'd/m/Y',
-    '#attributes' => array('placeholder' => t('Birthday')),
-    '#date_year_range' => '-100:0',
+    '#attributes' => array('placeholder' => t('Phone')),
   );
 
   $form['top_block']['message'] = array(
@@ -552,11 +531,7 @@ function main_mail($key, &$message, $params) {
       $message['body'][] = t('First name: @firstname', array('@firstname' => $params['values']['first_name']));
       $message['body'][] = t('Last name: @lastname', array('@lastname' => $params['values']['last_name']));
       $message['body'][] = t('Email: @email', array('@email' => $params['values']['email']));
-      $message['body'][] = t('Phone: @phone', array('@phone' => $params['values']['phone']));
-      $message['body'][] = t('Address: @address', array('@address' => $params['values']['address']));
-      $message['body'][] = t('City: @city', array('@city' => $params['values']['city']));
-      $message['body'][] = t('Post code: @postcode', array('@postcode' => $params['values']['post_code']));
-      $message['body'][] = t('Birthday: @birthday', array('@birthday' => $params['values']['birthday']));
+      $message['body'][] = isset($params['values']['phone']) ? t('Phone: @phone', array('@phone' => $params['values']['phone'])) : '';
       $message['body'][] = '';
       $message['body'][] = t('Here is the message: ');
       $message['body'][] = $params['values']['message'];

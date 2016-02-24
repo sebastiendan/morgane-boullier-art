@@ -6,8 +6,8 @@
     </div>
     <div id="right-wrapper">
       <div class="text">
-        <div id="name">Morgane Boullier</div>
-        <div id="job">Décoratrice, animatrice et illustratrice</div>
+        <div id="name"><?= t('Morgane Boullier') ?></div>
+        <div id="job"><?= t('Décoratrice, animatrice et illustratrice') ?></div>
       </div>
     </div>
   </div>

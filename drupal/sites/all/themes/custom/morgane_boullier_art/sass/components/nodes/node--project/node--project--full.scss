@@ -59,7 +59,7 @@
 
         .field--name-title-field {
           font-family: Dancing;
-          font-size: 50px;
+          font-size: 40px;
           color: $lightYellowFont;
           margin-bottom: 5px;
         }
@@ -76,23 +76,6 @@
     }
   }
 
-  &:not(.parent) {
-    .group-header {
-      .group-title {
-        .group-title-inner {
-          .field--name-title-field {
-            font-family: Didot;
-            font-size: 30px;
-            line-height: 35px;
-            color: white;
-            text-transform: uppercase;
-            text-align: center;
-          }
-        }
-      }
-    }
-  }
-
   #banner-wrapper {
     position: relative;
     z-index: 1;
@@ -101,8 +84,8 @@
     .field--name-field-banner {
       padding: 50px 0;
       color: white;
-      font-family: Didot;
-      font-size: 16px;
+      font-family: Dancing;
+      font-size: 20px;
       line-height: 20px;
 
       &:after {
@@ -197,13 +180,6 @@
       }
     }
 
-    &:not(.parent) .group-header .group-title .group-title-inner {
-      .field--name-title-field {
-        font-size: 7vw !important;
-        line-height: 8vw !important;
-      }
-    }
-
     #banner-wrapper {
       .field--name-field-banner {
         padding: 50px 27px;
@@ -272,18 +248,6 @@
             line-height: 5vw;
           }
         }
-      }
-    }
-
-    &:not(.parent) .group-header .group-title .group-title-inner {
-      .field--name-title-field {
-        font-size: 4vw !important;
-        line-height: 7vw !important;
-      }
-
-      #menu-parent-title {
-        font-size: 4vw !important;
-        line-height: 4vw !important;
       }
     }
   }

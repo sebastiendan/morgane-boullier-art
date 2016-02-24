@@ -4,10 +4,6 @@
   .node__content {
     position: relative;
     text-align: center;
-//    background-image: url(../../images/contact/feuille_jaune.svg), url(../../images/contact/feuille_jaune2.svg), url(../../images/contact/fleur.svg), url(../../images/contact/fleur2.svg), url(../../images/contact/libellule.svg), url(../../images/contact/oiseau.svg), url(../../images/contact/papillon.svg), url(../../images/contact/petales.svg);
-//    background-repeat: no-repeat;
-//    background-size: 114px, 84px, 31px, 72px, 71px, 112px, 66px, 84px;
-//    background-position: left 0px top 100px, left 5px top 80px, right 0px top 50px, right 5px top 70px, left 20px top 20px, right 50px top 500px, top 10px right 10px, right 10px top 100px;
 
     &:before {
       content:'';
@@ -24,19 +20,19 @@
     #link-wrapper {
       position: relative;
       width: 100%;
-      background-image: url(../../images/ricepaper_yellow.png);
+      background-image: url(../../images/banner_background.png);
 
       a {
         display: inline-block;
         text-decoration: none;
         padding: 10px 30px;
         margin: 40px 0;
-        border: 1px solid black;
+        border: 1px solid white;
         border-radius: 10px;
 
         span {
           position: relative;
-          color: black;
+          color: white;
           font-size: 15px;
           font-family: Didot;
 
@@ -49,7 +45,7 @@
             height: 0;
             border-top: 5px solid transparent;
             border-bottom: 5px solid transparent;
-            border-left: 8px solid black;
+            border-left: 8px solid white;
             @include transform(translateY(-50%));
           }
         }

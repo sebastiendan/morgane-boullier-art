@@ -17,22 +17,26 @@
     }
 
     .field__item:nth-of-type(1) .node {
-      left: 130px;
+      top: 130px;
+      left: 110px;
       @include transition2(top .4s linear 0s, opacity .4s linear 0s);
     }
 
     .field__item:nth-of-type(2) .node {
-      right: 130px;
+      top: 130px;
+      right: 110px;
       @include transition2(top .4s linear .4s, opacity .4s linear .4s);
     }
 
     .field__item:nth-of-type(3) .node {
+      top: 330px;
       left: 130px;
       @include transition2(top .4s linear .8s, opacity .4s linear .8s);
     }
 
     .field__item:nth-of-type(4) .node {
-      right: 130px;
+      top: 330px;
+      right: 90px;
       @include transition2(top .4s linear 1.2s, opacity .4s linear 1.2s);
     }
   }

@@ -1,0 +1,40 @@
+@import '../../variables/mixins';
+
+#block-locale-language-content {
+  ul {
+    li {
+      position: relative;
+      display: inline-block;
+      margin-right: 5px;
+      padding-right: 13px;
+
+      &:not(:last-of-type):after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 0;
+        width: 3px;
+        height: 3px;
+        border-radius: 50%;
+        background-color: white;
+        @include transform(translateY(-50%));
+      }
+
+      a {
+        text-decoration: none;
+        color: white;
+        opacity: 0.8;
+        font-family: Dancing;
+        @include transition(opacity .1s linear);
+
+        img {
+          border-radius: 50%;
+        }
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

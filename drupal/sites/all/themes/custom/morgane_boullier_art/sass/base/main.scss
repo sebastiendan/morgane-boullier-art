@@ -177,6 +177,14 @@ button {
   }
 }
 
+a.language-link {
+  display: none !important;
+}
+
+#block-locale-language-content a.language-link {
+  display: initial !important;
+}
+
 @media only screen and (max-width: $tabletBreakpoint) {
   #section-title {
     width: 90%;

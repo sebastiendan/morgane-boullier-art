@@ -42,8 +42,8 @@ Main.prototype.init = function() {
     groupContentLinksView.init('.group-content-links');
   }
 
-  if (jQuery('.node--content-page.node-teaser').length > 0 || jQuery('.node--products-page.node-teaser').length > 0 || jQuery('.node--project.node-teaser').length > 0) {
-    jQuery('.node--content-page.node-teaser, .node--products-page.node-teaser, .node--project.node-teaser').each(function(index, element){
+  if (jQuery('.node--content-page.node-teaser').length > 0 || jQuery('.node--products-page.node-teaser').length > 0 || jQuery('.node--project.node-teaser').length > 0 || jQuery('.node--page.node-teaser').length > 0) {
+    jQuery('.node--content-page.node-teaser, .node--products-page.node-teaser, .node--project.node-teaser, .node--page.node-teaser').each(function(index, element){
       var contentLinkView = new ContentLinkView();
       contentLinkView.init(element);
     });
@@ -61,6 +61,11 @@ Main.prototype.init = function() {
       var informationBoardView = new InformationBoardView();
       informationBoardView.init(jQuery(element));
     });
+  }
+
+  if (jQuery('.node--project.node--full').length > 0) {
+    var projectView = new ProjectView();
+    projectView.init('.node--project.node--full');
   }
 
   if (jQuery('.node--product.node--full').length > 0) {

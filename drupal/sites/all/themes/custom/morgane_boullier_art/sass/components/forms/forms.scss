@@ -9,8 +9,8 @@ form {
       height: 100%;
       -webkit-appearance: none;
       background: none;
-      border: 1px solid white;
-      color: white;
+      border: 1px solid grey;
+      color: grey;
       font-family: Didot;
       font-size: 14px;
       box-sizing: border-box;
@@ -18,7 +18,7 @@ form {
       outline: none;
 
       &.error {
-        border: 1px solid $gold;
+        border: 1px solid red;
       }
     }
 
@@ -47,14 +47,15 @@ form {
     position: relative;
     -webkit-appearance: none;
     background: none;
-    border: 1px solid black;
+    border: 1px solid white;
     border-radius: 10px;
     padding: 12px 25px;
     margin-top: 8px;
     font-family: Didot;
     font-size: 14px;
     outline: none;
-    background-image: url(../../../images/contact/triangle_black_send.svg);
+    color: white;
+    background-image: url(../../../images/contact/triangle_white_send.svg);
     background-repeat: no-repeat;
     background-position: left 10px top 17px;
     background-size: 8px;

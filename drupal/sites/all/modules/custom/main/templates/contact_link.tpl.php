@@ -1,1 +1,1 @@
-<a href=<?= $url ?> id="contact-link"><span><?= t('Contact us') ?></span></a>
+<a href=<?= $url ?> id="contact-link"><span><?= t('Contact me') ?></span></a>

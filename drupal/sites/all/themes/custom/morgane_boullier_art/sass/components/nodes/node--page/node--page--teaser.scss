@@ -1,6 +1,6 @@
 @import '../../../variables/mixins';
 
-.node--project.node-teaser {
+.node--page.node-teaser {
   position: absolute;
   width: 260px;
   height: 280px;
@@ -65,7 +65,7 @@
 }
 
 @media only screen and (max-width: $tabletBreakpoint) {
-  .node--project.node-teaser {
+  .node--page.node-teaser {
     position: relative;
     display: inline-block;
     top: 0 !important;

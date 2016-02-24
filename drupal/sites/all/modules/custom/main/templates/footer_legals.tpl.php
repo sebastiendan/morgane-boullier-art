@@ -1,1 +1,1 @@
-<div id="footer-legals">© 2015 <?= t('Twinings all right reserved')?> - <?= $link1 ?> - <?= $link2 ?></div>
+<div id="footer-legals">© 2016 <?= t('Morgane Boullier all right reserved')?></div>
