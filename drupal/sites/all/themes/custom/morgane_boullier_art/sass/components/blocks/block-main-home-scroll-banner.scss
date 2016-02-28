@@ -4,7 +4,7 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 320px;
+  height: 380px;
   background-image: url(../../../images/banner_background.png);
 
   &:after {
@@ -18,22 +18,36 @@
     background-size: 12px 6px;
   }
 
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    z-index: 10;
+    width: 100%;
+    height: 380px;
+    background-image: url(../../../images/2fleurs.png), url(../../../images/1fleur.png);
+    background-repeat: no-repeat;
+    background-position: bottom 0px left 6vw, top 30% right 90px;
+    background-size: 160px, 140px;
+  }
+
   button#scroll-down {
     background-image: url(../../../images/banner_background.png);
   }
 
   #main-wrapper {
     width: 90%;
-    height: 73%;
     position: absolute;
-    top: 50%;
+    top: 47%;
     left: 50%;
+    text-align: center;
+    padding-top: 40px;
     @include transform(translateX(-50%) translateY(-50%));
 
-    #left-wrapper, #right-wrapper {
-      display: inline-block;
-      vertical-align: top;
-    }
+//    #left-wrapper, #right-wrapper {
+//      display: inline-block;
+//      vertical-align: top;
+//    }
 
     #left-wrapper {
       img {
@@ -46,16 +60,18 @@
       padding: 20px;
 
       .text {
-        text-align: left;
         font-family: Dancing;
         font-size: 45px;
 
         #name {
-
+          text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
         }
 
         #job {
-          font-size: 35px;
+          font-size: 30px;
+          line-height: 35px;
+          margin-top: 17px;
+//          margin-left: 12px;
         }
       }
     }

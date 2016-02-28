@@ -1,0 +1,9 @@
+@import '../../variables/mixins';
+
+body.page-user-login {
+  .l-content {
+    margin-top: 100px;
+    width: 50%;
+    margin-left: 50px;
+  }
+}

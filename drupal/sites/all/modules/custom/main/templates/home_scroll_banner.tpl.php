@@ -7,7 +7,7 @@
     <div id="right-wrapper">
       <div class="text">
         <div id="name"><?= t('Morgane Boullier') ?></div>
-        <div id="job"><?= t('Décoratrice, animatrice et illustratrice') ?></div>
+        <div id="job"><?= t('Illustration') ?> - <?= t('Background design') ?> - <?= t('Animated short film') ?></div>
       </div>
     </div>
   </div>

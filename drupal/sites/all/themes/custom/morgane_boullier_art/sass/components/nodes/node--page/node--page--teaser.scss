@@ -3,21 +3,30 @@
 .node--page.node-teaser {
   position: absolute;
   width: 260px;
-  height: 280px;
+  height: 320px;
   background-color: $beige;
   @include box-shadow(-12px 12px 0px 0px rgba(100, 100, 100, 0.15));
 
   .field--name-title-field {
     position: absolute;
-    bottom: 5px;
+    top: 225px;
     left: 7px;
     width: 250px;
+    height: 90px;
     line-height: 45px;
     text-align: center;
     font-family: Dancing;
     font-size: 30px;
     color: orangered;
     z-index: 1;
+
+    .field__items {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      @include transform(translateX(-50%) translateY(-50%));
+    }
   }
 
   .field--name-field-teaser-image {

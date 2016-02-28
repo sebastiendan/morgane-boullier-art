@@ -123,6 +123,23 @@
       }
     }
   }
+
+  &.single-content {
+    .group-content-links {
+      height: 620px;
+
+      .field--name-field-content-links .field__item:nth-of-type(1) .node {
+        left: 50%;
+        @include transform(translateX(-50%));
+      }
+    }
+  }
+
+  &.single-content-row {
+    .group-content-links {
+      height: 620px;
+    }
+  }
 }
 
 @media only screen and (max-width: $tabletBreakpoint) {

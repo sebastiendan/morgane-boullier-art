@@ -182,36 +182,6 @@ function main_node_view($node, $view_mode, $langcode) {
       if ($view_mode == 'full') {
         $node->content['field_banner']['#prefix'] = '<div id="banner-wrapper">' . theme('scroll_down_button');
         $node->content['field_banner']['#suffix'] = '</div>';
-
-        // La plante
-        if ($node->nid == 6) {
-          $nodes = main_load_nodes('tea_type');
-          $markup = '';
-          foreach($nodes as $element) {
-            $item = node_view($element);
-            $markup .= render($item);
-          }
-          $node->content['tea_types'] = array(
-            '#markup' => $markup,
-            '#prefix' => '<div id="tea-types-wrapper"><div id="section-title">' . t('Main tea types') . '</div><div id="tea-types">',
-            '#suffix' => '</div></div>',
-            '#weight' => 2,
-          );
-          $node->content['#group_children']['tea_types'] = 'group_specific_content';
-        }
-
-        $menu = menu_link_get_preferred(current_path());
-        switch($menu['p1']) {
-          case 437:
-            $menu_parent_title = t('Discovery');
-            break;
-          case 455:
-            $menu_parent_title = t('Tea like Twinings');
-            break;
-        }
-        if (isset($menu_parent_title) && $menu['p1'] !== $menu['mlid']) {
-          $node->content['title_field']['#prefix'] = '<div id="menu-parent-title">' . $menu_parent_title . '</div>';
-        }
       }
       if ($view_mode == 'teaser') {
         $node->content['links']['node']['#links']['node-readmore']['title'] = '';
@@ -273,18 +243,13 @@ function main_preprocess_node(&$variables) {
       $variables['page'] = TRUE;
       $variables['display_submitted'] = FALSE;
 
-      $menu = menu_link_get_preferred(current_path());
-      if ($menu['plid'] == 0) {
-        $variables['classes_array'][] = 'parent';
-      }
-      switch($menu['p1']) {
-        case 437:
-          $variables['classes_array'][] = 'category-la-decouverte';
-          $variables['menu_parent_title'] = t('Discovery');
+      $count = count($variables['field_content_links']);
+      switch($count){
+        case 1:
+          $variables['classes_array'][] = 'single-content';
           break;
-        case 455:
-          $variables['classes_array'][] = 'category-the-comme-morgane_boullier_art';
-          $variables['menu_parent_title'] = t('Tea like Twinings');
+        case 2:
+          $variables['classes_array'][] = 'single-content-row';
           break;
       }
       break;

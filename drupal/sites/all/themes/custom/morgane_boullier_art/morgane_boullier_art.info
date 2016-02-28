@@ -42,6 +42,7 @@ stylesheets[all][] = css/components/entities/frieze/entity--frieze.css
 stylesheets[all][] = css/components/entities/frieze-element/entity--frieze-element.css
 stylesheets[all][] = css/components/forms/forms.css
 stylesheets[all][] = css/components/forms/contact-form.css
+stylesheets[all][] = css/components/forms/login-form.css
 stylesheets[all][] = css/pages/la-decouverte.css
 stylesheets[all][] = css/pages/the-dans-le-monde.css
 stylesheets[all][] = css/pages/the-comme-twinings.css
